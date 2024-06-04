@@ -1,0 +1,247 @@
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  padding: 0 7rem;
+  width: 100%;
+}
+
+.nav .nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-items ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style-type: none;
+  font-size: var(--fz-sm);
+  font-weight: 500;
+}
+
+.nav-items ul li a {
+  position: relative;
+  text-decoration: none;
+  color: var(--red);
+  display: block;
+  overflow: hidden;
+}
+
+.nav-items ul li a.active span {
+  color: var(--red);
+}
+
+.nav-items ul li a:hover span {
+  translate: 0 -100px;
+}
+
+.nav-items ul li a::before {
+  content: attr(data-link-alt);
+  position: absolute;
+  top: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.nav-items ul li a:hover:before {
+  top: 0;
+  opacity: 1;
+}
+
+.nav-items ul li a span {
+  color: var(--primary-color1);
+  display: block;
+  transition: 0.5s ease;
+}
+
+.nav .logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  padding: 1rem;
+}
+
+.nav .logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fz-sm);
+  text-decoration: none;
+}
+
+.nav .logo a svg {
+  color: red;
+}
+
+/* -------css for social icons--------- */
+.nav .nav-social-icons ul li a {
+  font-size: 1.3rem;
+  color: var(--primary-color1);
+  font-size: var(--fz-lg);
+  margin-right: 1rem;
+  transition: var(--transition);
+}
+
+.nav .nav-social-icons ul li a:hover {
+  color: var(--red);
+  translate: 0 -5px;
+  scale: 1.1;
+}
+
+/* -------css for mobile nav--------- */
+.nav .mobile-nav {
+  display: none;
+}
+
+.nav .mobile-nav button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 1.3rem;
+  background: transparent;
+  border: none;
+  z-index: 4;
+}
+
+.nav .mobile-nav button span {
+  display: block;
+  width: 2rem;
+  min-height: 3px;
+  border-radius: var(--border-radius);
+  background-color: red;
+  transition: all 0.5s ease;
+}
+
+.nav .mobile-nav button span:nth-child(1) {
+  transform: translateY(-0.3rem);
+}
+
+.nav .mobile-nav button span:nth-child(1).active {
+  rotate: 45deg;
+  transform: translateY(0.3rem);
+}
+
+.nav .mobile-nav button span:nth-child(2) {
+  opacity: 1;
+}
+
+.nav .mobile-nav button span:nth-child(2).active {
+  opacity: 0;
+}
+
+.nav .mobile-nav button span:nth-child(3) {
+  transform: translateY(0.3rem);
+}
+
+.nav .mobile-nav button span:nth-child(3).active {
+  rotate: -45deg;
+  transform: translateY(-0.3rem);
+}
+
+.mobile-nav .mobile-nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100svh;
+  background-color: var(--primary-color1);
+  z-index: 3;
+}
+
+.mobile-nav-menu .mobile-nav-body {
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav-body h2 {
+  color: var(--primary-color2);
+  margin: 3rem 0;
+}
+
+.mobile-nav-body ul li {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.mobile-nav-body ul li a {
+  text-decoration: none;
+  font-size: var(--fz-lg);
+  font-weight: 500;
+  color: var(--primary-color2);
+}
+
+.mobile-nav-body ul li a.active span {
+  color: var(--red);
+}
+
+.nav .mobile-nav-social {
+  position: absolute;
+  bottom: 30px;
+  width: 75%;
+}
+
+.nav .mobile-nav-social div:first-child {
+  width: 100%;
+  height: 2px;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color2);
+}
+
+.nav .mobile-nav-social-icons ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  gap: 1.3rem;
+}
+
+.nav .mobile-nav-social-icons a svg {
+  color: var(--primary-color2);
+  font-size: var(--fz-xxl);
+}
+
+/* ---------media queries--------- */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 0 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 3rem;
+  }
+
+  .nav-items {
+    display: none !important;
+  }
+
+  .nav .nav-social-icons {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block !important;
+    margin-left: auto;
+  }
+
+  .mobile-nav .mobile-nav-menu {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 0 1em;
+  }
+
+  .mobile-nav .mobile-nav-menu {
+    width: 70%;
+  }
+}

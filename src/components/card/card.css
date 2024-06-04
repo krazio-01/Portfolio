@@ -1,0 +1,230 @@
+.cardContainer {
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 7%;
+}
+
+.card-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color1);
+  color: var(--primary-color2);
+  width: 32px;
+  height: 32px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.cardContainer .card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -25%;
+  height: 70%;
+  width: 100%;
+  border-radius: 25px;
+  padding: 50px;
+  transform-origin: top;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+  color: var(--primary-color2);
+}
+
+.card h2 {
+  text-align: center;
+  margin: 0px;
+  font-size: 28px;
+}
+
+.card .body {
+  display: flex;
+  height: 100%;
+  margin-top: 25px;
+  gap: 50px;
+  overflow: hidden;
+}
+
+.card .body .description {
+  width: 30%;
+  position: relative;
+  top: 10%;
+  max-height: 90%;
+  padding: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .body .description p {
+  font-size: var(--fz-md);
+  line-height: 1.4rem;
+  font-weight: 500;
+  max-height: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.card .body .description p::first-letter {
+  font-size: 28px;
+}
+
+.card .body .description .desc-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  gap: 1.5rem;
+  cursor: pointer;
+}
+
+.card .body .description .desc-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color2);
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  color: var(--primary-color1);
+  font-size: var(--fz-md);
+  font-weight: 400;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.6);
+}
+
+.card .body .description .desc-links a:hover {
+  box-shadow: none;
+  translate: 0 3px;
+}
+
+.card .body .description .desc-links a svg {
+  font-size: var(--fz-md);
+}
+
+.card .body .imageContainer {
+  position: relative;
+  width: 70%;
+  height: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.card .body .imageContainer .inner {
+  width: 100%;
+  height: 100%;
+}
+
+.card .body .imageContainer img {
+  position: absolute;
+  height: auto;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.desc-links .disabled-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  color: var(--primary-color1);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.desc-links .disabled-link span {
+  user-select: none;
+  margin-left: 0.5em;
+}
+
+@media screen and (max-width: 768px) {
+  .cardContainer .card {
+    height: 80%;
+    width: 90%;
+    padding: 35px;
+  }
+
+  .card .body {
+    flex-direction: column-reverse;
+    justify-content: start;
+    margin-top: 25px;
+    gap: 0;
+  }
+
+  .card .body .description {
+    width: 100%;
+    max-height: 38%;
+    margin-top: -1rem;
+  }
+
+  .card .body .description .desc-links {
+    display: flex;
+    align-items: unset;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 1rem;
+    gap: 2rem;
+  }
+
+  .card .body .description .desc-links a {
+    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.6);
+  }
+
+  .card .body .description p {
+    width: 100%;
+    max-height: 50%;
+  }
+
+  .card .body .imageContainer {
+    width: 100%;
+    max-height: 60%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card-count {
+    display: none;
+  }
+
+  .cardContainer .card {
+    height: 70%;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .card .body {
+    gap: 0;
+  }
+
+  .card .body .description {
+    max-height: 60%;
+  }
+
+  .card .body .description p {
+    width: 100%;
+    max-height: 76%;
+  }
+
+  .card .body .description .desc-links {
+    flex-direction: column;
+    margin-top: 0.7rem;
+    gap: 1rem;
+  }
+
+  .card .body .imageContainer {
+    width: 100%;
+    max-height: 35%;
+  }
+}

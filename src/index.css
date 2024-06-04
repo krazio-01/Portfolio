@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --theme-color: #1a1a1a;
+  --scrollbar-color: #535353;
+  --scrollbar-color-hover: #777777;
+  --primary-color1: #fff;
+  --primary-color2: #000;
+  --red: #e04444;
+  --purple: #b206b2;
+  --yellow: #ffe66d;
+  --border-radius: 7px;
+  --nav-height: 6rem;
+  --fz-xs: 13px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 20px;
+  --fz-xxl: 22px;
+  --fz-heading: 32px;
+  --fz-heading-lg: 48px;
+  --fz-heading-xl: 84px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: var(--theme-color);
+  color: #fff;
+}
+
+/* common line css */
+.line {
+  width: 100%;
+  height: 0.5px;
+  background: #fff;
+  border-radius: 7px;
+  margin: 2rem 0;
+}
+
+/* mouse selection css */
+::selection {
+  background-color: var(--red);
+  color: #fff;
+}
+
+/* scrollbar css */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-color-hover);
+}

@@ -1,0 +1,141 @@
+.bio,
+.skills,
+.experiance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.bio {
+  min-height: calc(100vh - var(--nav-height));
+}
+
+.bio .bio-left,
+.skills .skill-left {
+  max-width: 50%;
+  line-height: 1.4rem;
+}
+
+.bio .bio-left p {
+  margin: 1rem 0;
+}
+
+.bio .bio-left p span{
+  font-weight: 800;
+}
+
+.bio .bio-right,
+.skills .skill-right,
+.experiance .experiance-right {
+  width: 40%;
+}
+
+.bio .bio-right div,
+.skills .skill-right div,
+.experiance .experiance-right div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7rem;
+}
+
+.bio h2,
+.skills h2,
+.experiance h2 {
+  margin-bottom: 2rem;
+}
+
+.skills-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.skill-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color1);
+  cursor: pointer;
+  transition: scale 0.3s ease-in-out;
+}
+
+.skill-container:hover {
+  scale: 1.05;
+}
+
+.skill-container span,
+.skill-container p {
+  color: var(--primary-color2);
+}
+
+.skill-container span {
+  font-size: var(--fz-lg);
+  margin-right: 0.3rem;
+}
+
+.skill-container p {
+  font-size: var(--fz-md);
+}
+
+.experiance-left {
+  min-width: 40%;
+  line-height: 1.4rem;
+}
+
+.experiance-left .experiance-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.experiance-left .experiance-container p {
+  font-size: var(--fz-sm);
+}
+
+.experiance-left .experiance-container p {
+  font-size: var(--fz-sm);
+}
+
+@media screen and (max-width: 768px) {
+  .bio .bio-left,
+  .skills .skill-left {
+    max-width: 55%;
+  }
+
+  .experiance-left {
+    min-width: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bio,
+  .skills,
+  .experiance {
+    align-items: unset;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  .bio .bio-left,
+  .skills .skill-left {
+    max-width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .experiance-left {
+    min-width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .bio .bio-right,
+  .skills .skill-right,
+  .experiance .experiance-right {
+    width: 100%;
+  }
+}

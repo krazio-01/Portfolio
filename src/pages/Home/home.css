@@ -1,0 +1,221 @@
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.home-main .home-img {
+  width: 420px;
+  margin-bottom: 2.5rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.home-main .home-img img {
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: var(--border-radius);
+}
+
+.home-main .home-content {
+  max-width: 600px;
+}
+
+.home-content .home-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.home-content .home-title span:first-child {
+  font-size: var(--fz-lg);
+  margin-bottom: 1rem;
+}
+
+.home-content .home-title span:last-child {
+  font-size: var(--fz-heading-xl);
+  background: linear-gradient(90deg, var(--red), var(--purple));
+  background-size: 200%;
+  background-clip: text;
+  color: transparent;
+  animation: titleAnim 3s linear infinite;
+}
+
+@keyframes titleAnim {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
+}
+
+.home-content .home-description p {
+  font-size: var(--fz-md);
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.home-content .resume a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--primary-color2);
+  font-size: var(--fz-xxl);
+  border: 3px solid transparent;
+  background-color: var(--primary-color1);
+  padding: 5px;
+  border-radius: var(--border-radius);
+  width: 120px;
+  transition: var(--transition);
+}
+
+.home-content .resume a:hover {
+  background: transparent;
+  border: 3px solid var(--primary-color1);
+  color: var(--primary-color1);
+}
+
+.home-basic-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70svh;
+  margin: 5rem 0;
+}
+
+.home-basic-info-inside {
+  max-width: 70%;
+  font-size: var(--fz-xl);
+  line-height: 2rem;
+}
+
+.home-basic-info-btn {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 17%;
+}
+
+.home-work-container {
+  position: relative;
+  margin-top: 5rem;
+}
+
+.home-work {
+  position: relative;
+  margin-top: 10vh;
+}
+
+.home-work-container .work-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 20px;
+  font-size: var(--fz-heading-lg);
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .home-main .home-img {
+    width: 400px;
+  }
+
+  .home-main .home-content {
+    max-width: 400px;
+  }
+
+  .home-content .home-title span:last-child {
+    font-size: 64px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-main .home-img {
+    width: 350px;
+  }
+
+  .home-main .home-content {
+    max-width: 300px;
+  }
+
+  .home-content .home-title span:first-child {
+    font-size: var(--fz-md);
+    margin-bottom: 1rem;
+  }
+
+  .home-content .home-title span:last-child {
+    font-size: 48px;
+  }
+
+  .home-content .home-description p {
+    font-size: var(--fz-md);
+  }
+
+  .home-basic-info-inside {
+    max-width: 60%;
+    font-size: var(--fz-lg);
+  }
+
+  .home-basic-info-btn {
+    width: 28%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-hero {
+    flex-direction: column-reverse;
+  }
+
+  .home-main .home-img {
+    width: 250px;
+    margin-right: 2.5rem;
+  }
+
+  .home-main .home-content {
+    max-width: 100%;
+  }
+
+  .home-content .home-title span:first-child {
+    font-size: var(--fz-md);
+    margin-bottom: 1rem;
+  }
+
+  .home-content .home-title span:last-child {
+    font-size: var(--fz-heading-lg);
+  }
+
+  .home-content .home-description p {
+    font-size: var(--fz-md);
+  }
+
+  .home-basic-info {
+    flex-direction: column;
+    min-height: 70svh;
+    margin: 3rem 0;
+  }
+
+  .home-basic-info-inside {
+    min-width: 100%;
+    font-size: var(--fz-lg);
+    line-height: 1.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-basic-info-btn {
+    width: 60%;
+  }
+
+  .home-work-container .work-header {
+    font-size: var(--fz-heading);
+  }
+}

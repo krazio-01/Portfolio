@@ -1,0 +1,27 @@
+.main-layout {
+    min-height: 100svh;
+    background: var(--theme-color);
+}
+
+.content-wrapper {
+    min-height: calc(100svh - var(--nav-height));
+    margin: 0 10rem;
+}
+
+@media (max-width: 1024px) {
+    .content-wrapper {
+        margin: 0 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        margin: 0 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        margin: 0 1rem;
+    }
+}

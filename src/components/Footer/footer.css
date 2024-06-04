@@ -1,0 +1,175 @@
+.footer-main {
+  position: relative;
+  margin: 0 7rem;
+}
+
+.footer-content {
+  height: 100%;
+}
+
+.footer-content .foo-info {
+  padding: 3rem 3rem 11rem 3rem;
+}
+
+.foo-info .foo-info-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7rem;
+}
+
+.foo-head-inside div:first-child {
+  font-size: var(--fz-heading-xl);
+  font-weight: 400;
+}
+
+.foo-contact-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.foo-info .foo-contact {
+  display: flex;
+  gap: 5rem;
+}
+
+.foo-contact div {
+  width: 14rem;
+  height: 3rem;
+  border-radius: 24px;
+  font-size: var(--fz-md);
+  transition: var(--transition);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.foo-contact div a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: var(--primary-color1);
+  color: var(--primary-color2);
+  width: 100%;
+  height: 100%;
+}
+
+.foo-contact div a span{
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.foo-contact div a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 50% 50% 0 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--red);
+  transition: height 0.3s ease-in-out;
+}
+
+
+.foo-contact div a:hover::before {
+  height: 180%;
+}
+
+.foo-contact div a:hover span{
+  color: var(--primary-color1);
+}
+
+.foo-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.foo-links div:nth-child(2) ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.foo-links div:nth-child(2) a {
+  font-size: var(--fz-md);
+  color: var(--primary-color1);
+  margin: 0 1.5rem;
+}
+
+/* responsive css */
+@media screen and (max-width: 768px) {
+  .footer-main {
+    margin: 0 1.5rem;
+  }
+
+  .footer-content .foo-info {
+    padding: 3rem 3rem 8rem 3rem;
+  }
+
+  .foo-head-inside div:first-child {
+    font-size: var(--fz-heading-lg);
+  }
+
+  .foo-contact-btn {
+    width: 26%;
+  }
+
+  .foo-links div:nth-child(2) a {
+    font-size: var(--fz-md);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-main {
+    margin: 0 1rem;
+  }
+
+  .footer-content .foo-info {
+    padding: 3rem;
+  }
+
+  .footer-main .foo-line {
+    margin-bottom: 2rem;
+  }
+
+  .foo-info .foo-info-head {
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  .foo-head-inside {
+    position: relative;
+    right: 10%;
+  }
+
+  .foo-contact-btn {
+    margin: 2rem 0;
+    width: 70%;
+  }
+
+  .foo-info-head .circular-btn {
+    position: relative;
+    margin-top: 1rem;
+    left: 30%;
+  }
+
+  .foo-head-inside div:first-child {
+    font-size: var(--fz-heading-lg);
+  }
+
+  .foo-info .foo-contact {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .foo-links div:nth-child(2) a {
+    font-size: var(--fz-md);
+    margin: 0 0.5rem;
+  }
+}
