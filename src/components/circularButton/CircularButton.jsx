@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { RiArrowRightDownLine, RiArrowRightUpLine } from "react-icons/ri";
 import "./circularButton.css";
 
-const CircularButton = ({ tag, name, loading }) => {
+const CircularButton = ({ tag, name, submitButtonRef }) => {
     return (
         <>
             <div className="right-down-arrow">
@@ -23,8 +23,8 @@ const CircularButton = ({ tag, name, loading }) => {
                     </Link>
                 )}
                 {tag === "button" && (
-                    <button type="submit">
-                        <span>{loading ? "Sending..." : name}</span>
+                    <button type="submit" ref={submitButtonRef}>
+                        <span>{name}</span>
                     </button>
                 )}
             </div>

@@ -31,11 +31,13 @@ const ListItem = ({ href, children }) => {
 
 const Contact = () => {
     const formRef = useRef(null);
+    const submitButtonRef = useRef(null);
 
     const sendEmail = async (e) => {
         e.preventDefault();
 
         try {
+            submitButtonRef.current.classList.add("loading");
             const formData = new FormData(e.target);
 
             formData.append("access_key", import.meta.env.VITE_APP_WEB3FORMS_PUBLIC_KEY);
@@ -43,18 +45,22 @@ const Contact = () => {
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
 
-            const res = await fetch("https://api.web3forms.com/submit", {
+            await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json",
                 },
                 body: json,
-            }).then((res) => res.json());
+            });
 
-            if (res.ok) toast("Email sent successfully!");
+            toast("Email sent successfully!");
+
+            formRef.current.reset();
         } catch (error) {
             toast("Failed to send email");
+        } finally {
+            submitButtonRef.current.classList.remove("loading");
         }
     };
 
@@ -101,8 +107,9 @@ const Contact = () => {
                 <form ref={formRef} onSubmit={sendEmail}>
                     <AnimatedWrapper as="div" delay={0.8}>
                         <h3>Feel free to reach out</h3>
+                        <input type="hidden" name="subject" value="Message from Portfolio" />
                         <div className="contact-input-container">
-                            <label>WHat's your name</label>
+                            <label>What's your name</label>
                             <input type="text" placeholder="John Doe" name="name" required />
                         </div>
                         <div className="contact-input-container">
@@ -125,7 +132,7 @@ const Contact = () => {
                         useSpring={true}
                     >
                         <div className="contact-submit">
-                            <CircularButton tag="button" name="Submit" loading={false} />
+                            <CircularButton tag="button" submitButtonRef={submitButtonRef} name="Submit" />
                         </div>
                     </AnimatedWrapper>
                 </form>
