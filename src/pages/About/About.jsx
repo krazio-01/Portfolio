@@ -1,25 +1,27 @@
 import { motion } from "framer-motion";
 import AnimatedScrollComponent from "../../components/animatedScrollComp/AnimatedScrollComp";
 import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
-import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaGitAlt, FaJava } from "react-icons/fa6";
+import { FaReact, FaNodeJs, FaGitAlt, FaJava } from "react-icons/fa6";
 import { BiLogoMongodb, BiLogoTypescript } from "react-icons/bi";
 import { SiExpress } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
 import { FiFramer } from "react-icons/fi";
+import { TbBrandCpp } from "react-icons/tb";
+import { RiNextjsLine } from "react-icons/ri";
 import "./about.css";
 
 const mySkills = [
-    { name: "HTML", icon: <FaHtml5 style={{ color: "#e44f26" }} /> },
-    { name: "CSS", icon: <FaCss3 style={{ color: "#2965f1" }} /> },
-    { name: "Javascript", icon: <IoLogoJavascript style={{ color: "#F7DF1E" }} /> },
+    { name: "Next.js", icon: <RiNextjsLine style={{ color: "#000" }} /> },
     { name: "React.js", icon: <FaReact style={{ color: "#61DAFB" }} /> },
+    { name: "Framer Motion", icon: <FiFramer style={{ color: "#000" }} /> },
+    { name: "Javascript", icon: <IoLogoJavascript style={{ color: "#F7DF1E" }} /> },
+    { name: "TypeScript", icon: <BiLogoTypescript style={{ color: "#3178C6" }} /> },
     { name: "Node.js", icon: <FaNodeJs style={{ color: "#3c873a" }} /> },
-    { name: "Git", icon: <FaGitAlt style={{ color: "#f1502f" }} /> },
     { name: "MongoDB", icon: <BiLogoMongodb style={{ color: "#47A248" }} /> },
     { name: "Express.js", icon: <SiExpress style={{ color: "#000" }} /> },
-    { name: "Framer Motion", icon: <FiFramer style={{ color: "#000" }} /> },
-    { name: "TypeScript", icon: <BiLogoTypescript style={{ color: "#3178C6" }} /> },
     { name: "Java", icon: <FaJava style={{ color: "#f89820" }} /> },
+    { name: "C++", icon: <TbBrandCpp style={{ color: "#3178C6" }} /> },
+    { name: "Git", icon: <FaGitAlt style={{ color: "#f1502f" }} /> },
 ];
 
 const About = () => {

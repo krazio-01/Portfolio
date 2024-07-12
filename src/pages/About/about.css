@@ -78,6 +78,7 @@
 
 .skill-container span {
     font-size: var(--fz-lg);
+    transform: translateY(1px);
     margin-right: 0.3rem;
 }
 

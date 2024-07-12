@@ -47,7 +47,7 @@ const generateAnimationProps = (inView) => ({
     transition: { duration: 0.7 },
 });
 
-const ProjectDetails = ({}) => {
+const ProjectDetails = ({ }) => {
     const { projectName } = useParams();
     const project = useMemo(
         () => projects.find((proj) => proj.title === projectName),
