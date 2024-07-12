@@ -13,8 +13,11 @@ import {
     FaCss3Alt,
     FaEye,
     FaArrowRight,
+    FaGooglePlus
 } from "react-icons/fa";
 import { SiMongodb, SiPug, SiExpress, SiSocketdotio, SiCloudinary } from "react-icons/si";
+import { FiFramer } from "react-icons/fi";
+import { RiNextjsLine } from "react-icons/ri";
 import { projects } from "../work-items";
 import images from "./imgs";
 import "swiper/css";
@@ -23,11 +26,14 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 const iconMap = {
+    "Next.js": RiNextjsLine,
+    "Google Gemini API": FaGooglePlus,
     "Node.js": FaNodeJs,
     React: FaReact,
     Stripe: FaStripe,
     JavaScript: FaJs,
     CSS: FaCss3Alt,
+    "Framer motion": FiFramer,
     MongoDB: SiMongodb,
     Pug: SiPug,
     "Express.js": SiExpress,

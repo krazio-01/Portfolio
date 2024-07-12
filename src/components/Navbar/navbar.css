@@ -231,3 +231,9 @@
         width: 70%;
     }
 }
+
+@media screen and (max-width: 399px) {
+    .nav {
+        padding-inline: 1rem;
+    }
+}

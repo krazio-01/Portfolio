@@ -7,3 +7,9 @@
     min-height: calc(100svh - var(--nav-height));
     margin-inline: clamp(1rem, 7vw, 10rem);
 }
+
+@media screen and (max-width: 399px) {
+    .content-wrapper {
+        margin-inline: 1rem;
+    }
+}

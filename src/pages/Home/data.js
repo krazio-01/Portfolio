@@ -1,5 +1,5 @@
 import Work1 from "../../assets/images/work1.jpg";
-import Work3 from "../../assets/images/work3.jpg";
+import Work3 from "../../assets/images/work4.jpg";
 
 export const projects = [
     {

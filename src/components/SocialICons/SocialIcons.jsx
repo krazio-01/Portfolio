@@ -4,20 +4,20 @@ import AnimatedWrapper from "../animatedWrapper/AnimatedWrapper";
 
 const socialLinks = [
     {
-        icon: <FaTwitter />,
-        url: "https://twitter.com/krazio01",
-    },
-    {
-        icon: <FaInstagram />,
-        url: "https://instagram.com",
-    },
-    {
         icon: <FaLinkedin />,
         url: "https://www.linkedin.com/in/md-amman/",
     },
     {
         icon: <FaGithub />,
         url: "https://github.com/krazio-01",
+    },
+    {
+        icon: <FaTwitter />,
+        url: "https://twitter.com/krazio01",
+    },
+    {
+        icon: <FaInstagram />,
+        url: "https://instagram.com",
     },
 ];
 

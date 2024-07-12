@@ -36,11 +36,9 @@ const About = () => {
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.9}>
                         My web development journey has equipped me with skills in both front-end and
-                        back-end technologies. I create responsive applications using{" "}
-                        <span>React.js</span> and ensure robust server functionality with{" "}
-                        <span>Node.js </span> and <span>Express.js</span>. Using{" "}
-                        <span>MongoDB</span>, I manage data efficiently for scalability and
-                        performance.
+                        back-end technologies. I create responsive applications with expertise in{" "}
+                        <span>React.js</span> , <span>Next.js</span> and pleasing animations using{" "}
+                        <span>Framer Motion.</span>
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.1}>
                         In addition to my technical skills, I am adept at collaborating with
@@ -101,12 +99,35 @@ const About = () => {
                 <div className="experiance-left">
                     <h2>EXPERIENCE</h2>
                     <div className="experiance-container">
-                        <div>
-                            <h4>Full Stack Developer</h4>
-                            <p>Tag. 11 Softech Pvt. Ltd</p>
-                        </div>
-                        <div>
-                            <span>2022-2023</span>
+                        <div className="experiance-card">
+                            <div className="experiance-card-head">
+                                <div>
+                                    <h4>Web Developer Intern</h4>
+                                    <p>Tag. 11 Softech Pvt. Ltd</p>
+                                </div>
+                                <div>
+                                    <span>June - August 2023</span>
+                                </div>
+                            </div>
+
+                            <div className="experience-card-body">
+                                <p>
+                                    During my internship, I worked as a Full Stack Developer,
+                                    gaining hands-on experience in scalable backend development and
+                                    enhancing my problem-solving skills. My key responsibilities and
+                                    achievements include:
+                                </p>
+                                <ul>
+                                    <li>
+                                        Learned scalable backend techniques to enhance platform
+                                        efficiency.
+                                    </li>
+                                    <li>
+                                        Resolved critical authentication issues, improving user
+                                        login reliability and security.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

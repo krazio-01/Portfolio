@@ -4,7 +4,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5rem 0;
+    gap: 3rem;
+    min-height: 70vh;
 }
 
 .bio {
@@ -12,7 +13,8 @@
 }
 
 .bio .bio-left,
-.skills .skill-left {
+.skills .skill-left,
+.experiance .experiance-left {
     max-width: 50%;
     line-height: 1.4rem;
 }
@@ -84,32 +86,41 @@
 }
 
 .experiance-left {
-    min-width: 40%;
     line-height: 1.4rem;
 }
 
-.experiance-left .experiance-container {
+.experiance-card-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* flex: 1; */
+    margin-bottom: 1rem;
 }
 
-.experiance-left .experiance-container p {
+.experience-card-body p,
+.experience-card-body ul {
     font-size: var(--fz-sm);
 }
 
-.experiance-left .experiance-container p {
-    font-size: var(--fz-sm);
+.experience-card-body ul {
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+}
+
+.experience-card-body li {
+    font-size: 14px;
+    line-height: 1.6;
+    list-style-type: disc;
+}
+
+.experience-card-body li::marker {
+    font-size: 14px;
 }
 
 @media screen and (max-width: 768px) {
     .bio .bio-left,
     .skills .skill-left {
-        max-width: 55%;
-    }
-
-    .experiance-left {
-        min-width: 50%;
+        max-width: 50%;
     }
 }
 
@@ -119,7 +130,6 @@
     .experiance {
         align-items: unset;
         flex-direction: column;
-        padding: 1rem 0;
     }
 
     .bio .bio-left,
@@ -137,5 +147,10 @@
     .skills .skill-right,
     .experiance .experiance-right {
         width: 100%;
+    }
+
+    .experiance-card-head {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }

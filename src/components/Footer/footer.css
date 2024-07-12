@@ -153,3 +153,9 @@
         margin: 0 0.5rem;
     }
 }
+
+@media screen and (max-width: 399px) {
+    .footer-main {
+        margin-inline: 1rem;
+    }
+}
