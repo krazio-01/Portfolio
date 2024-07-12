@@ -1,20 +1,21 @@
 .footer-main {
     position: relative;
-    margin: 0 7rem;
+    margin-inline: clamp(1rem, 10vw, 7rem);
 }
 
 .footer-content {
     height: 100%;
 }
 
-.footer-content .foo-info {
-    padding: 3rem 3rem 11rem 3rem;
+.foo-info {
+    margin-bottom: 7rem;
 }
 
 .foo-info .foo-info-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 3rem;
     margin-bottom: 7rem;
 }
 
@@ -26,6 +27,7 @@
 .foo-contact-btn {
     display: flex;
     justify-content: space-between;
+    min-width: fit-content;
     width: 20%;
 }
 
@@ -103,14 +105,6 @@
 
 /* responsive css */
 @media screen and (max-width: 768px) {
-    .footer-main {
-        margin: 0 1.5rem;
-    }
-
-    .footer-content .foo-info {
-        padding: 3rem 3rem 8rem 3rem;
-    }
-
     .foo-head-inside div:first-child {
         font-size: var(--fz-heading-lg);
     }
@@ -124,15 +118,7 @@
     }
 }
 
-@media screen and (max-width: 480px) {
-    .footer-main {
-        margin: 0 1rem;
-    }
-
-    .footer-content .foo-info {
-        padding: 3rem;
-    }
-
+@media screen and (max-width: 600px) {
     .footer-main .foo-line {
         margin-bottom: 2rem;
     }
@@ -142,14 +128,9 @@
         margin-bottom: 3rem;
     }
 
-    .foo-head-inside {
-        position: relative;
-        right: 10%;
-    }
-
     .foo-contact-btn {
         margin: 2rem 0;
-        width: 70%;
+        width: 60%;
     }
 
     .foo-info-head .circular-btn {

@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     height: var(--nav-height);
-    padding: 0 7rem;
+    padding-inline: clamp(1rem, 6vw, 7rem);
     width: 100%;
 }
 
@@ -207,17 +207,7 @@
 }
 
 /* ---------media queries--------- */
-@media (max-width: 1024px) {
-    .nav {
-        padding: 0 5rem;
-    }
-}
-
 @media (max-width: 768px) {
-    .nav {
-        padding: 0 3rem;
-    }
-
     .nav-items {
         display: none !important;
     }
@@ -237,10 +227,6 @@
 }
 
 @media (max-width: 480px) {
-    .nav {
-        padding: 0 1em;
-    }
-
     .mobile-nav .mobile-nav-menu {
         width: 70%;
     }

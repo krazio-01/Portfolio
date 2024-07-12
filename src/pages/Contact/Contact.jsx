@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import CircularButton from "../../components/circularButton/CircularButton";
 import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
+import { toast } from "sonner";
 import "./contact.css";
 
 const primaryLinks = [
@@ -32,22 +33,29 @@ const Contact = () => {
     const formRef = useRef(null);
 
     const sendEmail = async (e) => {
-        //     e.preventDefault();
+        e.preventDefault();
 
-        //     try {
-        //         setLoading(true);
-        //         await emailjs.sendForm(
-        //             import.meta.env.VITE_APP_SERVICE_ID,
-        //             import.meta.env.VITE_APP_TEMPLATE_ID,
-        //             formRef.current,
-        //             {
-        //                 publicKey: import.meta.env.VITE_APP_PUBLIC_ID,
-        //             }
-        //         );
-        //         console.log("SUCCESS!");
-        //     } catch (error) {
-        //         console.log("FAILED...", error);
-        //     }
+        try {
+            const formData = new FormData(e.target);
+
+            formData.append("access_key", import.meta.env.VITE_APP_WEB3FORMS_PUBLIC_KEY);
+
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: json,
+            }).then((res) => res.json());
+
+            if (res.ok) toast("Email sent successfully!");
+        } catch (error) {
+            toast("Failed to send email");
+        }
     };
 
     return (
@@ -95,15 +103,20 @@ const Contact = () => {
                         <h3>Feel free to reach out</h3>
                         <div className="contact-input-container">
                             <label>WHat's your name</label>
-                            <input type="text" placeholder="John Doe" />
+                            <input type="text" placeholder="John Doe" name="name" required />
                         </div>
                         <div className="contact-input-container">
                             <label>What's your email</label>
-                            <input type="email" placeholder="johnD@example.com" name="from_name" />
+                            <input
+                                type="email"
+                                placeholder="johnD@example.com"
+                                name="email"
+                                required
+                            />
                         </div>
                         <div className="contact-input-container">
                             <label>Your message</label>
-                            <textarea placeholder="Hi Amman ..." name="message"></textarea>
+                            <textarea placeholder="Hi Amman ..." name="message" required></textarea>
                         </div>
                     </AnimatedWrapper>
                     <AnimatedWrapper

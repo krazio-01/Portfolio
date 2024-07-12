@@ -78,6 +78,7 @@
     display: flex;
     flex-direction: row !important;
     justify-content: space-between;
+    min-width: fit-content;
     width: 30%;
 }
 
@@ -87,7 +88,7 @@
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
     .contact-main {
         flex-direction: column;
         justify-content: space-between;
