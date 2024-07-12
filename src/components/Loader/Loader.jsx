@@ -1,6 +1,6 @@
-import "./loader.css";
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import "./loader.css";
 
 const Loader = ({ isLoading, setIsLoading }) => {
     useEffect(() => {

@@ -38,10 +38,7 @@ const Logo = ({ width, height }) => {
                 transform="matrix(1,0,0,1,0,0)"
                 fill="#ffffff"
             >
-                <path
-                    stroke="#ffffff"
-                    d="  M0,0 H383 V69 H0,0 z M4,4 v61 h375 v-61 z"
-                ></path>
+                <path stroke="#ffffff" d="  M0,0 H383 V69 H0,0 z M4,4 v61 h375 v-61 z"></path>
             </g>
             <g
                 id="SvgjsG2322"

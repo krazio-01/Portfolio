@@ -22,8 +22,8 @@ const Footer = () => {
                                     <p>together</p>
                                 </div>
                                 <p>
-                                    Call or email me to start your next project with me. I'd love
-                                    to hear from you!
+                                    Call or email me to start your next project with me. I'd love to
+                                    hear from you!
                                 </p>
                             </div>
                             <div className="foo-contact-btn">

@@ -13,14 +13,7 @@ const springTransition = {
 };
 
 const AnimatedWrapper = React.memo((props) => {
-    const {
-        children,
-        as = "div",
-        className,
-        delay = 0,
-        duration = 0.5,
-        useSpring = false,
-    } = props;
+    const { children, as = "div", className, delay = 0, duration = 0.5, useSpring = false } = props;
 
     const MotionComponent = motion(as);
 

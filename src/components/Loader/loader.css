@@ -1,14 +1,14 @@
 .loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--theme-color);
-  fill: none;
-  overflow: hidden;
-  height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--theme-color);
+    fill: none;
+    overflow: hidden;
+    height: 100svh;
 }
 
 .loader svg {
-  height: 10rem;
-  width: 10rem;
+    height: 10rem;
+    width: 10rem;
 }

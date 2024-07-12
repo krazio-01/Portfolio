@@ -4,7 +4,16 @@ import { useParams, Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
-import { FaExternalLinkAlt, FaNodeJs, FaReact, FaStripe, FaJs, FaCss3Alt, FaEye, FaArrowRight } from "react-icons/fa";
+import {
+    FaExternalLinkAlt,
+    FaNodeJs,
+    FaReact,
+    FaStripe,
+    FaJs,
+    FaCss3Alt,
+    FaEye,
+    FaArrowRight,
+} from "react-icons/fa";
 import { SiMongodb, SiPug, SiExpress, SiSocketdotio, SiCloudinary } from "react-icons/si";
 import { projects } from "../work-items";
 import images from "./imgs";
@@ -32,9 +41,12 @@ const generateAnimationProps = (inView) => ({
     transition: { duration: 0.7 },
 });
 
-const ProjectDetails = ({ }) => {
+const ProjectDetails = ({}) => {
     const { projectName } = useParams();
-    const project = useMemo(() => projects.find((proj) => proj.title === projectName), [projectName]);
+    const project = useMemo(
+        () => projects.find((proj) => proj.title === projectName),
+        [projectName]
+    );
     const currentIndex = projects.findIndex((proj) => proj.title === projectName);
     const nextProject = projects[(currentIndex + 1) % projects.length];
 
@@ -63,7 +75,9 @@ const ProjectDetails = ({ }) => {
                             }}
                             key={index}
                         >
-                            <span style={{ whiteSpace: 'pre' }}>{letter === " " ? '\u00A0' : letter}</span>
+                            <span style={{ whiteSpace: "pre" }}>
+                                {letter === " " ? "\u00A0" : letter}
+                            </span>
                         </motion.li>
                     ))}
                 </ul>

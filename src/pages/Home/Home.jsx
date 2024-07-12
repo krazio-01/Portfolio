@@ -1,13 +1,13 @@
 import { useRef } from "react";
-import "./home.css";
-import Img from "../../assets/images/me.webp";
 import { motion, useScroll } from "framer-motion";
-import { FaLink } from "react-icons/fa6";
 import Card from "../../components/card/Card";
 import { projects } from "./data";
+import Img from "../../assets/images/me.webp";
 import CircularButton from "../../components/circularButton/CircularButton";
 import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
-import resume from '../../../resume.pdf';
+import resume from "../../../resume.pdf";
+import { FaLink } from "react-icons/fa6";
+import "./home.css";
 
 const Home = () => {
     const ref = useRef(null);
@@ -32,22 +32,23 @@ const Home = () => {
                             <span>Md Amman.</span>
                         </AnimatedWrapper>
 
-                        <AnimatedWrapper
-                            className="home-description"
-                            delay={0.4}
-                            duration={1}
-                        >
+                        <AnimatedWrapper className="home-description" delay={0.4} duration={1}>
                             <p>
-                                As a versatile Software Engineer and Full-Stack Developer, I
-                                build user-centric applications, leveraging my expertise in web
+                                As a versatile Software Engineer and Full-Stack Developer, I build
+                                user-centric applications, leveraging my expertise in web
                                 development, Java, and Unreal Engine. I am passionate about
-                                problem-solving and staying current, ensuring high-quality
-                                solutions across diverse projects.
+                                problem-solving and staying current, ensuring high-quality solutions
+                                across diverse projects.
                             </p>
                         </AnimatedWrapper>
 
                         <AnimatedWrapper className="resume" delay={0.6} duration={1}>
-                            <a href={resume} download="resume.pdf" rel="noopener noreferrer" target="_blank">
+                            <a
+                                href={resume}
+                                download="resume.pdf"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
                                 <span>Resume</span> <FaLink />
                             </a>
                         </AnimatedWrapper>

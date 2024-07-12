@@ -1,12 +1,12 @@
-import "./about.css";
+import { motion } from "framer-motion";
+import AnimatedScrollComponent from "../../components/animatedScrollComp/AnimatedScrollComp";
+import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
 import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaGitAlt, FaJava } from "react-icons/fa6";
 import { BiLogoMongodb, BiLogoTypescript } from "react-icons/bi";
 import { SiExpress } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
 import { FiFramer } from "react-icons/fi";
-import AnimatedScrollComponent from "../../components/animatedScrollComp/AnimatedScrollComp";
-import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
-import { motion } from "framer-motion";
+import "./about.css";
 
 const mySkills = [
     { name: "HTML", icon: <FaHtml5 style={{ color: "#e44f26" }} /> },
@@ -31,30 +31,29 @@ const About = () => {
                         BIOGRAPHY
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.7}>
-                        Hello! My name is <span>Amman</span> and I enjoy creating things
-                        that live on the internet. My interest in web development started
-                        back in 2021
+                        Hello! My name is <span>Amman</span> and I enjoy creating things that live
+                        on the internet. My interest in web development started back in 2021
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.9}>
-                        My web development journey has equipped me with skills in both
-                        front-end and back-end technologies. I create responsive
-                        applications using <span>React.js</span> and ensure robust server
-                        functionality with <span>Node.js </span> and <span>Express.js</span>
-                        . Using <span>MongoDB</span>, I manage data efficiently for
-                        scalability and performance.
+                        My web development journey has equipped me with skills in both front-end and
+                        back-end technologies. I create responsive applications using{" "}
+                        <span>React.js</span> and ensure robust server functionality with{" "}
+                        <span>Node.js </span> and <span>Express.js</span>. Using{" "}
+                        <span>MongoDB</span>, I manage data efficiently for scalability and
+                        performance.
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.1}>
                         In addition to my technical skills, I am adept at collaborating with
-                        cross-functional teams, translating client requirements into
-                        technical specifications, and delivering high-quality projects on
-                        time. My keen eye for detail and commitment to staying updated with
-                        the latest industry trends enable me to incorporate the best
-                        practices and cutting-edge technologies into my work.
+                        cross-functional teams, translating client requirements into technical
+                        specifications, and delivering high-quality projects on time. My keen eye
+                        for detail and commitment to staying updated with the latest industry trends
+                        enable me to incorporate the best practices and cutting-edge technologies
+                        into my work.
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.3}>
-                        Driven by a passion for innovation and fueled by curiosity, I'm
-                        always eager to explore new technologies and tackle exciting
-                        challenges. Let's collaborate and transform your ideas into reality!
+                        Driven by a passion for innovation and fueled by curiosity, I'm always eager
+                        to explore new technologies and tackle exciting challenges. Let's
+                        collaborate and transform your ideas into reality!
                     </AnimatedWrapper>
                 </div>
                 <div className="bio-right">

@@ -1,27 +1,27 @@
 .notFound {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 3rem;
-  min-height: calc(100svh - var(--nav-height));
-  font-size: var(--fz-heading);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    min-height: calc(100svh - var(--nav-height));
+    font-size: var(--fz-heading);
 }
 
 .notFound-text {
-  font-size: var(--fz-heading);
+    font-size: var(--fz-heading);
 }
 
 .notFound-redirect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  font-size: var(--fz-xxl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    font-size: var(--fz-xxl);
 }
 
 .notFound-redirect a {
-  text-decoration: none;
-  color: var(--primary-color1);
-  font-weight: 500;
+    text-decoration: none;
+    color: var(--primary-color1);
+    font-weight: 500;
 }

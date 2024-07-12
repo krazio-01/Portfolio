@@ -1,17 +1,17 @@
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
-import "./work.css";
 import AnimatedScrollComp from "../../components/animatedScrollComp/AnimatedScrollComp";
 import { projects } from "./work-items";
 import ProgressBar from "../../components/progressBar/ProgressBar";
-import Card from '../../components/card/Card';
+import Card from "../../components/card/Card";
+import "./work.css";
 
 const Work = () => {
     const ref = useRef(null);
 
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ['start end', 'center start']
+        offset: ["start end", "center start"],
     });
 
     return (

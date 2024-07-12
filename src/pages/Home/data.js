@@ -15,5 +15,5 @@ export const projects = [
         src: Work3,
         viewLink: "",
         codeLink: "https://github.com/krazio-01/Envision.git",
-    }
+    },
 ];

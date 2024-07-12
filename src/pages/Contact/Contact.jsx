@@ -1,8 +1,7 @@
-import "./contact.css";
 import { useRef, useState } from "react";
 import CircularButton from "../../components/circularButton/CircularButton";
 import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
-import emailjs from "@emailjs/browser";
+import "./contact.css";
 
 const primaryLinks = [
     { href: "mailto:email@gmail.com", text: "md.krazio@gmail.com" },
@@ -17,9 +16,7 @@ const socialLinks = [
 
 const ListItem = ({ href, children }) => {
     const isExternal =
-        href.startsWith("http") ||
-        href.startsWith("mailto") ||
-        href.startsWith("tel");
+        href.startsWith("http") || href.startsWith("mailto") || href.startsWith("tel");
     return (
         <a
             href={href}
@@ -33,30 +30,24 @@ const ListItem = ({ href, children }) => {
 
 const Contact = () => {
     const formRef = useRef(null);
-    const [loading, setLoading] = useState(false);
-    const [showToast, setShowToast] = useState(false);
 
     const sendEmail = async (e) => {
-        e.preventDefault();
+        //     e.preventDefault();
 
-        try {
-            setLoading(true);
-            await emailjs.sendForm(
-                import.meta.env.VITE_APP_SERVICE_ID,
-                import.meta.env.VITE_APP_TEMPLATE_ID,
-                formRef.current,
-                {
-                    publicKey: import.meta.env.VITE_APP_PUBLIC_ID,
-                }
-            );
-            console.log("SUCCESS!");
-            setShowToast(true);
-        } catch (error) {
-            console.log("FAILED...", error);
-        } finally {
-            setLoading(false);
-            setTimeout(() => setShowToast(false), 3000);
-        }
+        //     try {
+        //         setLoading(true);
+        //         await emailjs.sendForm(
+        //             import.meta.env.VITE_APP_SERVICE_ID,
+        //             import.meta.env.VITE_APP_TEMPLATE_ID,
+        //             formRef.current,
+        //             {
+        //                 publicKey: import.meta.env.VITE_APP_PUBLIC_ID,
+        //             }
+        //         );
+        //         console.log("SUCCESS!");
+        //     } catch (error) {
+        //         console.log("FAILED...", error);
+        //     }
     };
 
     return (
@@ -108,11 +99,7 @@ const Contact = () => {
                         </div>
                         <div className="contact-input-container">
                             <label>What's your email</label>
-                            <input
-                                type="email"
-                                placeholder="johnD@example.com"
-                                name="from_name"
-                            />
+                            <input type="email" placeholder="johnD@example.com" name="from_name" />
                         </div>
                         <div className="contact-input-container">
                             <label>Your message</label>
@@ -125,13 +112,11 @@ const Contact = () => {
                         useSpring={true}
                     >
                         <div className="contact-submit">
-                            <CircularButton tag="button" name="Submit" loading={loading} />
+                            <CircularButton tag="button" name="Submit" loading={false} />
                         </div>
                     </AnimatedWrapper>
                 </form>
             </div>
-
-            {showToast && <div className="toast show">Email sent successfully!</div>}
         </div>
     );
 };

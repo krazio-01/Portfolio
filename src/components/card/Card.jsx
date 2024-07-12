@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import "./card.css";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { FaExternalLinkAlt, FaEye } from "react-icons/fa";
 import { FaInfo } from "react-icons/fa6";
+import "./card.css";
 
 const Card = ({
     index,

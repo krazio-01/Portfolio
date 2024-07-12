@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import './transition.css';
+import "./transition.css";
 
 const Transition = ({ children, keyName }) => {
     const capitalizeFirstLetter = (str) => {
@@ -30,8 +30,7 @@ const Transition = ({ children, keyName }) => {
                 key={Math.random()}
                 initial={{ height: "140vh" }}
                 animate={{ height: "0vh", transition: { delay: 0.5 } }}
-            >
-            </motion.div>
+            ></motion.div>
             {children}
         </AnimatePresence>
     );
