@@ -131,6 +131,32 @@ const About = () => {
                                 </ul>
                             </div>
                         </div>
+
+                        <div className="experiance-card">
+                            <div className="experiance-card-head">
+                                <div>
+                                    <h4>Full Stack Developer</h4>
+                                    <p>DailyObjects</p>
+                                </div>
+                                <div>
+                                    <span>Jan 2025 - Present</span>
+                                </div>
+                            </div>
+
+                            <div className="experience-card-body">
+                                <p>
+                                    During my current role as a Full Stack Developer at DailyObjects, I've been actively involved in building and optimizing scalable web solutions while improving user experience. My key responsibilities and achievements include:
+                                </p>
+                                <ul>
+                                    <li>
+                                        Maintain the site ensuring optimal performance and developed several RESTFUL APIs.
+                                    </li>
+                                    <li>
+                                        Leading migration of the web app from Angular 14 to 19, rebuilding the project from scratch
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="experiance-right">

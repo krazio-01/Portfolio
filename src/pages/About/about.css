@@ -90,6 +90,12 @@
     line-height: 1.4rem;
 }
 
+.experiance-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
 .experiance-card-head {
     display: flex;
     align-items: center;
