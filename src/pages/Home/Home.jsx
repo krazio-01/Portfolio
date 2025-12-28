@@ -1,26 +1,26 @@
-import { useRef } from "react";
-import { motion, useScroll } from "framer-motion";
-import Card from "../../components/card/Card";
-import { projects } from "./data";
-import Img from "../../assets/images/me.webp";
-import CircularButton from "../../components/circularButton/CircularButton";
-import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
-import resume from "../../../resume.pdf";
-import { FaLink } from "react-icons/fa6";
-import "./home.css";
+import { useRef } from 'react';
+import { motion, useScroll } from 'framer-motion';
+import Card from '../../components/card/Card';
+import { projects } from './data';
+import Img from '../../assets/images/me.webp';
+import CircularButton from '../../components/circularButton/CircularButton';
+import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
+import resume from '../../../resume.pdf';
+import { FaLink } from 'react-icons/fa6';
+import './home.css';
 
 const Home = () => {
     const ref = useRef(null);
 
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start end", "center start"],
+        offset: ['start end', 'center start'],
         layoutEffect: false,
     });
 
     const basicInfo =
-        "As a professional full-stack developer, I specialize in crafting modern web applications using React.js for front-end development and Express.js for back-end solutions. With proficiency in MongoDB, I design efficient database systems to manage application data effectively. Additionally, I enhance user experience through fluid animations and interactive transitions using Framer Motion. My expertise lies in creating scalable, maintainable, and user-centric solutions tailored to meet the unique requirements of each project.";
-    const words = basicInfo.split(" ");
+        'As a professional full-stack developer, I specialize in crafting modern web applications using React.js, Next.js and Angular for front-end development and Express.js for back-end solutions. With proficiency in MongoDB, I design efficient database systems to manage application data effectively. Additionally, I enhance user experience through fluid animations and interactive transitions using Framer Motion. My expertise lies in creating scalable, maintainable, and user-centric solutions tailored to meet the unique requirements of each project.';
+    const words = basicInfo.split(' ');
 
     return (
         <>
@@ -33,22 +33,15 @@ const Home = () => {
                         </AnimatedWrapper>
 
                         <AnimatedWrapper className="home-description" delay={0.4} duration={1}>
+                            <p>I'm from Jaipur, India</p>
                             <p>
-                                As a versatile Software Engineer and Full-Stack Developer, I build
-                                user-centric applications, leveraging my expertise in web
-                                development, Java, and Unreal Engine. I am passionate about
-                                problem-solving and staying current, ensuring high-quality solutions
-                                across diverse projects.
+                                I'm a Full-Stack Developer with 1 year of experience, specializing in building modern,
+                                aesthetic, and scalable web applications.
                             </p>
                         </AnimatedWrapper>
 
                         <AnimatedWrapper className="resume" delay={0.6} duration={1}>
-                            <a
-                                href={resume}
-                                download="resume.pdf"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
+                            <a href={resume} download="resume.pdf" rel="noopener noreferrer" target="_blank">
                                 <span>Resume</span> <FaLink />
                             </a>
                         </AnimatedWrapper>
@@ -72,7 +65,7 @@ const Home = () => {
                             transition={{ duration: 0.1, delay: index * 0.015 }}
                             className="span-word"
                         >
-                            {word}{" "}
+                            {word}{' '}
                         </motion.span>
                     ))}
                 </div>

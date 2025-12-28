@@ -60,6 +60,10 @@
     font-size: clamp(var(--fz-md), 1vw, var(--fz-lg));
     line-height: 1.5rem;
     margin-bottom: 2rem;
+
+    &:first-child {
+        margin-bottom: 0.5rem;
+    }
 }
 
 .home-content .resume a {

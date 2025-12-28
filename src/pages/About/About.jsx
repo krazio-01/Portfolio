@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import AnimatedScrollComponent from "../../components/animatedScrollComp/AnimatedScrollComp";
 import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
-import { FaReact, FaNodeJs, FaGitAlt, FaJava } from "react-icons/fa6";
+import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaJava } from "react-icons/fa6";
 import { BiLogoMongodb, BiLogoTypescript } from "react-icons/bi";
 import { SiExpress } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
@@ -13,6 +13,7 @@ import "./about.css";
 const mySkills = [
     { name: "Next.js", icon: <RiNextjsLine style={{ color: "#000" }} /> },
     { name: "React.js", icon: <FaReact style={{ color: "#61DAFB" }} /> },
+    { name: "Angular", icon: <FaAngular style={{ color: "#DD0031" }} /> },
     { name: "Framer Motion", icon: <FiFramer style={{ color: "#000" }} /> },
     { name: "Javascript", icon: <IoLogoJavascript style={{ color: "#F7DF1E" }} /> },
     { name: "TypeScript", icon: <BiLogoTypescript style={{ color: "#3178C6" }} /> },
