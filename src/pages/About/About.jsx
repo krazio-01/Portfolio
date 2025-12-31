@@ -103,8 +103,8 @@ const About = () => {
                         <div className="experiance-card">
                             <div className="experiance-card-head">
                                 <div>
-                                    <h4>Full Stack Developer</h4>
-                                    <p>DailyObjects</p>
+                                    <h4>DailyObjects</h4>
+                                    <p>Full Stack Developer</p>
                                 </div>
                                 <div>
                                     <span>Jan 2025 - Present</span>
@@ -133,8 +133,8 @@ const About = () => {
                         <div className="experiance-card">
                             <div className="experiance-card-head">
                                 <div>
-                                    <h4>Full Stack Intern</h4>
-                                    <p>Tag. 11 Softech Pvt. Ltd</p>
+                                    <h4>Tag. 11 Softech Pvt. Ltd</h4>
+                                    <p>Full Stack Intern</p>
                                 </div>
                                 <div>
                                     <span>June - August 2023</span>
