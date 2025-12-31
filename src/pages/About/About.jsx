@@ -1,28 +1,28 @@
-import { motion } from "framer-motion";
-import AnimatedScrollComponent from "../../components/animatedScrollComp/AnimatedScrollComp";
-import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
-import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaJava } from "react-icons/fa6";
-import { BiLogoMongodb, BiLogoTypescript } from "react-icons/bi";
-import { SiExpress } from "react-icons/si";
-import { IoLogoJavascript } from "react-icons/io";
-import { FiFramer } from "react-icons/fi";
-import { TbBrandCpp } from "react-icons/tb";
-import { RiNextjsLine } from "react-icons/ri";
-import "./about.css";
+import { motion } from 'framer-motion';
+import AnimatedScrollComponent from '../../components/animatedScrollComp/AnimatedScrollComp';
+import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
+import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaJava } from 'react-icons/fa6';
+import { BiLogoMongodb, BiLogoTypescript } from 'react-icons/bi';
+import { SiExpress } from 'react-icons/si';
+import { IoLogoJavascript } from 'react-icons/io';
+import { FiFramer } from 'react-icons/fi';
+import { TbBrandCpp } from 'react-icons/tb';
+import { RiNextjsLine } from 'react-icons/ri';
+import './about.css';
 
 const mySkills = [
-    { name: "Next.js", icon: <RiNextjsLine style={{ color: "#000" }} /> },
-    { name: "React.js", icon: <FaReact style={{ color: "#61DAFB" }} /> },
-    { name: "Angular", icon: <FaAngular style={{ color: "#DD0031" }} /> },
-    { name: "Framer Motion", icon: <FiFramer style={{ color: "#000" }} /> },
-    { name: "Javascript", icon: <IoLogoJavascript style={{ color: "#F7DF1E" }} /> },
-    { name: "TypeScript", icon: <BiLogoTypescript style={{ color: "#3178C6" }} /> },
-    { name: "Node.js", icon: <FaNodeJs style={{ color: "#3c873a" }} /> },
-    { name: "MongoDB", icon: <BiLogoMongodb style={{ color: "#47A248" }} /> },
-    { name: "Express.js", icon: <SiExpress style={{ color: "#000" }} /> },
-    { name: "Java", icon: <FaJava style={{ color: "#f89820" }} /> },
-    { name: "C++", icon: <TbBrandCpp style={{ color: "#3178C6" }} /> },
-    { name: "Git", icon: <FaGitAlt style={{ color: "#f1502f" }} /> },
+    { name: 'Next.js', icon: <RiNextjsLine style={{ color: '#000' }} /> },
+    { name: 'React.js', icon: <FaReact style={{ color: '#61DAFB' }} /> },
+    { name: 'Angular', icon: <FaAngular style={{ color: '#DD0031' }} /> },
+    { name: 'Framer Motion', icon: <FiFramer style={{ color: '#000' }} /> },
+    { name: 'Javascript', icon: <IoLogoJavascript style={{ color: '#F7DF1E' }} /> },
+    { name: 'TypeScript', icon: <BiLogoTypescript style={{ color: '#3178C6' }} /> },
+    { name: 'Node.js', icon: <FaNodeJs style={{ color: '#3c873a' }} /> },
+    { name: 'MongoDB', icon: <BiLogoMongodb style={{ color: '#47A248' }} /> },
+    { name: 'Express.js', icon: <SiExpress style={{ color: '#000' }} /> },
+    { name: 'Java', icon: <FaJava style={{ color: '#f89820' }} /> },
+    { name: 'C++', icon: <TbBrandCpp style={{ color: '#3178C6' }} /> },
+    { name: 'Git', icon: <FaGitAlt style={{ color: '#f1502f' }} /> },
 ];
 
 const About = () => {
@@ -34,27 +34,25 @@ const About = () => {
                         BIOGRAPHY
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.7}>
-                        Hello! My name is <span>Amman</span> and I enjoy creating things that live
-                        on the internet. My interest in web development started back in 2021
+                        Hello! My name is <span>Amman</span> and I enjoy creating things that live on the internet. My
+                        interest in web development started back in 2021
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.9}>
-                        My web development journey has equipped me with skills in both front-end and
-                        back-end technologies. I create responsive applications with expertise in{" "}
-                        <span>React.js</span> , <span>Next.js</span> and pleasing animations using{" "}
-                        <span>Framer Motion.</span>
+                        My web development journey has equipped me with skills in both front-end and back-end
+                        technologies. I create responsive applications with expertise in <span>React.js</span> ,{' '}
+                        <span>Next.js</span> and pleasing animations using <span>Framer Motion.</span>
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.1}>
-                        In addition to my technical skills, I am adept at collaborating with
-                        cross-functional teams, translating client requirements into technical
-                        specifications, and delivering high-quality projects on time. My keen eye
-                        for detail and commitment to staying updated with the latest industry trends
-                        enable me to incorporate the best practices and cutting-edge technologies
-                        into my work.
+                        In addition to my technical skills, I am adept at collaborating with cross-functional teams,
+                        translating client requirements into technical specifications, and delivering high-quality
+                        projects on time. My keen eye for detail and commitment to staying updated with the latest
+                        industry trends enable me to incorporate the best practices and cutting-edge technologies into
+                        my work.
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.3}>
-                        Driven by a passion for innovation and fueled by curiosity, I'm always eager
-                        to explore new technologies and tackle exciting challenges. Let's
-                        collaborate and transform your ideas into reality!
+                        Driven by a passion for innovation and fueled by curiosity, I'm always eager to explore new
+                        technologies and tackle exciting challenges. Let's collaborate and transform your ideas into
+                        reality!
                     </AnimatedWrapper>
                 </div>
                 <div className="bio-right">
@@ -77,7 +75,7 @@ const About = () => {
                                 transition={{
                                     duration: 0.3,
                                     delay: index * 0.07,
-                                    type: "spring",
+                                    type: 'spring',
                                     stiffness: 100,
                                 }}
                                 key={index}
@@ -105,37 +103,6 @@ const About = () => {
                         <div className="experiance-card">
                             <div className="experiance-card-head">
                                 <div>
-                                    <h4>Web Developer Intern</h4>
-                                    <p>Tag. 11 Softech Pvt. Ltd</p>
-                                </div>
-                                <div>
-                                    <span>June - August 2023</span>
-                                </div>
-                            </div>
-
-                            <div className="experience-card-body">
-                                <p>
-                                    During my internship, I worked as a Full Stack Developer,
-                                    gaining hands-on experience in scalable backend development and
-                                    enhancing my problem-solving skills. My key responsibilities and
-                                    achievements include:
-                                </p>
-                                <ul>
-                                    <li>
-                                        Learned scalable backend techniques to enhance platform
-                                        efficiency.
-                                    </li>
-                                    <li>
-                                        Resolved critical authentication issues, improving user
-                                        login reliability and security.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="experiance-card">
-                            <div className="experiance-card-head">
-                                <div>
                                     <h4>Full Stack Developer</h4>
                                     <p>DailyObjects</p>
                                 </div>
@@ -146,14 +113,45 @@ const About = () => {
 
                             <div className="experience-card-body">
                                 <p>
-                                    During my current role as a Full Stack Developer at DailyObjects, I've been actively involved in building and optimizing scalable web solutions while improving user experience. My key responsibilities and achievements include:
+                                    During my current role as a Full Stack Developer at DailyObjects, I've been actively
+                                    involved in building and optimizing scalable web solutions while improving user
+                                    experience. My key responsibilities and achievements include:
                                 </p>
                                 <ul>
                                     <li>
-                                        Maintain the site ensuring optimal performance and developed several RESTFUL APIs.
+                                        Maintain the site ensuring optimal performance and developed several RESTFUL
+                                        APIs.
                                     </li>
                                     <li>
-                                        Leading migration of the web app from Angular 14 to 19, rebuilding the project from scratch
+                                        Leading migration of the web app from Angular 14 to 19, rebuilding the project
+                                        from scratch utilizing SSR capabilities.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="experiance-card">
+                            <div className="experiance-card-head">
+                                <div>
+                                    <h4>Full Stack Intern</h4>
+                                    <p>Tag. 11 Softech Pvt. Ltd</p>
+                                </div>
+                                <div>
+                                    <span>June - August 2023</span>
+                                </div>
+                            </div>
+
+                            <div className="experience-card-body">
+                                <p>
+                                    During my internship, I worked as a Full Stack Developer, gaining hands-on
+                                    experience in scalable backend development and enhancing my problem-solving skills.
+                                    My key responsibilities and achievements include:
+                                </p>
+                                <ul>
+                                    <li>Learned scalable backend techniques to enhance platform efficiency.</li>
+                                    <li>
+                                        Worked mainly on Implementing better authentication flow by defining various
+                                        session and jwt strategies.
                                     </li>
                                 </ul>
                             </div>
