@@ -1,9 +1,9 @@
-import "./projectDetails.css";
-import { useRef, useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
+import './projectDetails.css';
+import { useRef, useMemo } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { motion, useInView } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 import {
     FaExternalLinkAlt,
     FaNodeJs,
@@ -13,32 +13,34 @@ import {
     FaCss3Alt,
     FaEye,
     FaArrowRight,
-    FaGooglePlus
-} from "react-icons/fa";
-import { SiMongodb, SiPug, SiExpress, SiSocketdotio, SiCloudinary } from "react-icons/si";
-import { FiFramer } from "react-icons/fi";
-import { RiNextjsLine } from "react-icons/ri";
-import { projects } from "../work-items";
-import images from "./imgs";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
+    FaGooglePlus,
+} from 'react-icons/fa';
+import { SiMongodb, SiPug, SiExpress, SiSocketdotio, SiCloudinary, SiRedis, SiWebrtc } from 'react-icons/si';
+import { FiFramer } from 'react-icons/fi';
+import { RiNextjsLine } from 'react-icons/ri';
+import { projects } from '../work-items';
+import images from './imgs';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 const iconMap = {
-    "Next.js": RiNextjsLine,
-    "Google Gemini API": FaGooglePlus,
-    "Node.js": FaNodeJs,
+    'Next.js': RiNextjsLine,
+    'Google Gemini API': FaGooglePlus,
+    'Node.js': FaNodeJs,
     React: FaReact,
     Stripe: FaStripe,
     JavaScript: FaJs,
     CSS: FaCss3Alt,
-    "Framer motion": FiFramer,
+    'Framer motion': FiFramer,
     MongoDB: SiMongodb,
     Pug: SiPug,
-    "Express.js": SiExpress,
-    "Socket.io": SiSocketdotio,
+    'Express.js': SiExpress,
+    'Socket.io': SiSocketdotio,
     Cloudinary: SiCloudinary,
+    Redis: SiRedis,
+    WebRTC: SiWebrtc
 };
 
 const generateAnimationProps = (inView) => ({
@@ -49,22 +51,19 @@ const generateAnimationProps = (inView) => ({
 
 const ProjectDetails = ({ }) => {
     const { projectName } = useParams();
-    const project = useMemo(
-        () => projects.find((proj) => proj.title === projectName),
-        [projectName]
-    );
+    const project = useMemo(() => projects.find((proj) => proj.title === projectName), [projectName]);
     const currentIndex = projects.findIndex((proj) => proj.title === projectName);
     const nextProject = projects[(currentIndex + 1) % projects.length];
 
-    const separateLetters = useMemo(() => projectName.split(""), [projectName]);
+    const separateLetters = useMemo(() => projectName.split(''), [projectName]);
 
     const descHeadRef = useRef();
     const overviewRef = useRef();
     const techRef = useRef();
 
-    const isDescHeadInView = useInView(descHeadRef, { margin: "-50px", once: true });
-    const isOverviewInView = useInView(overviewRef, { margin: "-50px", once: true });
-    const isTechInView = useInView(techRef, { margin: "-50px", once: true });
+    const isDescHeadInView = useInView(descHeadRef, { margin: '-50px', once: true });
+    const isOverviewInView = useInView(overviewRef, { margin: '-50px', once: true });
+    const isTechInView = useInView(techRef, { margin: '-50px', once: true });
 
     return (
         <div className="project-details">
@@ -76,14 +75,12 @@ const ProjectDetails = ({ }) => {
                             animate={{ y: 0, opacity: 1 }}
                             transition={{
                                 delay: (index + 5) * 0.08,
-                                type: "spring",
+                                type: 'spring',
                                 stiffness: 400,
                             }}
                             key={index}
                         >
-                            <span style={{ whiteSpace: "pre" }}>
-                                {letter === " " ? "\u00A0" : letter}
-                            </span>
+                            <span style={{ whiteSpace: 'pre' }}>{letter === ' ' ? '\u00A0' : letter}</span>
                         </motion.li>
                     ))}
                 </ul>
@@ -102,7 +99,7 @@ const ProjectDetails = ({ }) => {
                         dynamicMainBullets: 2,
                     }}
                     modules={[Autoplay, Pagination, Navigation, EffectFade]}
-                    effect={"fade"}
+                    effect={'fade'}
                     navigation={true}
                     loop={true}
                     autoplay={{ delay: 3500, disableOnInteraction: false }}
@@ -121,7 +118,7 @@ const ProjectDetails = ({ }) => {
                     {...generateAnimationProps(isDescHeadInView)}
                     className="project-desc-head"
                 >
-                    <h1>Discription</h1>
+                    <h1>Description</h1>
                     <p>{project.tagline}</p>
                 </motion.div>
 
@@ -134,11 +131,7 @@ const ProjectDetails = ({ }) => {
                     <p>{project.description}</p>
                 </motion.div>
 
-                <motion.div
-                    ref={techRef}
-                    {...generateAnimationProps(isTechInView)}
-                    className="project-tech"
-                >
+                <motion.div ref={techRef} {...generateAnimationProps(isTechInView)} className="project-tech">
                     <h2>Technologies</h2>
                     <ul>
                         {project.technologies.map((tech, index) => {
