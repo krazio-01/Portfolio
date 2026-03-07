@@ -16,6 +16,7 @@
 }
 
 .project-imgs {
+    display: flex;
     border-radius: 12px;
     overflow: hidden;
 }
