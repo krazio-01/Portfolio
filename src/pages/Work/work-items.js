@@ -26,6 +26,16 @@ export const projects = [
         codeLink: 'https://github.com/krazio-01/AetherBot.git',
     },
     {
+        title: 'Envision',
+        tagline: 'Stream your favorites with ease on our comprehensive entertainment hub.',
+        description:
+            'Envision is a full-stack streaming application built with React and Node.js. It delivers a Netflix-style experience directly in the browser, featuring instant media playback, smart AI recommendations powered by Google Gemini, automatic watch-time tracking, and secure JWT-based authentication. Users can effortlessly browse, bookmark, and stream their favorite movies and TV shows across any device.',
+        src: Work4,
+        technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'Google Gemini API'],
+        viewLink: 'https://envision-watch.vercel.app/',
+        codeLink: 'https://github.com/krazio-01/Envision.git',
+    },
+    {
         title: 'Edulearn',
         tagline: 'Empowering education with an interactive and responsive platform.',
         description:
@@ -34,16 +44,6 @@ export const projects = [
         technologies: ['Pug', 'MongoDB', 'CSS', 'JavaScript', 'Express.js'],
         viewLink: '',
         codeLink: 'https://github.com/krazio-01/Edulearn.git',
-    },
-    {
-        title: 'Envision',
-        tagline: 'Stream your favorites with ease on our comprehensive entertainment hub.',
-        description:
-            'Envision is a comprehensive online streaming platform built using React. It offers users access to a vast library of movies and TV shows, ranging from the latest blockbusters to classic hits. The site is designed to provide a high-quality streaming experience with user-friendly navigation, personalized recommendations, and options for creating watchlists. Dive into endless entertainment with Envision.',
-        src: Work4,
-        technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary'],
-        viewLink: '',
-        codeLink: 'https://github.com/krazio-01/Envision.git',
     },
     {
         title: 'Wor-k-Lock',
