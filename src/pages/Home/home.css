@@ -6,10 +6,11 @@
 }
 
 .home-main .home-img {
-    width: min(400px, 75%);
+    width: min(450px, 80%);
     margin-bottom: 2.5rem;
     user-select: none;
     pointer-events: none;
+    box-shadow: 0 10px 5px rgb(0 0 0 / 0.1) inset;
 }
 
 .home-main .home-img img {
@@ -135,10 +136,11 @@
 @media screen and (max-width: 600px) {
     .home-hero {
         flex-direction: column-reverse;
+        min-height: auto;
     }
 
     .home-main .home-img {
-        margin-right: 2.5rem;
+        width: 100%;
     }
 
     .home-main .home-content {
