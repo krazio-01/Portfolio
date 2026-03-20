@@ -12,16 +12,18 @@ import Worklock3 from '../../../assets/images/work1_2.jpg';
 import Edulearn1 from '../../../assets/images/work5.png';
 import Edulearn2 from '../../../assets/images/work5_1.png';
 import Edulearn3 from '../../../assets/images/work5_2.png';
-import Envision1 from '../../../assets/images/work4.jpg';
-import Envision2 from '../../../assets/images/work4_1.jpg';
-import Envision3 from '../../../assets/images/work4_2.jpg';
+import Envision1 from '../../../assets/images/work4.png';
+import Envision2 from '../../../assets/images/work4_1.png';
+import Envision3 from '../../../assets/images/work4_2.png';
+import Envision4 from '../../../assets/images/work4_3.png';
+import Envision5 from '../../../assets/images/work4_4.png';
 
 const images = {
     Whisperwave: [Whisperwave1, Whisperwave2, Whisperwave3, Whisperwave4, Whisperwave5],
     AetherBot: [AetherBot1, AetherBot2, AetherBot3],
     'Wor-k-Lock': [Worklock1, Worklock2, Worklock3],
     Edulearn: [Edulearn1, Edulearn2, Edulearn3],
-    Envision: [Envision1, Envision2, Envision3],
+    Envision: [Envision1, Envision2, Envision3, Envision4, Envision5],
 };
 
 export default images;
