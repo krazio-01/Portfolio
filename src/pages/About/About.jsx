@@ -123,7 +123,7 @@ const About = () => {
                                         APIs.
                                     </li>
                                     <li>
-                                        Leading migration of the web app from Angular 14 to 19, rebuilding the project
+                                        Lead migration of the web app from Angular 14 to 19, rebuilding the project
                                         from scratch utilizing SSR capabilities.
                                     </li>
                                 </ul>

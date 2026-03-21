@@ -19,7 +19,7 @@ const Home = () => {
     });
 
     const basicInfo =
-        'As a professional full-stack developer, I specialize in crafting modern web applications using React.js, Next.js and Angular for front-end development and Express.js for back-end solutions. With proficiency in MongoDB, I design efficient database systems to manage application data effectively. Additionally, I enhance user experience through fluid animations and interactive transitions using Framer Motion. My expertise lies in creating scalable, maintainable, and user-centric solutions tailored to meet the unique requirements of each project.';
+        'As a full-stack developer, I specialize in crafting modern web applications using React.js, Next.js and Angular for front-end development and Express.js for back-end solutions. With proficiency in MongoDB, I design efficient database systems to manage application data effectively. Additionally, I enhance user experience through fluid animations and interactive transitions using Framer Motion. My expertise lies in creating scalable, maintainable, and user-centric solutions tailored to meet the unique requirements of each project.';
     const words = basicInfo.split(' ');
 
     return (
