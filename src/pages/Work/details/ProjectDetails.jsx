@@ -14,6 +14,9 @@ import {
     FaEye,
     FaArrowRight,
     FaGooglePlus,
+    FaChartLine,
+    FaShieldAlt,
+    FaCubes,
 } from 'react-icons/fa';
 import { SiMongodb, SiPug, SiExpress, SiSocketdotio, SiCloudinary, SiRedis, SiWebrtc } from 'react-icons/si';
 import { FiFramer } from 'react-icons/fi';
@@ -29,6 +32,9 @@ const iconMap = {
     'Next.js': RiNextjsLine,
     'Google Gemini API': FaGooglePlus,
     'Node.js': FaNodeJs,
+    Zustand: FaCubes,
+    Recharts: FaChartLine,
+    NextAuth: FaShieldAlt,
     React: FaReact,
     Stripe: FaStripe,
     JavaScript: FaJs,
@@ -40,7 +46,7 @@ const iconMap = {
     'Socket.io': SiSocketdotio,
     Cloudinary: SiCloudinary,
     Redis: SiRedis,
-    WebRTC: SiWebrtc
+    WebRTC: SiWebrtc,
 };
 
 const generateAnimationProps = (inView) => ({
@@ -49,7 +55,7 @@ const generateAnimationProps = (inView) => ({
     transition: { duration: 0.7 },
 });
 
-const ProjectDetails = ({ }) => {
+const ProjectDetails = () => {
     const { projectName } = useParams();
     const project = useMemo(() => projects.find((proj) => proj.title === projectName), [projectName]);
     const currentIndex = projects.findIndex((proj) => proj.title === projectName);

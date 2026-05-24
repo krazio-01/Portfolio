@@ -17,13 +17,14 @@ export const projects = [
     },
     {
         title: 'AetherBot',
-        tagline: 'Experience Intelligent Conversations: Your AI Chatbot. Ask, Upload, and Discover!',
+        tagline:
+            'A production-ready AI platform featuring multimodal chat, live code execution, and dynamic data visualization.',
         description:
-            'AetherBot is a sophisticated full-stack AI chatbot web application built on Next.js 14 and powered by the Gemini API. This feature-rich platform offers context-aware AI responses and enables users to upload images for detailed inquiries. In addition to its robust functionality, AetherBot supports seamless social logins via GitHub and Discord, enhancing user convenience and security.',
+            'A highly optimized full-stack AI chat application built with Next.js 14 and the Gemini API. It features a custom React-bypassing text streaming engine, direct document (image/pdf) analysis, auto-formatting SVG charts, and interactive in-chat code sandboxes. Secured with NextAuth and backed by MongoDB, it delivers a zero-thrashing UI experience with seamless light/dark mode support.',
         src: Work2,
-        technologies: ['Next.js', 'Google Gemini API', 'MongoDB', 'Cloudinary'],
+        technologies: ['Next.js', 'Google Gemini API', 'Zustand', 'Recharts', 'MongoDB', 'NextAuth'],
         viewLink: 'https://aether-bot.vercel.app/',
-        codeLink: 'https://github.com/krazio-01/AetherBot.git',
+        codeLink: 'https://github.com/krazio-01/AetherBot',
     },
     {
         title: 'Envision',
