@@ -1,4 +1,4 @@
-import Work2 from "../../assets/images/work2.jpg";
+import Work2 from "../../assets/images/work2.png";
 import Work4 from "../../assets/images/work4.png";
 
 export const projects = [

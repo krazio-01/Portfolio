@@ -3,9 +3,12 @@ import Whisperwave2 from '../../../assets/images/work3_1.png';
 import Whisperwave3 from '../../../assets/images/work3_2.png';
 import Whisperwave4 from '../../../assets/images/work3_3.png';
 import Whisperwave5 from '../../../assets/images/work3_4.png';
-import AetherBot1 from '../../../assets/images/work2.jpg';
-import AetherBot2 from '../../../assets/images/work2_1.jpg';
-import AetherBot3 from '../../../assets/images/work2_2.jpg';
+import AetherBot1 from '../../../assets/images/work2.png';
+import AetherBot2 from '../../../assets/images/work2_1.png';
+import AetherBot3 from '../../../assets/images/work2_2.png';
+import AetherBot4 from '../../../assets/images/work2_3.png';
+import AetherBot5 from '../../../assets/images/work2_4.png';
+import AetherBot6 from '../../../assets/images/work2_5.png';
 import Worklock1 from '../../../assets/images/work1.jpg';
 import Worklock2 from '../../../assets/images/work1_1.jpg';
 import Worklock3 from '../../../assets/images/work1_2.jpg';
@@ -20,7 +23,7 @@ import Envision5 from '../../../assets/images/work4_4.png';
 
 const images = {
     Whisperwave: [Whisperwave1, Whisperwave2, Whisperwave3, Whisperwave4, Whisperwave5],
-    AetherBot: [AetherBot1, AetherBot2, AetherBot3],
+    AetherBot: [AetherBot1, AetherBot2, AetherBot3, AetherBot4, AetherBot5, AetherBot6],
     'Wor-k-Lock': [Worklock1, Worklock2, Worklock3],
     Edulearn: [Edulearn1, Edulearn2, Edulearn3],
     Envision: [Envision1, Envision2, Envision3, Envision4, Envision5],

@@ -1,5 +1,5 @@
 import Work1 from '../../assets/images/work1.jpg';
-import Work2 from '../../assets/images/work2.jpg';
+import Work2 from '../../assets/images/work2.png';
 import Work3 from '../../assets/images/work3.png';
 import Work4 from '../../assets/images/work4.png';
 import Work5 from '../../assets/images/work5.png';
