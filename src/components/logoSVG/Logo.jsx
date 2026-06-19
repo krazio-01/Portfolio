@@ -34,7 +34,7 @@ const Logo = ({ width, height }) => {
             <defs id="SvgjsDefs2320"></defs>
             <g
                 id="SvgjsG2321"
-                featurekey="rootContainer"
+                data-featurekey="rootContainer"
                 transform="matrix(1,0,0,1,0,0)"
                 fill="#ffffff"
             >
@@ -42,7 +42,7 @@ const Logo = ({ width, height }) => {
             </g>
             <g
                 id="SvgjsG2322"
-                featurekey="nameFeature-0"
+                data-featurekey="nameFeature-0"
                 transform="matrix(1.6796318424150098,0,0,1.6796318424150098,13.170439847803866,-12.067886963155392)"
                 fill="#000000"
             >
