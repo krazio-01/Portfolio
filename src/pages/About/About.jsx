@@ -50,9 +50,9 @@ const About = () => {
                         my work.
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.3}>
-                        Driven by a passion for innovation and fueled by curiosity, I'm always eager to explore new
-                        technologies and tackle exciting challenges. Let's collaborate and transform your ideas into
-                        reality!
+                        Driven by a passion for innovation and fueled by curiosity, I&apos;m always eager to explore new
+                        technologies and tackle exciting challenges. Let&apos;s collaborate and transform your ideas
+                        into reality!
                     </AnimatedWrapper>
                 </div>
                 <div className="bio-right">
@@ -113,9 +113,9 @@ const About = () => {
 
                             <div className="experience-card-body">
                                 <p>
-                                    During my current role as a Full Stack Developer at DailyObjects, I've been actively
-                                    involved in building and optimizing scalable web solutions while improving user
-                                    experience. My key responsibilities and achievements include:
+                                    During my current role as a Full Stack Developer at DailyObjects, I&apos;ve been
+                                    actively involved in building and optimizing scalable web solutions while improving
+                                    user experience. My key responsibilities and achievements include:
                                 </p>
                                 <ul>
                                     <li>
@@ -123,8 +123,8 @@ const About = () => {
                                         APIs.
                                     </li>
                                     <li>
-                                        Lead migration of the web app from Angular 14 to 19, rebuilding the project
-                                        from scratch utilizing SSR capabilities.
+                                        Lead migration of the web app from Angular 14 to 19, rebuilding the project from
+                                        scratch utilizing SSR capabilities.
                                     </li>
                                 </ul>
                             </div>

@@ -18,11 +18,11 @@ const Footer = () => {
                         <div className="foo-info-head">
                             <div className="foo-head-inside">
                                 <div>
-                                    <p>Let's work</p>
+                                    <p>Let&apos;s work</p>
                                     <p>together</p>
                                 </div>
                                 <p>
-                                    Call or email me to start your next project with me. I'd love to
+                                    Call or email me to start your next project with me. I&apos;d love to
                                     hear from you!
                                 </p>
                             </div>

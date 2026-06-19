@@ -33,9 +33,9 @@ const Home = () => {
                         </AnimatedWrapper>
 
                         <AnimatedWrapper className="home-description" delay={0.4} duration={1}>
-                            <p>I'm from Jaipur, India</p>
+                            <p>I&apos;m from Jaipur, India</p>
                             <p>
-                                I'm a Full-Stack Developer with 1 year of experience, specializing in building modern,
+                                I&apos;m a Full-Stack Developer with 1 year of experience, specializing in building modern,
                                 aesthetic, and scalable web applications.
                             </p>
                         </AnimatedWrapper>
