@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo, memo } from "react";
 import { motion } from "framer-motion";
 
 const defaultAnimationProps = {
@@ -12,7 +12,7 @@ const springTransition = {
     stiffness: 100,
 };
 
-const AnimatedWrapper = React.memo((props) => {
+const AnimatedWrapper = memo((props) => {
     const { children, as = "div", className, delay = 0, duration = 0.5, useSpring = false } = props;
 
     const MotionComponent = motion(as);
@@ -32,5 +32,7 @@ const AnimatedWrapper = React.memo((props) => {
         </MotionComponent>
     );
 });
+
+AnimatedWrapper.displayName = "AnimatedWrapper";
 
 export default AnimatedWrapper;

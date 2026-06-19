@@ -1,29 +1,24 @@
-import { useRef } from "react";
-import CircularButton from "../../components/circularButton/CircularButton";
-import AnimatedWrapper from "../../components/animatedWrapper/AnimatedWrapper";
-import { toast } from "sonner";
-import "./contact.css";
+import { useRef } from 'react';
+import CircularButton from '../../components/circularButton/CircularButton';
+import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
+import { toast } from 'sonner';
+import './contact.css';
 
 const primaryLinks = [
-    { href: "mailto:email@gmail.com", text: "md.krazio@gmail.com" },
-    { href: "tel:+91 123456789", text: "+91 9352072344" },
+    { href: 'mailto:email@gmail.com', text: 'md.krazio@gmail.com' },
+    { href: 'tel:+91 123456789', text: '+91 9352072344' },
 ];
 
 const socialLinks = [
-    { href: "https://www.linkedin.com/in/md-amman/", text: "Linkedin" },
-    { href: "https://github.com/krazio-01", text: "Github" },
-    { href: "https://twitter.com/krazio01", text: "Twitter" },
+    { href: 'https://www.linkedin.com/in/md-amman/', text: 'Linkedin' },
+    { href: 'https://github.com/krazio-01', text: 'Github' },
+    { href: 'https://twitter.com/krazio01', text: 'Twitter' },
 ];
 
 const ListItem = ({ href, children }) => {
-    const isExternal =
-        href.startsWith("http") || href.startsWith("mailto") || href.startsWith("tel");
+    const isExternal = href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel');
     return (
-        <a
-            href={href}
-            target={isExternal ? "_blank" : "_self"}
-            rel={isExternal ? "noopener noreferrer" : undefined}
-        >
+        <a href={href} target={isExternal ? '_blank' : '_self'} rel={isExternal ? 'noopener noreferrer' : undefined}>
             <span>{children}</span>
         </a>
     );
@@ -37,30 +32,30 @@ const Contact = () => {
         e.preventDefault();
 
         try {
-            submitButtonRef.current.classList.add("loading");
+            submitButtonRef.current.classList.add('loading');
             const formData = new FormData(e.target);
 
-            formData.append("access_key", import.meta.env.VITE_APP_WEB3FORMS_PUBLIC_KEY);
+            formData.append('access_key', import.meta.env.VITE_APP_WEB3FORMS_PUBLIC_KEY);
 
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
 
-            await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
+            await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
                 },
                 body: json,
             });
 
-            toast("Email sent successfully!");
+            toast('Email sent successfully!');
 
             formRef.current.reset();
         } catch (error) {
-            toast("Failed to send email");
+            toast('Failed to send email');
         } finally {
-            submitButtonRef.current.classList.remove("loading");
+            submitButtonRef.current.classList.remove('loading');
         }
     };
 
@@ -73,12 +68,7 @@ const Contact = () => {
                     </AnimatedWrapper>
                     <ul>
                         {primaryLinks.map((link, index) => (
-                            <AnimatedWrapper
-                                key={link.href}
-                                as="li"
-                                delay={(index + 2) * 0.2}
-                                useSpring={true}
-                            >
+                            <AnimatedWrapper key={link.href} as="li" delay={(index + 2) * 0.2} useSpring={true}>
                                 <ListItem href={link.href}>{link.text}</ListItem>
                             </AnimatedWrapper>
                         ))}
@@ -109,28 +99,19 @@ const Contact = () => {
                         <h3>Feel free to reach out</h3>
                         <input type="hidden" name="subject" value="Message from Portfolio" />
                         <div className="contact-input-container">
-                            <label>What's your name</label>
+                            <label>What&apos;s your name</label>
                             <input type="text" placeholder="John Doe" name="name" required />
                         </div>
                         <div className="contact-input-container">
-                            <label>What's your email</label>
-                            <input
-                                type="email"
-                                placeholder="johnD@example.com"
-                                name="email"
-                                required
-                            />
+                            <label>What&apos;s your email</label>
+                            <input type="email" placeholder="johnD@example.com" name="email" required />
                         </div>
                         <div className="contact-input-container">
                             <label>Your message</label>
                             <textarea placeholder="Hi Amman ..." name="message" required></textarea>
                         </div>
                     </AnimatedWrapper>
-                    <AnimatedWrapper
-                        className="contact-submit-container"
-                        delay={0.7}
-                        useSpring={true}
-                    >
+                    <AnimatedWrapper className="contact-submit-container" delay={0.7} useSpring={true}>
                         <div className="contact-submit">
                             <CircularButton tag="button" submitButtonRef={submitButtonRef} name="Submit" />
                         </div>
