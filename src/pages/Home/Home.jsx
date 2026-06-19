@@ -41,7 +41,7 @@ const Home = () => {
                         </AnimatedWrapper>
 
                         <AnimatedWrapper className="resume" delay={0.6} duration={1}>
-                            <a href={resume} download="resume.pdf" rel="noopener noreferrer" target="_blank">
+                            <a href={resume} download="Md_Amman_Resume.pdf" rel="noopener noreferrer" target="_blank">
                                 <span>Resume</span> <FaLink />
                             </a>
                         </AnimatedWrapper>
