@@ -1,26 +1,15 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
-import { useTransform, motion, useScroll } from "framer-motion";
-import { FaExternalLinkAlt, FaEye } from "react-icons/fa";
-import { FaInfo } from "react-icons/fa6";
-import "./card.css";
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { useTransform, motion, useScroll } from 'framer-motion';
+import { FaExternalLinkAlt, FaEye } from 'react-icons/fa';
+import { FaInfo } from 'react-icons/fa6';
+import './card.css';
 
-const Card = ({
-    index,
-    title,
-    tagline,
-    description,
-    src,
-    viewLink,
-    codeLink,
-    progress,
-    range,
-    targetScale,
-}) => {
+const Card = ({ index, title, tagline, description, src, viewLink, codeLink, progress, range, targetScale }) => {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
-        offset: ["start end", "start start"],
+        offset: ['start end', 'start start'],
     });
 
     const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
