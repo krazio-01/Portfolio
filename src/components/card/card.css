@@ -36,8 +36,7 @@
 
 .card h2 {
     text-align: center;
-    margin: 0px;
-    font-size: 28px;
+    font-size: 32px;
 }
 
 .card .body {
@@ -49,12 +48,9 @@
 }
 
 .card .body .description {
-    width: 30%;
-    position: relative;
-    top: 10%;
-    max-height: 90%;
+    flex: 1.5;
     padding: 0.5rem;
-    overflow: hidden;
+    margin-top: 4rem;
     text-overflow: ellipsis;
 }
 
@@ -62,6 +58,18 @@
     font-size: var(--fz-md);
     line-height: 1.4rem;
     font-weight: 500;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
     max-height: 80%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -86,7 +94,7 @@
     justify-content: center;
     gap: 0.5rem;
     background-color: var(--primary-color2);
-    padding: 0.5rem;
+    padding: 0.8rem;
     border-radius: var(--border-radius);
     color: var(--primary-color1);
     font-size: var(--fz-md);
@@ -106,26 +114,15 @@
 }
 
 .card .body .imageContainer {
-    position: relative;
-    width: 70%;
-    height: 100%;
-    border-radius: 25px;
+    flex: 4;
+    border-radius: 2rem;
+    height: fit-content;
     overflow: hidden;
 }
 
-.card .body .imageContainer .inner {
+.card .body .imageContainer img {
     width: 100%;
     height: 100%;
-}
-
-.card .body .imageContainer img {
-    position: absolute;
-    height: auto;
-    max-width: 100%;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
     object-fit: cover;
     object-position: center;
     display: block;
@@ -156,24 +153,25 @@
         padding: 35px;
     }
 
+    .card h2 {
+        font-size: 25px;
+    }
+
     .card .body {
         flex-direction: column-reverse;
         justify-content: start;
-        margin-top: 25px;
-        gap: 0;
     }
 
     .card .body .description {
         width: 100%;
-        max-height: 38%;
-        margin-top: -1rem;
+        margin-top: 0;
     }
 
     .card .body .description .desc-links {
         display: flex;
         align-items: unset;
         justify-content: center;
-        flex-direction: row;
+        flex-direction: column;
         margin-top: 1rem;
         gap: 2rem;
     }
@@ -189,7 +187,8 @@
 
     .card .body .imageContainer {
         width: 100%;
-        max-height: 60%;
+        flex: auto;
+        max-height: fit-content;
     }
 }
 
@@ -204,27 +203,12 @@
         padding: 20px;
     }
 
-    .card .body {
-        gap: 0;
-    }
-
-    .card .body .description {
-        max-height: 60%;
-    }
-
     .card .body .description p {
         width: 100%;
-        max-height: 76%;
     }
 
     .card .body .description .desc-links {
-        flex-direction: column;
         margin-top: 0.7rem;
         gap: 1rem;
-    }
-
-    .card .body .imageContainer {
-        width: 100%;
-        max-height: 35%;
     }
 }
