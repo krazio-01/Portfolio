@@ -36,8 +36,7 @@
 
 .card h2 {
     text-align: center;
-    margin: 0px;
-    font-size: 28px;
+    font-size: 32px;
 }
 
 .card .body {
@@ -152,6 +151,10 @@
         height: 80%;
         width: 90%;
         padding: 35px;
+    }
+
+    .card h2 {
+        font-size: 25px;
     }
 
     .card .body {
