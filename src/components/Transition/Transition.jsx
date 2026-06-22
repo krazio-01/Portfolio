@@ -1,5 +1,7 @@
-import { motion, AnimatePresence } from "framer-motion";
-import "./transition.css";
+import { motion, AnimatePresence } from 'framer-motion';
+import './transition.css';
+
+const easeCurve = [0.76, 0, 0.24, 1];
 
 const Transition = ({ children, keyName }) => {
     const capitalizeFirstLetter = (str) => {
@@ -9,29 +11,39 @@ const Transition = ({ children, keyName }) => {
     return (
         <AnimatePresence mode="wait">
             <motion.div
-                className="layout1"
-                key={Math.random()}
-                animate={{ height: "0vh" }}
-                exit={{ height: "140vh" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="slide-in"
+                key={`${keyName}-slide-in`}
+                initial={{ height: '0vh' }}
+                animate={{ height: '0vh', transition: { duration: 0 } }}
+                exit={{ height: '100vh', transition: { duration: 0.6, ease: easeCurve, delay: 0.05 } }}
             />
+
+            <motion.div
+                className="slide-out"
+                key={`${keyName}-slide-out`}
+                initial={{ height: '100vh' }}
+                animate={{ height: '0vh', transition: { duration: 0.6, ease: easeCurve, delay: 0.1 } }}
+                exit={{ height: '0vh', transition: { duration: 0 } }}
+            />
+
             <motion.div
                 className="pathname"
-                key={Math.random()}
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                key={`${keyName}-pathname`}
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 0, y: -20, transition: { duration: 0.4, ease: easeCurve, delay: 0.1 } }}
+                exit={{ opacity: 0, transition: { duration: 0.1 } }}
             >
-                {keyName === "/" ? "Home" : capitalizeFirstLetter(keyName.substring(1))}
+                {keyName === '/' ? 'Home' : capitalizeFirstLetter(keyName.substring(1))}
             </motion.div>
+
             <motion.div
-                className="layout2"
-                key={Math.random()}
-                initial={{ height: "140vh" }}
-                animate={{ height: "0vh", transition: { delay: 0.5 } }}
-            ></motion.div>
-            {children}
+                key={`${keyName}-content`}
+                initial={{ opacity: 0, scale: 0.94, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: easeCurve, delay: 0.2 } }}
+                exit={{ opacity: 0, scale: 0.94, y: -15, transition: { duration: 0.6, ease: easeCurve } }}
+            >
+                {children}
+            </motion.div>
         </AnimatePresence>
     );
 };
