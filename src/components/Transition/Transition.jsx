@@ -11,14 +11,6 @@ const Transition = ({ children, keyName }) => {
     return (
         <AnimatePresence mode="wait">
             <motion.div
-                className="slide-in-accent"
-                key={`${keyName}-slide-in-accent`}
-                initial={{ height: '0vh' }}
-                animate={{ height: '0vh', transition: { duration: 0 } }}
-                exit={{ height: '100vh', transition: { duration: 0.6, ease: easeCurve } }}
-            />
-
-            <motion.div
                 className="slide-in"
                 key={`${keyName}-slide-in`}
                 initial={{ height: '0vh' }}
@@ -31,14 +23,6 @@ const Transition = ({ children, keyName }) => {
                 key={`${keyName}-slide-out`}
                 initial={{ height: '100vh' }}
                 animate={{ height: '0vh', transition: { duration: 0.6, ease: easeCurve, delay: 0.1 } }}
-                exit={{ height: '0vh', transition: { duration: 0 } }}
-            />
-
-            <motion.div
-                className="slide-out-accent"
-                key={`${keyName}-slide-out-accent`}
-                initial={{ height: '100vh' }}
-                animate={{ height: '0vh', transition: { duration: 0.6, ease: easeCurve, delay: 0.15 } }}
                 exit={{ height: '0vh', transition: { duration: 0 } }}
             />
 
