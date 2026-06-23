@@ -1,12 +1,17 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import './transition.css';
 
 const easeCurve = [0.76, 0, 0.24, 1];
 
 const Transition = ({ children, keyName }) => {
+    const isMobile = useMediaQuery('(max-width: 768px)');
+
     const capitalizeFirstLetter = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
+
+    const exitDelay = isMobile ? 0.7 : 0.05;
 
     return (
         <AnimatePresence mode="wait">
@@ -15,7 +20,7 @@ const Transition = ({ children, keyName }) => {
                 key={`${keyName}-slide-in`}
                 initial={{ height: '0vh' }}
                 animate={{ height: '0vh', transition: { duration: 0 } }}
-                exit={{ height: '100vh', transition: { duration: 0.6, ease: easeCurve, delay: 0.05 } }}
+                exit={{ height: '100vh', transition: { duration: 0.6, ease: easeCurve, delay: exitDelay } }}
             />
 
             <motion.div
@@ -39,8 +44,13 @@ const Transition = ({ children, keyName }) => {
             <motion.div
                 key={`${keyName}-content`}
                 initial={{ opacity: 0, scale: 0.94, y: 15 }}
-                animate={{ opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: easeCurve, delay: 0.2 } }}
-                exit={{ opacity: 0, scale: 0.94, y: -15, transition: { duration: 0.6, ease: easeCurve } }}
+                animate={{ opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: easeCurve, delay: 0.3 } }}
+                exit={{
+                    opacity: 0,
+                    scale: 0.94,
+                    y: -15,
+                    transition: { duration: 0.6, ease: easeCurve, delay: exitDelay },
+                }}
             >
                 {children}
             </motion.div>
