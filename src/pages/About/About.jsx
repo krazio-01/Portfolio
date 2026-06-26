@@ -1,31 +1,68 @@
-import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedScrollComponent from '../../components/animatedScrollComp/AnimatedScrollComp';
 import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
-import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaJava } from 'react-icons/fa6';
+import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaJava, FaNetworkWired } from 'react-icons/fa6';
 import { BiLogoMongodb, BiLogoTypescript } from 'react-icons/bi';
-import { SiExpress } from 'react-icons/si';
+import { SiExpress, SiRedis, SiCloudinary, SiPostman, SiSocketdotio, SiWebrtc, SiJsonwebtokens } from 'react-icons/si';
 import { IoLogoJavascript } from 'react-icons/io';
 import { FiFramer } from 'react-icons/fi';
-import { TbBrandCpp } from 'react-icons/tb';
+import { TbBrandCpp, TbApi, TbBoxModel } from 'react-icons/tb';
 import { RiNextjsLine } from 'react-icons/ri';
 import './about.css';
 
-const mySkills = [
-    { name: 'Next.js', icon: <RiNextjsLine style={{ color: '#000' }} /> },
-    { name: 'React.js', icon: <FaReact style={{ color: '#61DAFB' }} /> },
-    { name: 'Angular', icon: <FaAngular style={{ color: '#DD0031' }} /> },
-    { name: 'Framer Motion', icon: <FiFramer style={{ color: '#000' }} /> },
-    { name: 'Javascript', icon: <IoLogoJavascript style={{ color: '#F7DF1E' }} /> },
-    { name: 'TypeScript', icon: <BiLogoTypescript style={{ color: '#3178C6' }} /> },
-    { name: 'Node.js', icon: <FaNodeJs style={{ color: '#3c873a' }} /> },
-    { name: 'MongoDB', icon: <BiLogoMongodb style={{ color: '#47A248' }} /> },
-    { name: 'Express.js', icon: <SiExpress style={{ color: '#000' }} /> },
-    { name: 'Java', icon: <FaJava style={{ color: '#f89820' }} /> },
-    { name: 'C++', icon: <TbBrandCpp style={{ color: '#3178C6' }} /> },
-    { name: 'Git', icon: <FaGitAlt style={{ color: '#f1502f' }} /> },
+const skillsData = [
+    { name: 'React.js', category: 'frontend', icon: <FaReact color="#61DAFB" /> },
+    { name: 'Next.js', category: 'frontend', icon: <RiNextjsLine color="#ffffff" /> },
+    { name: 'Angular', category: 'frontend', icon: <FaAngular color="#DD0031" /> },
+    { name: 'Zustand', category: 'frontend', icon: <TbBoxModel color="#ec5990" /> },
+    { name: 'Framer Motion', category: 'frontend', icon: <FiFramer color="#ffffff" /> },
+    { name: 'Node.js', category: 'backend', icon: <FaNodeJs color="#3c873a" /> },
+    { name: 'Express.js', category: 'backend', icon: <SiExpress color="#ffffff" /> },
+    { name: 'REST APIs', category: 'backend', icon: <TbApi color="#007ACC" /> },
+    { name: 'JWT Auth', category: 'backend', icon: <SiJsonwebtokens color="#ffffff" /> },
+    { name: 'Socket.io', category: 'data', icon: <SiSocketdotio color="#ffffff" /> },
+    { name: 'WebRTC', category: 'data', icon: <SiWebrtc color="#ffffff" /> },
+    { name: 'WebSockets', category: 'data', icon: <FaNetworkWired color="#005C8A" /> },
+    { name: 'MongoDB', category: 'data', icon: <BiLogoMongodb color="#47A248" /> },
+    { name: 'Redis', category: 'data', icon: <SiRedis color="#DC382D" /> },
+    { name: 'Cloudinary', category: 'data', icon: <SiCloudinary color="#3448C5" /> },
+    { name: 'JavaScript', category: 'core', icon: <IoLogoJavascript color="#F7DF1E" /> },
+    { name: 'TypeScript', category: 'core', icon: <BiLogoTypescript color="#3178C6" /> },
+    { name: 'Java', category: 'core', icon: <FaJava color="#f89820" /> },
+    { name: 'C++', category: 'core', icon: <TbBrandCpp color="#3178C6" /> },
+    { name: 'Git', category: 'core', icon: <FaGitAlt color="#f1502f" /> },
+    { name: 'Postman', category: 'core', icon: <SiPostman color="#FF6C37" /> },
+];
+
+const categories = [
+    { id: 'all', label: 'All Skills' },
+    { id: 'frontend', label: 'Frontend' },
+    { id: 'backend', label: 'Backend' },
+    { id: 'data', label: 'Real-Time & Data' },
+    { id: 'core', label: 'Languages & Tools' },
 ];
 
 const About = () => {
+    const [activeCategory, setActiveCategory] = useState('all');
+    const gridRef = useRef(null);
+
+    const handleMouseMove = (e) => {
+        if (!gridRef.current) return;
+
+        const cards = gridRef.current.getElementsByClassName('skills-card');
+
+        for (const card of cards) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        }
+    };
+
+    const filteredSkills = skillsData.filter((skill) => activeCategory === 'all' || skill.category === activeCategory);
+
     return (
         <div>
             <div className="bio">
@@ -39,7 +76,7 @@ const About = () => {
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.9}>
                         My web development journey has equipped me with skills in both front-end and back-end
-                        technologies. I create responsive applications with expertise in <span>React.js</span> ,{' '}
+                        technologies. I create responsive applications with expertise in <span>React.js</span>,{' '}
                         <span>Next.js</span> and pleasing animations using <span>Framer Motion.</span>
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.1}>
@@ -65,43 +102,59 @@ const About = () => {
             <div className="line" />
 
             <div className="skills">
-                <div className="skill-left">
+                <div className="skills-header">
                     <h2>SKILLS</h2>
-                    <div className="skills-container">
-                        {mySkills.map((obj, index) => (
-                            <motion.div
-                                initial={{ y: -50, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                transition={{
-                                    duration: 0.3,
-                                    delay: index * 0.07,
-                                    type: 'spring',
-                                    stiffness: 100,
-                                }}
-                                key={index}
-                                className="skill-container"
+                    <div className="skills-category-dock">
+                        {categories.map((cat) => (
+                            <button
+                                key={cat.id}
+                                onClick={() => setActiveCategory(cat.id)}
+                                className={`skills-category-btn ${activeCategory === cat.id ? 'active' : ''}`}
                             >
-                                <span>{obj.icon}</span>
-                                <p>{obj.name}</p>
-                            </motion.div>
+                                {activeCategory === cat.id && (
+                                    <motion.div
+                                        layoutId="active-pill"
+                                        className="skills-active-pill"
+                                        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                                    />
+                                )}
+                                <span className="skills-category-label">{cat.label}</span>
+                            </button>
                         ))}
                     </div>
                 </div>
-                <div className="skill-right">
-                    <div>
-                        <AnimatedScrollComponent text="Let's see my Experience" />
-                    </div>
-                </div>
+
+                <motion.div layout className="skills-grid" ref={gridRef} onMouseMove={handleMouseMove}>
+                    <AnimatePresence mode="wait">
+                        {filteredSkills.map((skill) => (
+                            <motion.div
+                                layout
+                                key={skill.name}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.2 }}
+                                whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.2 } }}
+                                className="skills-card"
+                            >
+                                <div className="skills-card-content">
+                                    <span className="skills-icon">{skill.icon}</span>
+                                    <span className="skills-name">{skill.name}</span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
             </div>
 
             <div className="line" />
 
-            <div className="experiance">
-                <div className="experiance-left">
+            <div className="experience">
+                <div className="experience-left">
                     <h2>EXPERIENCE</h2>
-                    <div className="experiance-container">
-                        <div className="experiance-card">
-                            <div className="experiance-card-head">
+                    <div className="experience-container">
+                        <div className="experience-card">
+                            <div className="experience-card-head">
                                 <div>
                                     <h4>DailyObjects</h4>
                                     <p>Full Stack Developer</p>
@@ -130,8 +183,8 @@ const About = () => {
                             </div>
                         </div>
 
-                        <div className="experiance-card">
-                            <div className="experiance-card-head">
+                        <div className="experience-card">
+                            <div className="experience-card-head">
                                 <div>
                                     <h4>Tag. 11 Softech Pvt. Ltd</h4>
                                     <p>Full Stack Intern</p>
@@ -158,7 +211,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="experiance-right">
+                <div className="experience-right">
                     <div>
                         <AnimatedScrollComponent text="Contact me" />
                     </div>
