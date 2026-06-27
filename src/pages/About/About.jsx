@@ -1,12 +1,12 @@
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import AnimatedScrollComponent from '../../components/animatedScrollComp/AnimatedScrollComp';
 import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
 import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaJava, FaNetworkWired } from 'react-icons/fa6';
 import { BiLogoMongodb, BiLogoTypescript } from 'react-icons/bi';
 import { SiExpress, SiRedis, SiCloudinary, SiPostman, SiSocketdotio, SiWebrtc, SiJsonwebtokens } from 'react-icons/si';
 import { IoLogoJavascript } from 'react-icons/io';
-import { FiFramer } from 'react-icons/fi';
+import { FiFramer, FiChevronRight } from 'react-icons/fi';
 import { TbBrandCpp, TbApi, TbBoxModel } from 'react-icons/tb';
 import { RiNextjsLine } from 'react-icons/ri';
 import './about.css';
@@ -43,9 +43,44 @@ const categories = [
     { id: 'core', label: 'Languages & Tools' },
 ];
 
+const experienceData = [
+    {
+        company: 'DailyObjects',
+        role: 'Full Stack Developer',
+        date: 'Jan 2025 - Present',
+        impacts: [
+            'Led the migration of the core web application from Angular 14 to 19, implementing Server-Side Rendering (SSR) for improved SEO and performance.',
+            'Developed and integrated highly optimized RESTful APIs using Node.js to ensure seamless data communication and fast response times.',
+        ],
+        tech: ['Angular 19', 'SSR', 'REST APIs', 'Node.js'],
+    },
+    {
+        company: 'Tag. 11 Softech Pvt. Ltd',
+        role: 'Full Stack Intern',
+        date: 'June - August 2023',
+        impacts: [
+            'Architected scalable backend solutions using Express and Node.js to handle complex data structures and improve platform efficiency.',
+            'Engineered secure authentication flows by implementing customized session management and JWT strategies across the application.',
+        ],
+        tech: ['Node.js', 'Express', 'JWT', 'Backend Architecture'],
+    },
+];
+
 const About = () => {
     const [activeCategory, setActiveCategory] = useState('all');
     const gridRef = useRef(null);
+    const experienceRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: experienceRef,
+        offset: ['start 80%', 'end 60%'],
+    });
+
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001,
+    });
 
     const handleMouseMove = (e) => {
         if (!gridRef.current) return;
@@ -149,71 +184,72 @@ const About = () => {
 
             <div className="line" />
 
-            <div className="experience">
-                <div className="experience-left">
+            <div className="experiance">
+                <div className="experiance-header">
                     <h2>EXPERIENCE</h2>
-                    <div className="experience-container">
-                        <div className="experience-card">
-                            <div className="experience-card-head">
-                                <div>
-                                    <h4>DailyObjects</h4>
-                                    <p>Full Stack Developer</p>
-                                </div>
-                                <div>
-                                    <span>Jan 2025 - Present</span>
-                                </div>
-                            </div>
-
-                            <div className="experience-card-body">
-                                <p>
-                                    During my current role as a Full Stack Developer at DailyObjects, I&apos;ve been
-                                    actively involved in building and optimizing scalable web solutions while improving
-                                    user experience. My key responsibilities and achievements include:
-                                </p>
-                                <ul>
-                                    <li>
-                                        Maintain the site ensuring optimal performance and developed several RESTFUL
-                                        APIs.
-                                    </li>
-                                    <li>
-                                        Lead migration of the web app from Angular 14 to 19, rebuilding the project from
-                                        scratch utilizing SSR capabilities.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="experience-card">
-                            <div className="experience-card-head">
-                                <div>
-                                    <h4>Tag. 11 Softech Pvt. Ltd</h4>
-                                    <p>Full Stack Intern</p>
-                                </div>
-                                <div>
-                                    <span>June - August 2023</span>
-                                </div>
-                            </div>
-
-                            <div className="experience-card-body">
-                                <p>
-                                    During my internship, I worked as a Full Stack Developer, gaining hands-on
-                                    experience in scalable backend development and enhancing my problem-solving skills.
-                                    My key responsibilities and achievements include:
-                                </p>
-                                <ul>
-                                    <li>Learned scalable backend techniques to enhance platform efficiency.</li>
-                                    <li>
-                                        Worked mainly on Implementing better authentication flow by defining various
-                                        session and jwt strategies.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div className="experience-right">
-                    <div>
-                        <AnimatedScrollComponent text="Contact me" />
+
+                <div className="experiance-timeline-wrapper" ref={experienceRef}>
+                    <div className="experiance-track">
+                        <motion.div className="experiance-progress" style={{ scaleY }} />
+                    </div>
+
+                    <div className="experiance-container">
+                        {experienceData.map((exp, index) => (
+                            <div key={index} className="experiance-item">
+                                <div className="experiance-node">
+                                    <div className="experiance-node-inner" />
+                                </div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                    viewport={{ once: true, margin: '-50px' }}
+                                    transition={{
+                                        type: 'spring',
+                                        stiffness: 120,
+                                        damping: 14,
+                                        mass: 1.2,
+                                    }}
+                                    whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                                    className="experiance-card"
+                                >
+                                    <div className="experiance-badge">
+                                        <span className="experiance-company">{exp.company}</span>
+                                        <span className="experiance-divider"></span>
+                                        <span className="experiance-date">{exp.date}</span>
+                                    </div>
+
+                                    <h3 className="experiance-title">{exp.role}</h3>
+
+                                    <div className="experiance-impact-grid">
+                                        {exp.impacts.map((impact, i) => (
+                                            <motion.div
+                                                key={i}
+                                                initial={{ opacity: 0, y: 10 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: 0.3 + i * 0.1 }}
+                                                className="experiance-impact-item"
+                                            >
+                                                <div className="experiance-impact-icon">
+                                                    <FiChevronRight />
+                                                </div>
+                                                <p>{impact}</p>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+
+                                    <div className="experiance-tech-row">
+                                        {exp.tech.map((tech, i) => (
+                                            <span key={i} className="experiance-tech-pill">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
