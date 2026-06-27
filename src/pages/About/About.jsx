@@ -49,20 +49,22 @@ const experienceData = [
         role: 'Full Stack Developer',
         date: 'Jan 2025 - Present',
         impacts: [
-            'Led the migration of the core web application from Angular 14 to 19, implementing Server-Side Rendering (SSR) for improved SEO and performance.',
-            'Developed and integrated highly optimized RESTful APIs using Node.js to ensure seamless data communication and fast response times.',
+            'Led the ground-up rebuild of the core e-commerce platform, migrating the entire architecture from Angular 14 to Angular 19.',
+            'Implemented Server-Side Rendering (SSR) to significantly reduce initial page load metrics and improve search engine visibility for the storefront.',
+            'Architected a highly scalable Node.js backend and integrated Elasticsearch to handle complex, large-scale product data retrieval with sub-second response times.',
+            'Designed and optimized custom REST APIs to eliminate data bottlenecks and guarantee a frictionless, high-speed user experience during traffic spikes.',
         ],
-        tech: ['Angular 19', 'SSR', 'REST APIs', 'Node.js'],
+        tech: ['Angular 19', 'SSR', 'Node.js', 'Elasticsearch', 'REST APIs'],
     },
     {
         company: 'Tag. 11 Softech Pvt. Ltd',
         role: 'Full Stack Intern',
         date: 'June - August 2023',
         impacts: [
-            'Architected scalable backend solutions using Express and Node.js to handle complex data structures and improve platform efficiency.',
-            'Engineered secure authentication flows by implementing customized session management and JWT strategies across the application.',
+            'Engineered robust backend services using Node.js and Express, focusing on scalable architecture to efficiently process complex data structures.',
+            'Implemented strict security protocols across the application by developing custom session management features and securing authentication flows with JWT.',
         ],
-        tech: ['Node.js', 'Express', 'JWT', 'Backend Architecture'],
+        tech: ['Node.js', 'Express', 'JWT', 'System Design'],
     },
 ];
 
