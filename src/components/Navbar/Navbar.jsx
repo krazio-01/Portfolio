@@ -1,26 +1,26 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-import Curve from "./menuCurve/Curve";
-import Logo from "../logoSVG/Logo";
-import NavLinks from "./NavLinks";
-import SocialIcons from "../SocialICons/SocialIcons";
-import AnimatedWrapper from "../animatedWrapper/AnimatedWrapper";
-import "./navbar.css";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import Curve from './menuCurve/Curve';
+import Logo from '../logoSVG/Logo';
+import NavLinks from './NavLinks';
+import SocialIcons from '../SocialICons/SocialIcons';
+import AnimatedWrapper from '../animatedWrapper/AnimatedWrapper';
+import './navbar.css';
 
 const navItems = [
-    { name: "Home", link: "/" },
-    { name: "About", link: "/about" },
-    { name: "Work", link: "/work" },
-    { name: "Contact", link: "/contact" },
+    { name: 'Home', link: '/' },
+    { name: 'About', link: '/about' },
+    { name: 'Work', link: '/work' },
+    { name: 'Contact', link: '/contact' },
 ];
 
 const Navbar = () => {
     const [active, setActive] = useState(false);
 
     useEffect(() => {
-        if (active) document.body.style.overflow = "hidden";
-        else document.body.style.overflow = "unset";
+        if (active) document.body.style.overflow = 'hidden';
+        else document.body.style.overflow = 'unset';
     }, [active]);
 
     return (
@@ -53,17 +53,17 @@ const Navbar = () => {
 
             <div className="mobile-nav">
                 <button onClick={() => setActive((prev) => !prev)}>
-                    <span className={active ? "active" : ""} />
-                    <span className={active ? "active" : ""} />
-                    <span className={active ? "active" : ""} />
+                    <span className={active ? 'active' : ''} />
+                    <span className={active ? 'active' : ''} />
+                    <span className={active ? 'active' : ''} />
                 </button>
 
                 <AnimatePresence mode="wait">
                     {active && (
                         <motion.div
-                            initial={{ x: "calc(100% + 100px)" }}
-                            animate={{ x: "0%" }}
-                            exit={{ x: "calc(100% + 100px)" }}
+                            initial={{ x: 'calc(100% + 100px)' }}
+                            animate={{ x: '0%' }}
+                            exit={{ x: 'calc(100% + 100px)' }}
                             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
                             className="mobile-nav-menu"
                         >

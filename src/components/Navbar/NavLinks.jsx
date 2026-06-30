@@ -1,16 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import { useNavigationGuard } from '../../hooks/useNavigationGuard';
 
-const NavLinks = ({ item }) => {
+const NavLinks = ({ item, onClick }) => {
+    const handleGuard = useNavigationGuard(item.link);
+
+    const handleClick = (e) => {
+        const wasBlocked = handleGuard(e);
+        if (!wasBlocked && onClick) onClick(e);
+    };
+
     return (
-        <>
-            <NavLink
-                to={item.link}
-                data-link-alt={item.name}
-                className={({ isActive }) => (isActive ? "active" : "")}
-            >
-                <span>{item.name}</span>
-            </NavLink>
-        </>
+        <NavLink
+            to={item.link}
+            onClick={handleClick}
+            data-link-alt={item.name}
+            className={({ isActive }) => (isActive ? 'active' : '')}
+        >
+            <span>{item.name}</span>
+        </NavLink>
     );
 };
 
