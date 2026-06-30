@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import './transition.css';
@@ -12,6 +13,23 @@ const Transition = ({ children, keyName }) => {
     };
 
     const exitDelay = isMobile ? 0.7 : 0.05;
+
+    useEffect(() => {
+        document.body.style.pointerEvents = 'none';
+
+        const exitDuration = (0.6 + exitDelay) * 1000;
+        const enterDuration = (0.6 + 0.3) * 1000;
+        const totalTransitionTime = exitDuration + enterDuration;
+
+        const timer = setTimeout(() => {
+            document.body.style.pointerEvents = 'auto';
+        }, totalTransitionTime);
+
+        return () => {
+            clearTimeout(timer);
+            document.body.style.pointerEvents = 'auto';
+        };
+    }, [keyName, exitDelay]);
 
     return (
         <AnimatePresence mode="wait">
