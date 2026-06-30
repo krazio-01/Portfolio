@@ -1,11 +1,14 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { useNavigationGuard } from '../../hooks/useNavigationGuard';
 
 const Logo = ({ width, height }) => {
     const containerRef = useRef(null);
 
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
+
+    const handleGuard = useNavigationGuard('/');
 
     const springConfig = { stiffness: 100, damping: 24, mass: 0.2 };
     const springX = useSpring(mouseX, springConfig);
@@ -29,6 +32,7 @@ const Logo = ({ width, height }) => {
 
     return (
         <div
+            onClick={handleGuard}
             ref={containerRef}
             onMouseMove={handleMouse}
             onMouseLeave={reset}
