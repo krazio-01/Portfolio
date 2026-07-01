@@ -16,12 +16,12 @@ const navItems = [
 ];
 
 const Navbar = () => {
-    const [active, setActive] = useState(false);
+    const [iaSidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
-        if (active) document.body.style.overflow = 'hidden';
+        if (iaSidebarOpen) document.body.style.overflow = 'hidden';
         else document.body.style.overflow = 'unset';
-    }, [active]);
+    }, [iaSidebarOpen]);
 
     return (
         <header className="nav">
@@ -52,14 +52,14 @@ const Navbar = () => {
             </div>
 
             <div className="mobile-nav">
-                <button onClick={() => setActive((prev) => !prev)}>
-                    <span className={active ? 'active' : ''} />
-                    <span className={active ? 'active' : ''} />
-                    <span className={active ? 'active' : ''} />
+                <button onClick={() => setSidebarOpen((prev) => !prev)}>
+                    <span className={iaSidebarOpen ? 'active' : ''} />
+                    <span className={iaSidebarOpen ? 'active' : ''} />
+                    <span className={iaSidebarOpen ? 'active' : ''} />
                 </button>
 
                 <AnimatePresence mode="wait">
-                    {active && (
+                    {iaSidebarOpen && (
                         <motion.div
                             initial={{ x: 'calc(100% + 100px)' }}
                             animate={{ x: '0%' }}
@@ -82,7 +82,7 @@ const Navbar = () => {
                                     {navItems.map((item, index) => (
                                         <motion.li
                                             key={item.name}
-                                            onClick={() => setActive(false)}
+                                            onClick={() => setSidebarOpen(false)}
                                             initial={{ x: 80 }}
                                             animate={{ x: 0 }}
                                             exit={{ x: 80 }}
