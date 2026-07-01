@@ -1,12 +1,22 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useNavigationGuard } from '../../hooks/useNavigationGuard';
 
-const NavLinks = ({ item, onClick }) => {
+const NavLinks = ({ item, fromSidebar }) => {
     const handleGuard = useNavigationGuard(item.link);
+    const navigate = useNavigate();
 
     const handleClick = (e) => {
         const wasBlocked = handleGuard(e);
-        if (!wasBlocked && onClick) onClick(e);
+        if (wasBlocked) return;
+
+        if (fromSidebar) {
+            e.preventDefault();
+
+            setTimeout(() => {
+                navigate(item.link);
+            }, 700);
+            return;
+        }
     };
 
     return (
