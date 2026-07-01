@@ -92,7 +92,7 @@ const Navbar = () => {
                                                 delay: 0.07 * index,
                                             }}
                                         >
-                                            <NavLinks item={item} />
+                                            <NavLinks item={item} fromSidebar={true} />
                                         </motion.li>
                                     ))}
                                 </ul>
