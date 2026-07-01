@@ -3,6 +3,8 @@ import { RiArrowRightDownLine, RiArrowRightUpLine } from "react-icons/ri";
 import "./circularButton.css";
 
 const CircularButton = ({ tag, name, submitButtonRef }) => {
+    const link = name?.toLowerCase();
+
     return (
         <>
             <div className="right-down-arrow">
@@ -13,12 +15,12 @@ const CircularButton = ({ tag, name, submitButtonRef }) => {
             </div>
             <div className="circular-btn">
                 {tag === "a" && (
-                    <a href={`#${name}`}>
+                    <a href={`#${link}`}>
                         <span>{name}</span>
                     </a>
                 )}
                 {tag === "link" && (
-                    <Link to={`/${name}`}>
+                    <Link to={`/${link}`}>
                         <span>{name}</span>
                     </Link>
                 )}
