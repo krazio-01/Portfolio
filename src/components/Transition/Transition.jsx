@@ -15,11 +15,17 @@ const Transition = ({ children, keyName }) => {
 
         const exitMs = PANEL_DURATION * 1000;
         const enterMs = (PANEL_DURATION + ENTER_DELAY) * 1000;
+
+        const scrollTimer = setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, exitMs);
+
         const timer = setTimeout(() => {
             document.body.style.pointerEvents = 'auto';
         }, exitMs + enterMs);
 
         return () => {
+            clearTimeout(scrollTimer);
             clearTimeout(timer);
             document.body.style.pointerEvents = 'auto';
         };
