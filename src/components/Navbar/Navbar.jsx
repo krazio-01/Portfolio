@@ -35,7 +35,7 @@ const Navbar = () => {
                             duration={1}
                             useSpring={true}
                         >
-                            <NavLinks item={item} onClick={() => setActive(false)} />
+                            <NavLinks item={item} />
                         </AnimatedWrapper>
                     ))}
                 </ul>
