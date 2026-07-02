@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Curve from './menuCurve/Curve';
@@ -6,6 +6,7 @@ import Logo from '../logoSVG/Logo';
 import NavLinks from './NavLinks';
 import SocialIcons from '../SocialICons/SocialIcons';
 import AnimatedWrapper from '../animatedWrapper/AnimatedWrapper';
+import useClickOutside from '../../hooks/useClickOutside';
 import './navbar.css';
 
 const navItems = [
@@ -17,6 +18,13 @@ const navItems = [
 
 const Navbar = () => {
     const [iaSidebarOpen, setSidebarOpen] = useState(false);
+
+    const sidebarRef = useRef(null);
+    const buttonRef = useRef(null);
+
+    useClickOutside([sidebarRef, buttonRef], () => {
+        if (iaSidebarOpen) setSidebarOpen(false);
+    });
 
     useEffect(() => {
         if (iaSidebarOpen) document.body.style.overflow = 'hidden';
@@ -52,7 +60,7 @@ const Navbar = () => {
             </div>
 
             <div className="mobile-nav">
-                <button onClick={() => setSidebarOpen((prev) => !prev)}>
+                <button ref={buttonRef} onClick={() => setSidebarOpen((prev) => !prev)}>
                     <span className={iaSidebarOpen ? 'active' : ''} />
                     <span className={iaSidebarOpen ? 'active' : ''} />
                     <span className={iaSidebarOpen ? 'active' : ''} />
@@ -61,6 +69,7 @@ const Navbar = () => {
                 <AnimatePresence mode="wait">
                     {iaSidebarOpen && (
                         <motion.div
+                            ref={sidebarRef}
                             initial={{ x: 'calc(100% + 100px)' }}
                             animate={{ x: '0%' }}
                             exit={{ x: 'calc(100% + 100px)' }}
@@ -68,7 +77,7 @@ const Navbar = () => {
                             className="mobile-nav-menu"
                         >
                             <div className="mobile-nav-body">
-                                <div className='sidebar-header'>
+                                <div className="sidebar-header">
                                     <motion.h2
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}

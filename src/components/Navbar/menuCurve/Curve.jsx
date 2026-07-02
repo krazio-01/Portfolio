@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import "./menuCurve.css";
+import { motion } from 'framer-motion';
+import './menuCurve.css';
 
 const Curve = () => {
     const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${
@@ -26,12 +26,7 @@ const Curve = () => {
 
     return (
         <svg className="svgCurve">
-            <motion.path
-                variants={curve}
-                initial="initial"
-                animate="enter"
-                exit="exit"
-            ></motion.path>
+            <motion.path variants={curve} initial="initial" animate="enter" exit="exit"></motion.path>
         </svg>
     );
 };
