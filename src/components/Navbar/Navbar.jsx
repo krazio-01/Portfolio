@@ -68,16 +68,18 @@ const Navbar = () => {
                             className="mobile-nav-menu"
                         >
                             <div className="mobile-nav-body">
-                                <motion.h2
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{
-                                        delay: 0.5,
-                                        duration: 0.7,
-                                    }}
-                                >
-                                    Navigation
-                                </motion.h2>
+                                <div className='sidebar-header'>
+                                    <motion.h2
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{
+                                            delay: 0.5,
+                                            duration: 0.7,
+                                        }}
+                                    >
+                                        Navigation
+                                    </motion.h2>
+                                </div>
                                 <ul>
                                     {navItems.map((item, index) => (
                                         <motion.li
@@ -90,6 +92,11 @@ const Navbar = () => {
                                                 duration: 0.8,
                                                 ease: [0.76, 0, 0.24, 1],
                                                 delay: 0.07 * index,
+                                            }}
+                                            whileTap={{
+                                                scale: 0.95,
+                                                backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                                                transition: { duration: 0.1 },
                                             }}
                                         >
                                             <NavLinks item={item} fromSidebar={true} />
