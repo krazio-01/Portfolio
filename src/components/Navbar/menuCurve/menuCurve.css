@@ -4,7 +4,7 @@
     left: -99px;
     width: 100px;
     height: 100%;
-    fill: #fff;
+    fill: var(--primary-color1);
     stroke: none;
     pointer-events: none;
 }
