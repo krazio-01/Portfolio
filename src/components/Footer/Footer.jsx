@@ -1,12 +1,11 @@
-import { useLocation } from "react-router-dom";
-import SocialIcons from "../SocialICons/SocialIcons";
-import CircularButton from "../circularButton/CircularButton";
-import "./footer.css";
+import { useLocation } from 'react-router-dom';
+import SocialIcons from '../SocialICons/SocialIcons';
+import CircularButton from '../circularButton/CircularButton';
+import './footer.css';
 
 const Footer = () => {
     const location = useLocation();
-
-    const isContactPage = location.pathname === "/contact" || location.pathname === "/Contact";
+    const isContactPage = location.pathname === '/contact';
 
     return (
         <footer className="footer-main">
@@ -22,8 +21,7 @@ const Footer = () => {
                                     <p>together</p>
                                 </div>
                                 <p>
-                                    Call or email me to start your next project with me. I&apos;d love to
-                                    hear from you!
+                                    Call or email me to start your next project with me. I&apos;d love to hear from you!
                                 </p>
                             </div>
                             <div className="foo-contact-btn">
