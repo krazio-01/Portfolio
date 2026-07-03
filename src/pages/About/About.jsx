@@ -232,12 +232,13 @@ const About = () => {
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
                                                 transition={{ delay: 0.3 + i * 0.1 }}
-                                                className="experiance-impact-item"
                                             >
-                                                <div className="experiance-impact-icon">
-                                                    <FiChevronRight />
+                                                <div className="experiance-impact-item">
+                                                    <div className="experiance-impact-icon">
+                                                        <FiChevronRight />
+                                                    </div>
+                                                    <p>{impact}</p>
                                                 </div>
-                                                <p>{impact}</p>
                                             </motion.div>
                                         ))}
                                     </div>
