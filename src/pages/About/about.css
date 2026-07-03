@@ -265,7 +265,7 @@
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: var(--border-radius);
     padding: 2.5rem;
-    transition: var(--transition);
+    transition: border-color 0.3s ease;
 }
 
 .experiance-card:hover {

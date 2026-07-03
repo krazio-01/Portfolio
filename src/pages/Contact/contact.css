@@ -32,8 +32,19 @@
 
 .basic-info ul li a {
     color: var(--primary-color1);
-    text-decoration: none;
     font-size: var(--fz-md);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+    transition:
+        text-decoration-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.basic-info ul li a:hover,
+.basic-info ul li a:active {
+    text-decoration-color: var(--primary-color1);
 }
 
 .contact-form {
