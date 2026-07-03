@@ -24,6 +24,10 @@
     font-weight: 400;
 }
 
+.foo-head-inside > p {
+    margin-top: 1rem;
+}
+
 .foo-contact-btn {
     display: flex;
     justify-content: space-between;
@@ -64,7 +68,7 @@
 }
 
 .foo-contact div a::before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
