@@ -200,7 +200,7 @@
     .cardContainer .card {
         height: 70%;
         width: 100%;
-        padding: 20px;
+        padding: 1rem;
     }
 
     .card .body .description p {
@@ -209,6 +209,16 @@
 
     .card .body .description .desc-links {
         margin-top: 0.7rem;
-        gap: 1rem;
+        gap: 0.7rem;
+    }
+}
+
+@media screen and (width <= 399px) {
+    .cardContainer .body {
+        gap: 0.5rem;
+    }
+
+    .card .body .description .desc-links a {
+        padding: 0.5rem;
     }
 }
