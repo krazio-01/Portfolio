@@ -11,6 +11,7 @@ const NavLinks = ({ item, fromSidebar }) => {
 
         if (fromSidebar) {
             e.preventDefault();
+            document.body.style.pointerEvents = 'none';
 
             setTimeout(() => {
                 navigate(item.link);
