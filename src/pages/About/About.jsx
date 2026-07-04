@@ -49,22 +49,22 @@ const experienceData = [
         role: 'Full Stack Developer',
         date: 'Jan 2025 - Present',
         impacts: [
-            'Led the ground-up rebuild of the core e-commerce platform, migrating the entire architecture from Angular 14 to Angular 19.',
-            'Implemented Server-Side Rendering (SSR) to significantly reduce initial page load metrics and improve search engine visibility for the storefront.',
-            'Architected a highly scalable Node.js backend and integrated Elasticsearch to handle complex, large-scale product data retrieval with sub-second response times.',
-            'Designed and optimized custom REST APIs to eliminate data bottlenecks and guarantee a frictionless, high-speed user experience during traffic spikes.',
+            'Led the end-to-end migration of the core e-commerce platform from Angular 14 to Angular 19, eliminating legacy technical debt and establishing a clean routing architecture that indexed 2.6k+ valid rich-result items on Google.',
+            'Implemented Server-Side Rendering (SSR) from scratch as part of the migration, improving mobile Lighthouse scores by ~33% and desktop scores by ~25% across the site through faster initial page loads.',
+            'Drove an 11.1% increase in quarterly organic search traffic (+50,000 clicks) and improved average Google search position from 10 to 9.5 through better crawlability and indexing from SSR.',
+            'Built REST APIs on the Node.js backend, including audit-logged media asset endpoints that let non-technical teams update banners, product images, and site media independently, removing developer dependency from every launch.',
         ],
         tech: ['Angular 19', 'SSR', 'Node.js', 'Elasticsearch', 'REST APIs'],
     },
     {
-        company: 'Tag. 11 Softech Pvt. Ltd',
+        company: 'Tag11 Softech Pvt. Ltd.',
         role: 'Full Stack Intern',
-        date: 'June - August 2023',
+        date: 'Jun - Aug 2023',
         impacts: [
-            'Engineered robust backend services using Node.js and Express, focusing on scalable architecture to efficiently process complex data structures.',
-            'Implemented strict security protocols across the application by developing custom session management features and securing authentication flows with JWT.',
+            'Added strict query pagination to heavy REST API endpoints that previously returned entire datasets in one response, cutting JSON payloads by roughly 40% and reducing server load and response times on data-heavy pages.',
+            'Built custom Express.js middleware to validate JSON Web Tokens (JWT) on every protected route, standardizing session handling and blocking unauthorized requests before they reached business logic or the database.',
         ],
-        tech: ['Node.js', 'Express', 'JWT', 'System Design'],
+        tech: ['Node.js', 'Express.js', 'JWT', 'REST APIs'],
     },
 ];
 
