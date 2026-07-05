@@ -1,17 +1,22 @@
-import { useRef } from "react";
-import { useScroll } from "framer-motion";
-import AnimatedScrollComp from "../../components/animatedScrollComp/AnimatedScrollComp";
-import { projects } from "./work-items";
-import ProgressBar from "../../components/progressBar/ProgressBar";
-import Card from "../../components/card/Card";
-import "./work.css";
+import { useRef } from 'react';
+import { useScroll } from 'framer-motion';
+import AnimatedScrollComp from '../../components/animatedScrollComp/AnimatedScrollComp';
+import { projects } from './work-items';
+import ProgressBar from '../../components/progressBar/ProgressBar';
+import Card from '../../components/card/Card';
+import './work.css';
 
 const Work = () => {
     const ref = useRef(null);
 
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start end", "center start"],
+        offset: ['start end', 'center start'],
+    });
+
+    const { scrollYProgress: barProgress } = useScroll({
+        target: ref,
+        offset: ['start start', 'end end'],
     });
 
     return (
@@ -23,11 +28,12 @@ const Work = () => {
                 </div>
                 <AnimatedScrollComp text="" />
             </div>
-
             <div className="work-content">
-                <div className="work-progress-bar">
-                    <h4>My All Work</h4>
-                    <ProgressBar />
+                <div className="work-progress-rail">
+                    <div className="work-progress-bar">
+                        <h4>My All Work</h4>
+                        <ProgressBar progress={barProgress} />
+                    </div>
                 </div>
                 <div ref={ref} className="work-cards">
                     {projects.map((project, index) => {

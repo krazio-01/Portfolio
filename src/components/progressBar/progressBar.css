@@ -1,12 +1,17 @@
-.progress-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 10px;
-    border-radius: var(--border-radius);
-    background: var(--red);
-    transform-origin: 0%;
-    z-index: 10000;
+.progress-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
     pointer-events: none;
+}
+
+.progress-fill {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--red), #ff6b81);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--red) 60%, transparent);
+    transform-origin: 0%;
 }
