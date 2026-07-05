@@ -28,12 +28,19 @@
 }
 
 .work .work-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5rem;
+    position: relative;
     width: 100%;
     min-height: 100svh;
+}
+
+.work-content .work-progress-rail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 100svh;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .work-content .work-progress-bar {
@@ -45,6 +52,7 @@
     top: 20px;
     width: 100%;
     font-size: var(--fz-heading-lg);
+    pointer-events: auto;
 }
 
 .work-content .work-progress-bar h4 {
@@ -53,4 +61,5 @@
 
 .work-cards {
     min-width: 100%;
+    padding-top: 8rem;
 }

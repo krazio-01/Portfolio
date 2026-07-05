@@ -1,9 +1,8 @@
-import { motion, useScroll } from "framer-motion";
-import "./progressBar.css";
+import { motion } from 'framer-motion';
+import './progressBar.css';
 
-const ProgressBar = () => {
-    const { scrollYProgress } = useScroll();
-    return <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }}></motion.div>;
+const ProgressBar = ({ progress }) => {
+    return <motion.div className="progress-bar" style={{ scaleX: progress }}></motion.div>;
 };
 
 export default ProgressBar;
