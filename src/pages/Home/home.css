@@ -36,6 +36,7 @@
     align-items: flex-start;
     margin-bottom: 1rem;
 }
+
 .home-content .home-title-greeting {
     font-size: clamp(var(--fz-md), 5vw, var(--fz-lg));
     margin-bottom: 0.5rem;
@@ -46,6 +47,7 @@
     position: relative;
     display: inline-block;
 }
+
 .home-content .home-title-name {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -54,6 +56,7 @@
     font-size: clamp(var(--fz-heading), 9.5vw, calc(var(--fz-heading-xl) * 1.15));
     color: var(--primary-color1);
 }
+
 .signature-underline {
     position: absolute;
     left: 0;
@@ -69,13 +72,13 @@
     line-height: 1.6rem;
     margin-bottom: 2rem;
 }
+
 .home-content .home-description .home-location {
     margin-bottom: 0.4rem;
     color: var(--muted);
     font-size: clamp(var(--fz-sm), 0.9vw, var(--fz-md));
 }
 
-/* Hand-drawn accents — static, final state, no draw-in */
 .highlight-marker {
     background-image: linear-gradient(
         to bottom,
@@ -85,11 +88,18 @@
         transparent 94%
     );
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 0% 100%;
     padding: 0 3px;
     margin: 0 -3px;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
+    animation: markerSwipe 0.6s ease-out 1.4s forwards;
+}
+
+@keyframes markerSwipe {
+    to {
+        background-size: 100% 100%;
+    }
 }
 
 .circle-annotate {
@@ -97,22 +107,36 @@
     display: inline-block;
     padding: 0 0.15em;
 }
+
 .circle-annotate::after {
     content: '';
     position: absolute;
     inset: -0.35em -0.3em -0.3em;
     border: 1.5px solid var(--accent);
     border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%;
-    transform: rotate(-3deg);
-    opacity: 0.85;
+    transform: rotate(-3deg) scale(1.15);
+    opacity: 0;
     pointer-events: none;
+    animation: circleIn 0.45s ease-out 2.1s forwards;
+}
+
+@keyframes circleIn {
+    to {
+        opacity: 0.85;
+        transform: rotate(-3deg) scale(1);
+    }
 }
 
 .home-img-wrapper {
     position: relative;
-    width: min(380px, 36%);
+    width: min(420px, 40%);
     margin-bottom: 2.5rem;
 }
+
+.home-img-hover-group {
+    position: relative;
+}
+
 .home-img-annotation {
     position: absolute;
     top: -2.2rem;
@@ -120,9 +144,14 @@
     font-family: 'Caveat', cursive;
     font-size: 1.4rem;
     color: var(--muted);
-    transform: rotate(-6deg);
+    transition: color 0.35s ease;
     z-index: 1;
 }
+
+.home-img-wrapper:hover .home-img-annotation {
+    color: var(--accent);
+}
+
 .home-img img {
     display: block;
     max-width: 100%;
@@ -145,6 +174,7 @@
         border-color 0.2s ease,
         color 0.2s ease;
 }
+
 .home-content .resume a:hover {
     background: transparent;
     border-color: var(--primary-color1);
@@ -156,11 +186,13 @@
     gap: 3rem;
     margin: 5rem 0;
 }
+
 .home-basic-info-inside {
     max-width: 70%;
     font-size: clamp(var(--fz-lg), 1vw, var(--fz-xl));
     line-height: 2rem;
 }
+
 .home-basic-info-btn {
     display: flex;
     align-items: stretch;
@@ -173,14 +205,28 @@
     position: relative;
     margin-top: 5rem;
 }
+
 .home-work {
     position: relative;
     margin-top: 10vh;
 }
+
 .home-work-container .work-header {
     position: sticky;
     top: 20px;
     font-size: var(--fz-heading-lg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .highlight-marker {
+        animation: none;
+        background-size: 100% 100%;
+    }
+    .circle-annotate::after {
+        animation: none;
+        opacity: 0.85;
+        transform: rotate(-3deg);
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -190,25 +236,31 @@
         gap: 2rem;
         max-width: 100%;
     }
+
     .home-main .home-content {
         width: 100%;
     }
+
     .home-img-wrapper {
         width: 90%;
         margin: 3rem auto 2.5rem;
     }
+
     .home-basic-info {
         flex-direction: column;
         margin: 3rem 0;
     }
+
     .home-basic-info-inside {
         min-width: 100%;
         line-height: 1.7rem;
         margin-bottom: 2rem;
     }
+
     .home-basic-info-btn {
         width: 60%;
     }
+
     .home-work-container .work-header {
         font-size: var(--fz-heading);
     }
