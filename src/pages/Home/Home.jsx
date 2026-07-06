@@ -28,27 +28,71 @@ const Home = () => {
                 <div className="home-hero">
                     <div className="home-content">
                         <AnimatedWrapper className="home-title" delay={0.2} duration={1}>
-                            <span>Hi, my name is</span>
-                            <span>Md Amman.</span>
+                            <span className="home-title-greeting">Hi, my name is</span>
+                            <span className="home-title-name-wrap">
+                                <span className="home-title-name">Md Amman.</span>
+                                <motion.svg
+                                    className="signature-underline"
+                                    viewBox="0 0 260 20"
+                                    preserveAspectRatio="none"
+                                >
+                                    <motion.path
+                                        d="M4 12 C 40 4, 80 18, 120 8 S 200 4, 256 10"
+                                        fill="none"
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                        style={{ stroke: 'var(--accent)' }}
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        animate={{ pathLength: 1, opacity: 1 }}
+                                        transition={{ duration: 0.8, delay: 1.2, ease: 'easeInOut' }}
+                                    />
+                                </motion.svg>
+                            </span>
                         </AnimatedWrapper>
-
                         <AnimatedWrapper className="home-description" delay={0.4} duration={1}>
-                            <p>I&apos;m from Jaipur, India</p>
+                            <p className="home-location">Full-Stack Developer from Jaipur, India</p>
                             <p>
-                                I&apos;m a Full-Stack Developer with 1 year of experience, specializing in building modern,
-                                aesthetic, and scalable web applications.
+                                One year in, building <span className="highlight-marker">modern web apps</span> with an
+                                eye for <span className="circle-annotate">detail</span>.
                             </p>
                         </AnimatedWrapper>
-
                         <AnimatedWrapper className="resume" delay={0.6} duration={1}>
-                            <a href={resume} download="Md_Amman_Resume.pdf" rel="noopener noreferrer" target="_blank">
+                            <motion.a
+                                href={resume}
+                                download="Md_Amman_Resume.pdf"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                whileHover={{ scale: 1.04 }}
+                                whileTap={{ scale: 0.96 }}
+                                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                            >
                                 <span>Resume</span> <FaLink />
-                            </a>
+                            </motion.a>
                         </AnimatedWrapper>
                     </div>
-
-                    <AnimatedWrapper className="home-img" delay={0.6} duration={1}>
-                        <img src={Img} alt="img1" />
+                    <AnimatedWrapper className="home-img-wrapper" delay={0.6} duration={1}>
+                        <motion.div className="home-img-hover-group" initial="rest" whileHover="hover">
+                            <motion.span
+                                className="home-img-annotation"
+                                variants={{
+                                    rest: { x: 0, y: 0, rotate: -6, scale: 1 },
+                                    hover: { x: -16, y: -10, rotate: -15, scale: 1.06 },
+                                }}
+                                transition={{ type: 'spring', stiffness: 260, damping: 12 }}
+                            >
+                                (that&apos;s me!)
+                            </motion.span>
+                            <motion.div
+                                className="home-img"
+                                variants={{
+                                    rest: { scale: 1 },
+                                    hover: { scale: 1.05 },
+                                }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+                            >
+                                <img src={Img} alt="Md Amman" />
+                            </motion.div>
+                        </motion.div>
                     </AnimatedWrapper>
                 </div>
             </div>
