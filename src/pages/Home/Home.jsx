@@ -28,27 +28,38 @@ const Home = () => {
                 <div className="home-hero">
                     <div className="home-content">
                         <AnimatedWrapper className="home-title" delay={0.2} duration={1}>
-                            <span>Hi, my name is</span>
-                            <span>Md Amman.</span>
+                            <span className="home-title-greeting">Hi, my name is</span>
+                            <span className="home-title-name-wrap">
+                                <span className="home-title-name">Md Amman.</span>
+                                <svg className="signature-underline" viewBox="0 0 260 20" preserveAspectRatio="none">
+                                    <path
+                                        d="M4 12 C 40 4, 80 18, 120 8 S 200 4, 256 10"
+                                        fill="none"
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                        style={{ stroke: 'var(--accent)' }}
+                                    />
+                                </svg>
+                            </span>
                         </AnimatedWrapper>
-
                         <AnimatedWrapper className="home-description" delay={0.4} duration={1}>
-                            <p>I&apos;m from Jaipur, India</p>
+                            <p className="home-location">Full-Stack Developer from Jaipur, India</p>
                             <p>
-                                I&apos;m a Full-Stack Developer with 1 year of experience, specializing in building modern,
-                                aesthetic, and scalable web applications.
+                                One year in, building <span className="highlight-marker">modern web apps</span> with an
+                                eye for <span className="circle-annotate">detail</span>.
                             </p>
                         </AnimatedWrapper>
-
                         <AnimatedWrapper className="resume" delay={0.6} duration={1}>
                             <a href={resume} download="Md_Amman_Resume.pdf" rel="noopener noreferrer" target="_blank">
                                 <span>Resume</span> <FaLink />
                             </a>
                         </AnimatedWrapper>
                     </div>
-
-                    <AnimatedWrapper className="home-img" delay={0.6} duration={1}>
-                        <img src={Img} alt="img1" />
+                    <AnimatedWrapper className="home-img-wrapper" delay={0.6} duration={1}>
+                        <span className="home-img-annotation">(that&apos;s me!)</span>
+                        <div className="home-img">
+                            <img src={Img} alt="Md Amman" />
+                        </div>
                     </AnimatedWrapper>
                 </div>
             </div>

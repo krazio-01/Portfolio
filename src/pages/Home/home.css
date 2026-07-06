@@ -1,76 +1,136 @@
-.home-hero {
+.home-main,
+.home-basic-info,
+.home-work-container {
+    --muted: var(--text-muted, #999);
+    --accent: var(--red);
+}
+
+.home-hero,
+.home-basic-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.home-content .resume a,
+.home-work-container .work-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-hero {
+    gap: 2rem;
+    max-width: 85%;
+    margin-inline: auto;
     min-height: calc(100svh - var(--nav-height));
 }
 
-.home-main .home-img {
-    width: min(450px, 80%);
-    margin-bottom: 2.5rem;
-    user-select: none;
-    pointer-events: none;
-    box-shadow: 0 10px 5px rgb(0 0 0 / 0.1) inset;
-}
-
-.home-main .home-img img {
-    max-width: 100%;
-    height: auto;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: var(--border-radius);
-}
-
 .home-main .home-content {
-    width: 50%;
+    width: min(560px, 48%);
 }
 
 .home-content .home-title {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
     margin-bottom: 1rem;
 }
-
-.home-content .home-title span:first-child {
+.home-content .home-title-greeting {
     font-size: clamp(var(--fz-md), 5vw, var(--fz-lg));
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--muted);
 }
 
-.home-content .home-title span:last-child {
-    font-size: clamp(var(--fz-heading), 6.5vw, var(--fz-heading-xl));
-    background: linear-gradient(90deg, var(--red), var(--purple));
-    background-size: 200%;
-    background-clip: text;
-    color: transparent;
-    animation: titleAnim 3s linear infinite;
+.home-title-name-wrap {
+    position: relative;
+    display: inline-block;
 }
-
-@keyframes titleAnim {
-    0% {
-        background-position: 0%;
-    }
-
-    100% {
-        background-position: 200%;
-    }
+.home-content .home-title-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-size: clamp(var(--fz-heading), 9.5vw, calc(var(--fz-heading-xl) * 1.15));
+    color: var(--primary-color1);
+}
+.signature-underline {
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+    width: 100%;
+    height: 0.6em;
+    overflow: visible;
+    pointer-events: none;
 }
 
 .home-content .home-description p {
     font-size: clamp(var(--fz-md), 1vw, var(--fz-lg));
-    line-height: 1.5rem;
+    line-height: 1.6rem;
     margin-bottom: 2rem;
+}
+.home-content .home-description .home-location {
+    margin-bottom: 0.4rem;
+    color: var(--muted);
+    font-size: clamp(var(--fz-sm), 0.9vw, var(--fz-md));
+}
 
-    &:first-child {
-        margin-bottom: 0.5rem;
-    }
+/* Hand-drawn accents — static, final state, no draw-in */
+.highlight-marker {
+    background-image: linear-gradient(
+        to bottom,
+        transparent 58%,
+        color-mix(in srgb, var(--accent) 45%, transparent) 58%,
+        color-mix(in srgb, var(--accent) 45%, transparent) 94%,
+        transparent 94%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 0 3px;
+    margin: 0 -3px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.circle-annotate {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.15em;
+}
+.circle-annotate::after {
+    content: '';
+    position: absolute;
+    inset: -0.35em -0.3em -0.3em;
+    border: 1.5px solid var(--accent);
+    border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%;
+    transform: rotate(-3deg);
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.home-img-wrapper {
+    position: relative;
+    width: min(380px, 36%);
+    margin-bottom: 2.5rem;
+}
+.home-img-annotation {
+    position: absolute;
+    top: -2.2rem;
+    left: -1rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--muted);
+    transform: rotate(-6deg);
+    z-index: 1;
+}
+.home-img img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
 }
 
 .home-content .resume a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0.5rem;
     text-decoration: none;
     color: var(--primary-color2);
@@ -80,34 +140,30 @@
     padding: 5px;
     border-radius: var(--border-radius);
     width: 120px;
-    transition: var(--transition);
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
 }
-
 .home-content .resume a:hover {
     background: transparent;
-    border: 3px solid var(--primary-color1);
+    border-color: var(--primary-color1);
     color: var(--primary-color1);
 }
 
 .home-basic-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     min-height: 70svh;
     gap: 3rem;
     margin: 5rem 0;
 }
-
 .home-basic-info-inside {
     max-width: 70%;
     font-size: clamp(var(--fz-lg), 1vw, var(--fz-xl));
     line-height: 2rem;
 }
-
 .home-basic-info-btn {
     display: flex;
     align-items: stretch;
-    justify-content: space-between;
     min-width: fit-content;
     flex-shrink: 0;
     width: 17%;
@@ -117,52 +173,42 @@
     position: relative;
     margin-top: 5rem;
 }
-
 .home-work {
     position: relative;
     margin-top: 10vh;
 }
-
 .home-work-container .work-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: sticky;
     top: 20px;
     font-size: var(--fz-heading-lg);
 }
 
-/* Media Queries */
 @media screen and (max-width: 600px) {
     .home-hero {
         flex-direction: column-reverse;
         min-height: auto;
+        gap: 2rem;
+        max-width: 100%;
     }
-
-    .home-main .home-img {
-        width: 100%;
-    }
-
     .home-main .home-content {
         width: 100%;
     }
-
+    .home-img-wrapper {
+        width: 90%;
+        margin: 3rem auto 2.5rem;
+    }
     .home-basic-info {
         flex-direction: column;
-        min-height: 70svh;
         margin: 3rem 0;
     }
-
     .home-basic-info-inside {
         min-width: 100%;
         line-height: 1.7rem;
         margin-bottom: 2rem;
     }
-
     .home-basic-info-btn {
         width: 60%;
     }
-
     .home-work-container .work-header {
         font-size: var(--fz-heading);
     }
