@@ -1,0 +1,32 @@
+:root {
+    --pattern-squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 6' preserveAspectRatio='none'%3E%3Cpath d='M2 3.9 Q 9 1.2 16 3.6 Q 25 5.7 33 3 Q 40 0.9 49 3.6 Q 58 5.4 66 2.7 Q 73 0.6 82 3.9 Q 91 5.7 99 3 Q 106 1.2 114 3.6 Q 118 4.5 118 3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+
+    --pattern-squiggle-alt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 6' preserveAspectRatio='none'%3E%3Cpath d='M2 3.3 Q 11 5.7 19 3.6 Q 27 1.2 36 3.3 Q 46 5.4 55 3.9 Q 62 1.5 71 3.6 Q 80 5.7 88 3.3 Q 96 0.9 104 3.9 Q 111 5.4 118 3.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+
+    --pattern-strokes: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 5' preserveAspectRatio='none'%3E%3Cpath d='M0 3 L6 2.4 M9 2.6 L15 3.2' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.doodle-underline {
+    position: relative;
+    --doodle-pattern: var(--pattern-squiggle);
+    --doodle-color: var(--red);
+    --doodle-thickness: 6px;
+    --doodle-size: 100% 100%;
+    --doodle-repeat: no-repeat;
+    --doodle-offset: -8px;
+}
+
+.doodle-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: var(--doodle-offset);
+    height: var(--doodle-thickness);
+    background-color: var(--doodle-color);
+    -webkit-mask: var(--doodle-pattern) var(--doodle-repeat);
+    mask: var(--doodle-pattern) var(--doodle-repeat);
+    -webkit-mask-size: var(--doodle-size);
+    mask-size: var(--doodle-size);
+    pointer-events: none;
+}

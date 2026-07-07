@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import App from './App.jsx';
 import './index.css';
+import './doodles.css';
 
 if ('fonts' in document) {
     document.fonts.load('600 20px Caveat').catch(() => {});
