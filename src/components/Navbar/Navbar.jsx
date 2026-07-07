@@ -17,19 +17,21 @@ const navItems = [
 ];
 
 const Navbar = () => {
-    const [iaSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     const sidebarRef = useRef(null);
     const buttonRef = useRef(null);
 
     useClickOutside([sidebarRef, buttonRef], () => {
-        if (iaSidebarOpen) setSidebarOpen(false);
+        if (isSidebarOpen) setSidebarOpen(false);
     });
 
     useEffect(() => {
-        if (iaSidebarOpen) document.body.style.overflow = 'hidden';
-        else document.body.style.overflow = 'unset';
-    }, [iaSidebarOpen]);
+        document.body.style.overflow = isSidebarOpen ? 'hidden' : 'unset';
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isSidebarOpen]);
 
     return (
         <header className="nav">
@@ -39,6 +41,7 @@ const Navbar = () => {
                         <AnimatedWrapper
                             as="li"
                             key={item.name}
+                            className="doodle-underline"
                             delay={(index + 3) * 0.1}
                             duration={1}
                             useSpring={true}
@@ -49,6 +52,7 @@ const Navbar = () => {
                 </ul>
 
                 <div className="nav-social-icons">
+                    <span className="social-hint">find me →</span>
                     <SocialIcons />
                 </div>
             </div>
@@ -61,13 +65,13 @@ const Navbar = () => {
 
             <div className="mobile-nav">
                 <button ref={buttonRef} onClick={() => setSidebarOpen((prev) => !prev)}>
-                    <span className={iaSidebarOpen ? 'active' : ''} />
-                    <span className={iaSidebarOpen ? 'active' : ''} />
-                    <span className={iaSidebarOpen ? 'active' : ''} />
+                    <span className={isSidebarOpen ? 'active' : ''} />
+                    <span className={isSidebarOpen ? 'active' : ''} />
+                    <span className={isSidebarOpen ? 'active' : ''} />
                 </button>
 
                 <AnimatePresence mode="wait">
-                    {iaSidebarOpen && (
+                    {isSidebarOpen && (
                         <motion.div
                             ref={sidebarRef}
                             initial={{ x: 'calc(100% + 100px)' }}
@@ -78,16 +82,16 @@ const Navbar = () => {
                         >
                             <div className="mobile-nav-body">
                                 <div className="sidebar-header">
-                                    <motion.h2
+                                    <motion.h1
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{
                                             delay: 0.5,
-                                            duration: 0.7,
+                                            duration: 0.2,
                                         }}
                                     >
                                         Navigation
-                                    </motion.h2>
+                                    </motion.h1>
                                 </div>
                                 <ul>
                                     {navItems.map((item, index) => (

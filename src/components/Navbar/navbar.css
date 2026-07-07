@@ -43,32 +43,54 @@
     color: var(--primary-color1);
     display: block;
     transition:
-        transform 0.5s ease,
+        transform 0.5s cubic-bezier(0.34, 1.75, 0.64, 1),
         color 0.5s ease;
 }
 
 .nav-items a::before {
     content: attr(data-link-alt);
     position: absolute;
-    top: 100%;
+    top: 0;
+    transform: translateY(100%);
     opacity: 0;
     transition:
-        top 0.5s ease,
-        opacity 0.5s ease;
+        transform 0.5s cubic-bezier(0.34, 1.75, 0.64, 1),
+        opacity 0.3s ease;
 }
 
 .nav-items a:hover span {
-    transform: translateY(-100px);
+    transform: translateY(-100%);
 }
 
 .nav-items a:hover::before {
-    top: 0;
+    transform: translateY(0);
     opacity: 1;
 }
 
 .nav-items a.active span,
 .mobile-nav-body a.active span {
     color: var(--red);
+}
+
+.nav-items li.doodle-underline {
+    --doodle-thickness: 5px;
+}
+
+.nav-items li.doodle-underline::after {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-items li:has(a.active)::after {
+    opacity: 1;
+}
+
+.mobile-nav-body a.active span {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--red);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
 }
 
 .logo {
@@ -90,22 +112,31 @@
 }
 
 /* -------css for social icons--------- */
+.nav-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-hint {
+    font-family: 'Caveat', cursive;
+    font-size: var(--fz-xl);
+    color: var(--text-muted);
+    transform: rotate(-3deg);
+    user-select: none;
+    white-space: nowrap;
+}
+
 .nav-social-icons ul {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    backdrop-filter: blur(10px);
 }
 
 .nav-social-icons a {
+    position: relative;
     color: #a3a3a3;
     font-size: var(--fz-lg);
-    transition:
-        transform 0.3s ease,
-        color 0.3s ease;
+    transition: color 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +144,29 @@
 
 .nav-social-icons a:hover {
     color: var(--primary-color1);
-    transform: translateY(-3px) scale(1.1);
+}
+
+.nav-social-icons li {
+    position: relative;
+}
+
+.nav-social-icons li::after {
+    content: '';
+    position: absolute;
+    inset: -0.5em -0.45em;
+    border: 1.5px solid var(--red);
+    border-radius: 55% 45% 50% 50% / 50% 55% 45% 55%;
+    opacity: 0;
+    transform: rotate(-4deg) scale(1.25);
+    transition:
+        opacity 0.25s ease,
+        transform 0.3s cubic-bezier(0.34, 1.75, 0.64, 1);
+    pointer-events: none;
+}
+
+.nav-social-icons li:has(a:hover)::after {
+    opacity: 0.9;
+    transform: rotate(-4deg) scale(1);
 }
 
 /* -------css for mobile nav--------- */
@@ -187,9 +240,11 @@
     flex-direction: column;
 }
 
-.mobile-nav-body h2 {
+.mobile-nav-body h1 {
+    font-family: 'Caveat', cursive;
     color: var(--primary-color2);
     margin: 3rem 0;
+    transform: rotate(-2deg);
 }
 
 .mobile-nav-body a {
