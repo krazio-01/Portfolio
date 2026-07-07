@@ -5,6 +5,7 @@ import { projects } from './data';
 import Img from '../../assets/images/me.webp';
 import CircularButton from '../../components/circularButton/CircularButton';
 import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
+import Scribble from '../../components/Scribble/Scribble';
 import resume from '../../../resume.pdf';
 import { FaLink } from 'react-icons/fa6';
 import './home.css';
@@ -29,31 +30,22 @@ const Home = () => {
                     <div className="home-content">
                         <AnimatedWrapper className="home-title" delay={0.2} duration={1}>
                             <span className="home-title-greeting">Hi, my name is</span>
-                            <span className="home-title-name-wrap">
+                            <Scribble variant="underline" wrapClassName="home-title-name-wrap" delay={1.2}>
                                 <span className="home-title-name">Md Amman.</span>
-                                <motion.svg
-                                    className="signature-underline"
-                                    viewBox="0 0 260 20"
-                                    preserveAspectRatio="none"
-                                >
-                                    <motion.path
-                                        d="M4 12 C 40 4, 80 18, 120 8 S 200 4, 256 10"
-                                        fill="none"
-                                        strokeWidth="3"
-                                        strokeLinecap="round"
-                                        style={{ stroke: 'var(--accent)' }}
-                                        initial={{ pathLength: 0, opacity: 0 }}
-                                        animate={{ pathLength: 1, opacity: 1 }}
-                                        transition={{ duration: 0.8, delay: 1.2, ease: 'easeInOut' }}
-                                    />
-                                </motion.svg>
-                            </span>
+                            </Scribble>
                         </AnimatedWrapper>
                         <AnimatedWrapper className="home-description" delay={0.4} duration={1}>
                             <p className="home-location">Full-Stack Developer from Jaipur, India</p>
                             <p>
-                                One year in, building <span className="highlight-marker">modern web apps</span> with an
-                                eye for <span className="circle-annotate">detail</span>.
+                                One year in — I build the frontend, wire the backend, and close the{' '}
+                                <Scribble variant="circle" wrapClassName="circle-annotate" delay={1.4}>
+                                    loop
+                                </Scribble>{' '}
+                                myself. These are just the{' '}
+                                <Scribble variant="highlight" delay={2}>
+                                    highlights
+                                </Scribble>
+                                .
                             </p>
                         </AnimatedWrapper>
                         <AnimatedWrapper className="resume" delay={0.6} duration={1}>

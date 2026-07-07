@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Loader from "./components/Loader/Loader";
-import Layout from "./Layout";
+import { useState } from 'react';
+import Loader from './components/Loader/Loader';
+import Layout from './Layout';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
