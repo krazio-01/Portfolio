@@ -4,6 +4,7 @@
     --theme-color: #1a1a1a;
     --scrollbar-color: #535353;
     --scrollbar-color-hover: #777777;
+    --text-muted: #999;
     --primary-color1: #fff;
     --primary-color2: #000;
     --red: #e04444;
@@ -27,7 +28,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
