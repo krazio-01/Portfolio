@@ -2,7 +2,6 @@
 .home-basic-info,
 .home-work-container {
     --muted: var(--text-muted);
-    --accent: var(--red);
 }
 
 .home-hero,
@@ -151,15 +150,14 @@
 }
 
 .home-basic-info {
-    min-height: 70svh;
+    min-height: 60svh;
     gap: 3rem;
-    margin: 5rem 0;
 }
 
 .home-basic-info-inside {
-    max-width: 70%;
-    font-size: clamp(var(--fz-lg), 1vw, var(--fz-xl));
-    line-height: 2rem;
+    max-width: 65%;
+    font-size: clamp(var(--fz-lg), 1.3vw, var(--fz-xxl));
+    line-height: 1.5;
 }
 
 .home-basic-info-btn {
@@ -205,7 +203,7 @@
 
     .home-basic-info {
         flex-direction: column;
-        margin: 3rem 0;
+        padding: 1rem 0;
     }
 
     .home-basic-info-inside {
