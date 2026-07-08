@@ -20,7 +20,7 @@ const Home = () => {
     });
 
     const basicInfo =
-        'As a full-stack developer, I specialize in crafting modern web applications using React.js, Next.js and Angular for front-end development and Express.js for back-end solutions. With proficiency in MongoDB, I design efficient database systems to manage application data effectively. Additionally, I enhance user experience through fluid animations and interactive transitions using Framer Motion. My expertise lies in creating scalable, maintainable, and user-centric solutions tailored to meet the unique requirements of each project.';
+        "I build full-stack apps — React, Next.js, and Angular up front, Node and Express behind the scenes. I've also worked with real-time features like sockets and WebRTC, along with the database work — MongoDB, Redis — that keeps things fast under the hood. I lean on TypeScript wherever I can, mostly so future-me doesn't have to guess what past-me was thinking. Outside the stack itself, most of my attention goes to the small stuff: clean animations (yes, the ones you're watching right now), tight load times, and code I'd still be comfortable reading six months from now.";
     const words = basicInfo.split(' ');
 
     return (
@@ -96,9 +96,10 @@ const Home = () => {
                     {words.map((word, index) => (
                         <motion.span
                             key={index}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ duration: 0.1, delay: index * 0.015 }}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 24, delay: index * 0.015 }}
                             className="span-word"
                         >
                             {word}{' '}
