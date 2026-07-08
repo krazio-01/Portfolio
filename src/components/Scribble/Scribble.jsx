@@ -58,6 +58,7 @@ const Scribble = ({
     wrapClassName = '',
     as: Tag = 'span',
     delay = 1.2,
+    viewportTrigger = false,
     children,
 }) => {
     const preset = variant ? PRESETS[variant] : undefined;
@@ -80,6 +81,10 @@ const Scribble = ({
     }
 
     if (kind === 'fill') {
+        const animateProps = viewportTrigger
+            ? { whileInView: { scaleX: 1 }, viewport: { once: true } }
+            : { animate: { scaleX: 1 } };
+
         return (
             <Tag className={wrapClassName} style={FILL_WRAP_STYLE}>
                 <motion.span
@@ -98,13 +103,17 @@ const Scribble = ({
                         pointerEvents: 'none',
                     }}
                     initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
+                    {...animateProps}
                     transition={{ duration: resolved.duration, delay, ease: FILL_EASE }}
                 />
                 <span style={FILL_TEXT_STYLE}>{children}</span>
             </Tag>
         );
     }
+
+    const strokeAnimateProps = viewportTrigger
+        ? { whileInView: { pathLength: 1, opacity: resolved.finalOpacity }, viewport: { once: true } }
+        : { animate: { pathLength: 1, opacity: resolved.finalOpacity } };
 
     return (
         <Tag className={wrapClassName}>
@@ -117,7 +126,7 @@ const Scribble = ({
                     strokeLinecap="round"
                     style={{ stroke: color }}
                     initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: resolved.finalOpacity }}
+                    {...strokeAnimateProps}
                     transition={{ duration: resolved.duration, delay, ease: 'easeInOut' }}
                 />
             </motion.svg>
