@@ -8,6 +8,8 @@
 .bio h2,
 .skills h2,
 .experiance h2 {
+    font-size: var(--fz-heading);
+    color: var(--primary-color1);
     margin-bottom: 2rem;
 }
 
@@ -381,6 +383,12 @@
 @media screen and (max-width: 768px) {
     .bio .bio-left {
         max-width: 50%;
+    }
+
+    .bio h2,
+    .skills h2,
+    .experiance h2 {
+        font-size: revert;
     }
 
     .skills-header {
