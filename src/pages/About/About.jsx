@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import AnimatedScrollComponent from '../../components/animatedScrollComp/AnimatedScrollComp';
 import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
+import Scribble from '../../components/Scribble/Scribble';
 import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaJava, FaNetworkWired } from 'react-icons/fa6';
 import { BiLogoMongodb, BiLogoTypescript } from 'react-icons/bi';
 import { SiExpress, SiRedis, SiCloudinary, SiPostman, SiSocketdotio, SiWebrtc, SiJsonwebtokens } from 'react-icons/si';
@@ -105,28 +106,30 @@ const About = () => {
             <div className="bio">
                 <div className="bio-left">
                     <AnimatedWrapper as="h2" delay={0.5} duration={0.7}>
-                        BIOGRAPHY
+                        THE REST OF IT
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.7}>
                         Hello! My name is <span>Amman</span> and I enjoy creating things that live on the internet. My
-                        interest in web development started back in 2021
+                        interest in web development started back in 2021.
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.9}>
-                        My web development journey has equipped me with skills in both front-end and back-end
-                        technologies. I create responsive applications with expertise in <span>React.js</span>,{' '}
-                        <span>Next.js</span> and pleasing animations using <span>Framer Motion.</span>
+                        Since then I&apos;ve picked up a full-stack toolkit — <span>React</span>, <span>Next.js</span>,
+                        and Angular on the frontend, Node and Express on the backend — along with the smaller things
+                        that hold it together: TypeScript, MongoDB, Redis, and enough <span>Framer Motion</span> to make
+                        things feel less static.
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.1}>
-                        In addition to my technical skills, I am adept at collaborating with cross-functional teams,
-                        translating client requirements into technical specifications, and delivering high-quality
-                        projects on time. My keen eye for detail and commitment to staying updated with the latest
-                        industry trends enable me to incorporate the best practices and cutting-edge technologies into
-                        my work.
+                        Outside of the obvious stuff, I&apos;m the kind of person who&apos;ll lose an evening tweaking
+                        one animation curve nobody else will ever notice, or wondering if a boring form could feel a bit
+                        more like a game menu instead. It rarely changes anything measurable. I do it anyway.
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={1.3}>
-                        Driven by a passion for innovation and fueled by curiosity, I&apos;m always eager to explore new
-                        technologies and tackle exciting challenges. Let&apos;s collaborate and transform your ideas
-                        into reality!
+                        This portfolio, in particular, is where that habit gets to run wild — new animation ideas, and a
+                        slightly excessive amount of attention to{' '}
+                        <Scribble variant="highlight" delay={2.2}>
+                            hover states
+                        </Scribble>
+                        .
                     </AnimatedWrapper>
                 </div>
                 <div className="bio-right">

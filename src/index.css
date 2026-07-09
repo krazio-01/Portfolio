@@ -8,6 +8,7 @@
     --primary-color1: #fff;
     --primary-color2: #000;
     --red: #e04444;
+    --accent: var(--red);
     --purple: #b206b2;
     --yellow: #ffe66d;
     --border-radius: 7px;

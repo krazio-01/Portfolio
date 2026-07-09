@@ -4,6 +4,7 @@ import AnimatedScrollComp from '../../components/animatedScrollComp/AnimatedScro
 import { projects } from './work-items';
 import ProgressBar from '../../components/progressBar/ProgressBar';
 import Card from '../../components/card/Card';
+import Scribble from '../../components/Scribble/Scribble';
 import './work.css';
 
 const Work = () => {
@@ -23,8 +24,15 @@ const Work = () => {
         <div className="work">
             <div className="work-header">
                 <div className="work-title">
-                    <h1>My work</h1>
-                    <h3>A showcase of diverse and impactful projects</h3>
+                    <span className="work-eyebrow">Selected work</span>
+                    <h1>Things I&apos;ve built</h1>
+                    <h3>
+                        A few things worth showing —{' '}
+                        <Scribble variant="circle" wrapClassName="work-count" delay={1.2}>
+                            {projects.length}
+                        </Scribble>{' '}
+                        of them, and the stories behind each one.
+                    </h3>
                 </div>
                 <AnimatedScrollComp text="" />
             </div>
