@@ -62,8 +62,8 @@ const experienceData = [
         role: 'Full Stack Intern',
         date: 'Jun - Aug 2023',
         impacts: [
-            'Added strict query pagination to heavy REST API endpoints that previously returned entire datasets in one response, cutting JSON payloads by roughly 40% and reducing server load and response times on data-heavy pages.',
-            'Built custom Express.js middleware to validate JSON Web Tokens (JWT) on every protected route, standardizing session handling and blocking unauthorized requests before they reached business logic or the database.',
+            'Added pagination to several REST API endpoints that previously returned entire datasets in a single response, reducing payload size on data-heavy pages.',
+            'Built Express.js middleware to validate JWTs on every protected route, blocking unauthorized requests before they reached business logic or the database',
         ],
         tech: ['Node.js', 'Express.js', 'JWT', 'REST APIs'],
     },
