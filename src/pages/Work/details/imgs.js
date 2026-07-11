@@ -14,11 +14,16 @@ import Envision2 from '../../../assets/images/work4_1.png';
 import Envision3 from '../../../assets/images/work4_2.png';
 import Envision4 from '../../../assets/images/work4_3.png';
 import Envision5 from '../../../assets/images/work4_4.png';
+import QuizPortal1 from '../../../assets/images/work1.png';
+import QuizPortal2 from '../../../assets/images/work1_1.png';
+import QuizPortal3 from '../../../assets/images/work1_2.png';
+import QuizPortal4 from '../../../assets/images/work1_3.png';
 
 const images = {
     Whisperwave: [Whisperwave1, Whisperwave2, Whisperwave3, Whisperwave4, Whisperwave5],
     AetherBot: [AetherBot1, AetherBot2, AetherBot3, AetherBot4, AetherBot5, AetherBot6],
     Envision: [Envision1, Envision2, Envision3, Envision4, Envision5],
+    QuizPortal: [QuizPortal1, QuizPortal2, QuizPortal3, QuizPortal4],
 };
 
 export default images;

@@ -1,3 +1,4 @@
+import Work1 from '../../assets/images/work1.png';
 import Work2 from '../../assets/images/work2.png';
 import Work3 from '../../assets/images/work3.png';
 import Work4 from '../../assets/images/work4.png';
@@ -33,5 +34,15 @@ export const projects = [
         technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'Google Gemini API'],
         viewLink: 'https://envision-watch.vercel.app/',
         codeLink: 'https://github.com/krazio-01/Envision.git',
+    },
+    {
+        title: 'QuizPortal',
+        tagline: 'A freelance build for League Of Logic — quiz registration, payments, and certificates in one portal.',
+        description:
+            'Freelance project for League Of Logic to run their student quiz events end to end. I built the registration flow, integrated PayGlocal for one-time entry payments, and set up on-the-spot certificate generation with pdf-lib once a student completes a quiz. The dashboard also shows upcoming quiz schedules, with NextAuth handling login, Cloudinary storing certificate assets, and Nodemailer sending confirmation emails throughout.',
+        src: Work1,
+        technologies: ['Next.js', 'MongoDB', 'NextAuth', 'PayGlocal', 'pdf-lib', 'Cloudinary', 'Framer Motion'],
+        viewLink: 'https://quizy-tan.vercel.app/',
+        codeLink: 'https://github.com/krazio-01/quiz-registration-portal',
     },
 ];
