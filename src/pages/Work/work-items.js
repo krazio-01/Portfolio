@@ -2,7 +2,6 @@ import Work1 from '../../assets/images/work1.jpg';
 import Work2 from '../../assets/images/work2.png';
 import Work3 from '../../assets/images/work3.png';
 import Work4 from '../../assets/images/work4.png';
-import Work5 from '../../assets/images/work5.png';
 
 export const projects = [
     {
@@ -35,16 +34,6 @@ export const projects = [
         technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'Google Gemini API'],
         viewLink: 'https://envision-watch.vercel.app/',
         codeLink: 'https://github.com/krazio-01/Envision.git',
-    },
-    {
-        title: 'Edulearn',
-        tagline: 'Empowering education with an interactive and responsive platform.',
-        description:
-            'Edulearn is a platform designed to provide valuable educational content. Built using Pug, MongoDB, CSS, and JavaScript, this site offers users an interactive and user-friendly experience. With features like user registration and login, the site ensures personalized access to resources. Its responsive design guarantees optimal viewing across various devices, making learning accessible anytime, anywhere. Explore a wide range of static educational content tailored to enhance knowledge and skills. Join us today and embark on a journey of learning and growth!',
-        src: Work5,
-        technologies: ['Pug', 'MongoDB', 'CSS', 'JavaScript', 'Express.js'],
-        viewLink: '',
-        codeLink: 'https://github.com/krazio-01/Edulearn.git',
     },
     {
         title: 'Wor-k-Lock',
