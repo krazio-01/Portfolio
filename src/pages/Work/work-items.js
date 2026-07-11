@@ -1,4 +1,3 @@
-import Work1 from '../../assets/images/work1.jpg';
 import Work2 from '../../assets/images/work2.png';
 import Work3 from '../../assets/images/work3.png';
 import Work4 from '../../assets/images/work4.png';
@@ -34,15 +33,5 @@ export const projects = [
         technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'Google Gemini API'],
         viewLink: 'https://envision-watch.vercel.app/',
         codeLink: 'https://github.com/krazio-01/Envision.git',
-    },
-    {
-        title: 'Wor-k-Lock',
-        tagline: 'Book your perfect workspace instantly with our user-friendly platform.',
-        description:
-            "Wor-k-Lock is an innovative online platform built using the MERN stack (MongoDB, Express.js, React, and Node.js). It provides a seamless experience for users to book spaces or tables in nearby cafes. Whether you're looking for a spot to work, study, or meet with friends, Wor-k-Lock offers a variety of options to suit your needs, all with an easy-to-use interface and real-time availability.",
-        src: Work1,
-        technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Stripe', 'Framer motion'],
-        viewLink: 'https://worklock.netlify.app/',
-        codeLink: 'https://github.com/krazio-01/worklock.git',
     },
 ];
