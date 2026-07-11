@@ -8,17 +8,17 @@ import {
     FaExternalLinkAlt,
     FaNodeJs,
     FaReact,
-    FaStripe,
     FaJs,
-    FaCss3Alt,
     FaEye,
     FaArrowRight,
     FaGooglePlus,
     FaChartLine,
     FaShieldAlt,
     FaCubes,
+    FaCreditCard,
+    FaFilePdf,
 } from 'react-icons/fa';
-import { SiMongodb, SiPug, SiExpress, SiSocketdotio, SiCloudinary, SiRedis, SiWebrtc } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiSocketdotio, SiCloudinary, SiRedis, SiWebrtc } from 'react-icons/si';
 import { FiFramer } from 'react-icons/fi';
 import { RiNextjsLine } from 'react-icons/ri';
 import { projects } from '../work-items';
@@ -36,17 +36,16 @@ const iconMap = {
     Recharts: FaChartLine,
     NextAuth: FaShieldAlt,
     React: FaReact,
-    Stripe: FaStripe,
     JavaScript: FaJs,
-    CSS: FaCss3Alt,
-    'Framer motion': FiFramer,
+    'Framer Motion': FiFramer,
     MongoDB: SiMongodb,
-    Pug: SiPug,
     'Express.js': SiExpress,
     'Socket.io': SiSocketdotio,
     Cloudinary: SiCloudinary,
     Redis: SiRedis,
     WebRTC: SiWebrtc,
+    PayGlocal: FaCreditCard,
+    'pdf-lib': FaFilePdf,
 };
 
 const generateAnimationProps = (inView) => ({
