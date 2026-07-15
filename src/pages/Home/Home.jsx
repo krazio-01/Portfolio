@@ -7,7 +7,7 @@ import CircularButton from '../../components/circularButton/CircularButton';
 import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
 import Scribble from '../../components/Scribble/Scribble';
 import resume from '../../../resume.pdf';
-import { FaLink } from 'react-icons/fa6';
+import { FaLink, FaLocationDot } from 'react-icons/fa6';
 import './home.css';
 
 const Home = () => {
@@ -35,9 +35,12 @@ const Home = () => {
                             </Scribble>
                         </AnimatedWrapper>
                         <AnimatedWrapper className="home-description" delay={0.4} duration={1}>
-                            <p className="home-location">Full-Stack Developer from Jaipur, India</p>
+                            <p className="home-location">
+                                <FaLocationDot /> Jaipur, India
+                            </p>
                             <p>
-                                One year in — I build the frontend, wire the backend, and close the{' '}
+                                A year and a half in as a Full-Stack Developer — I build the frontend, wire the backend,
+                                and close the{' '}
                                 <Scribble variant="circle" wrapClassName="circle-annotate" delay={1.4}>
                                     loop
                                 </Scribble>{' '}

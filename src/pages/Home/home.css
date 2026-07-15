@@ -73,9 +73,12 @@
 }
 
 .home-content .home-description .home-location {
-    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
     color: var(--muted);
-    font-size: clamp(var(--fz-sm), 0.9vw, var(--fz-md));
+    font-size: clamp(var(--fz-md), 1vw, var(--fz-lg));
 }
 
 .circle-annotate {
