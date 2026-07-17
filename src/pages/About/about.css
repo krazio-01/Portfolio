@@ -266,7 +266,7 @@
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: var(--border-radius);
-    padding: 2.5rem;
+    padding: clamp(1rem, 2.5vw, 2.5rem);
     transition: border-color 0.3s ease;
 }
 
@@ -277,7 +277,7 @@
 .experiance-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: clamp(0.4rem, 1.8vw, 0.8rem);
     background: rgba(255, 255, 255, 0.03);
     padding: 0.4rem 1rem;
     border-radius: 50px;
@@ -317,14 +317,14 @@
 .experiance-impact-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: clamp(0.8rem, 2.3vw, 1.2rem);
     margin-bottom: 2rem;
 }
 
 .experiance-impact-item {
     display: flex;
     align-items: flex-start;
-    gap: 0.8rem;
+    gap: clamp(0.4rem, 1.8vw, 0.8rem);
     transition: var(--transition);
 }
 
@@ -463,14 +463,9 @@
         height: 14px;
     }
 
-    .experiance-card {
-        padding: 1.5rem;
-    }
-
     .experiance-badge {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.4rem;
         background: transparent;
         padding: 0;
         margin-bottom: 1rem;
