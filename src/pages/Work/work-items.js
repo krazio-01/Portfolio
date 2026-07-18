@@ -7,6 +7,8 @@ export const projects = [
     {
         title: 'Whisperwave',
         tagline: 'Connect seamlessly with real-time chat, anytime, anywhere.',
+        note: 'the encryption is actually real',
+        stamp: 'Shipped',
         description:
             'Whisperwave is an advanced real-time communication platform built with the MERN stack. It goes beyond basic messaging by featuring dynamic end-to-end encryption for ultimate privacy, WebRTC for seamless peer-to-peer media calls, and a Redis sliding-window cache for lightning-fast message retrieval. It delivers a premium user experience complete with live typing indicators, read receipts, advanced group management, and media sharing.',
         src: Work3,
@@ -18,6 +20,8 @@ export const projects = [
         title: 'AetherBot',
         tagline:
             'A production-ready AI platform featuring multimodal chat, live code execution, and dynamic data visualization.',
+        note: 'yes, it really draws the charts',
+        stamp: 'Shipped',
         description:
             'A highly optimized full-stack AI chat application built with Next.js 14 and the Gemini API. It features a custom React-bypassing text streaming engine, direct document (image/pdf) analysis, auto-formatting SVG charts, and interactive in-chat code sandboxes. Secured with NextAuth and backed by MongoDB, it delivers a zero-thrashing UI experience with seamless light/dark mode support.',
         src: Work2,
@@ -28,6 +32,8 @@ export const projects = [
     {
         title: 'Envision',
         tagline: 'Stream your favorites with ease on our comprehensive entertainment hub.',
+        note: 'an AI actually picked this for you',
+        stamp: 'Shipped',
         description:
             'Envision is a full-stack streaming application built with React and Node.js. It delivers a Netflix-style experience directly in the browser, featuring instant media playback, smart AI recommendations powered by Google Gemini, automatic watch-time tracking, and secure JWT-based authentication. Users can effortlessly browse, bookmark, and stream their favorite movies and TV shows across any device.',
         src: Work4,
@@ -38,6 +44,8 @@ export const projects = [
     {
         title: 'QuizPortal',
         tagline: 'A freelance build for League Of Logic — quiz registration, payments, and certificates in one portal.',
+        note: 'yeah, this one actually paid me',
+        stamp: 'Client Work',
         description:
             'Freelance project for League Of Logic to run their student quiz events end to end. I built the registration flow, integrated PayGlocal for one-time entry payments, and set up on-the-spot certificate generation with pdf-lib once a student completes a quiz. The dashboard also shows upcoming quiz schedules, with NextAuth handling login, Cloudinary storing certificate assets, and Nodemailer sending confirmation emails throughout.',
         src: Work1,
