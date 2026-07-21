@@ -1,11 +1,8 @@
 import './projectDetails.css';
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import {
-    FaExternalLinkAlt,
     FaNodeJs,
     FaReact,
     FaJs,
@@ -17,36 +14,54 @@ import {
     FaCubes,
     FaCreditCard,
     FaFilePdf,
+    FaLock,
+    FaServer,
 } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiSocketdotio, SiCloudinary, SiRedis, SiWebrtc } from 'react-icons/si';
+import {
+    SiMongodb,
+    SiExpress,
+    SiSocketdotio,
+    SiCloudinary,
+    SiRedis,
+    SiWebrtc,
+    SiThemoviedatabase,
+} from 'react-icons/si';
+import { LuGithub } from 'react-icons/lu';
 import { FiFramer } from 'react-icons/fi';
 import { RiNextjsLine } from 'react-icons/ri';
 import { projects } from '../work-items';
 import images from './imgs';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
 
-const iconMap = {
-    'Next.js': RiNextjsLine,
-    'Google Gemini API': FaGooglePlus,
-    'Node.js': FaNodeJs,
-    Zustand: FaCubes,
-    Recharts: FaChartLine,
-    NextAuth: FaShieldAlt,
-    React: FaReact,
-    JavaScript: FaJs,
-    'Framer Motion': FiFramer,
-    MongoDB: SiMongodb,
-    'Express.js': SiExpress,
-    'Socket.io': SiSocketdotio,
-    Cloudinary: SiCloudinary,
-    Redis: SiRedis,
-    WebRTC: SiWebrtc,
-    PayGlocal: FaCreditCard,
-    'pdf-lib': FaFilePdf,
+const TECH_META = {
+    React: { icon: FaReact, category: 'Frontend' },
+    'Next.js': { icon: RiNextjsLine, category: 'Frontend' },
+    Zustand: { icon: FaCubes, category: 'Frontend' },
+    Recharts: { icon: FaChartLine, category: 'Frontend' },
+    'Framer Motion': { icon: FiFramer, category: 'Frontend' },
+    JavaScript: { icon: FaJs, category: 'Frontend' },
+    'Node.js': { icon: FaNodeJs, category: 'Backend' },
+    'Express.js': { icon: SiExpress, category: 'Backend' },
+    MongoDB: { icon: SiMongodb, category: 'Data & real-time' },
+    Redis: { icon: SiRedis, category: 'Data & real-time' },
+    'Socket.io': { icon: SiSocketdotio, category: 'Data & real-time' },
+    WebRTC: { icon: SiWebrtc, category: 'Data & real-time' },
+    NextAuth: { icon: FaShieldAlt, category: 'Auth & payments' },
+    PayGlocal: { icon: FaCreditCard, category: 'Auth & payments' },
+    'Google Gemini API': { icon: FaGooglePlus, category: 'AI & external APIs' },
+    TMDB: { icon: SiThemoviedatabase, category: 'AI & external APIs' },
+    Vidsrc: { icon: FaServer, category: 'AI & external APIs' },
+    Cloudinary: { icon: SiCloudinary, category: 'Media & docs' },
+    'pdf-lib': { icon: FaFilePdf, category: 'Media & docs' },
 };
+
+const CATEGORY_ORDER = [
+    'Frontend',
+    'Backend',
+    'Data & real-time',
+    'Auth & payments',
+    'AI & external APIs',
+    'Media & docs',
+];
 
 const generateAnimationProps = (inView) => ({
     initial: { y: 50, opacity: 0 },
@@ -54,21 +69,73 @@ const generateAnimationProps = (inView) => ({
     transition: { duration: 0.7 },
 });
 
+const CtaButton = ({ href, icon: Icon, label, variant }) =>
+    href ? (
+        <a href={href} target="_blank" rel="noreferrer" className={`btn btn--${variant}`}>
+            <Icon />
+            <span>{label}</span>
+        </a>
+    ) : (
+        <div className="btn btn--disabled">
+            <Icon />
+            <span>{label}</span>
+        </div>
+    );
+
 const ProjectDetails = () => {
     const { projectName } = useParams();
-    const project = useMemo(() => projects.find((proj) => proj.title === projectName), [projectName]);
-    const currentIndex = projects.findIndex((proj) => proj.title === projectName);
-    const nextProject = projects[(currentIndex + 1) % projects.length];
+
+    const currentIndex = useMemo(() => projects.findIndex((proj) => proj.title === projectName), [projectName]);
+    const project = projects[currentIndex];
 
     const separateLetters = useMemo(() => projectName.split(''), [projectName]);
+    const shots = useMemo(() => images[projectName] || [], [projectName]);
+    const [activeShot, setActiveShot] = useState(0);
 
-    const descHeadRef = useRef();
+    useEffect(() => {
+        shots.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, [shots]);
+
     const overviewRef = useRef();
     const techRef = useRef();
+    const highlightsRef = useRef();
 
-    const isDescHeadInView = useInView(descHeadRef, { margin: '-50px', once: true });
     const isOverviewInView = useInView(overviewRef, { margin: '-50px', once: true });
     const isTechInView = useInView(techRef, { margin: '-50px', once: true });
+    const isHighlightsInView = useInView(highlightsRef, { margin: '-50px', once: true });
+
+    const techByCategory = useMemo(() => {
+        const grouped = {};
+        (project?.technologies || []).forEach((tech) => {
+            const category = TECH_META[tech]?.category;
+            if (!category) return;
+            if (!grouped[category]) grouped[category] = [];
+            grouped[category].push(tech);
+        });
+
+        return CATEGORY_ORDER.map((category) => ({ category, items: grouped[category] || [] })).filter(
+            (group) => group.items.length > 0,
+        );
+    }, [project]);
+
+    const hostname = useMemo(() => (project?.viewLink ? new URL(project.viewLink).hostname : null), [project]);
+
+    if (!project) {
+        return (
+            <div className="project-details">
+                <p className="project-tagline-lead">Couldn&apos;t find that project.</p>
+                <Link to="/work" className="btn btn--ghost">
+                    <span>Back to work</span>
+                    <FaArrowRight />
+                </Link>
+            </div>
+        );
+    }
+
+    const nextProject = projects[(currentIndex + 1) % projects.length];
 
     return (
         <div className="project-details">
@@ -89,44 +156,102 @@ const ProjectDetails = () => {
                         </motion.li>
                     ))}
                 </ul>
+                {project.stamp && (
+                    <motion.span
+                        className="project-stamp"
+                        initial={{ opacity: 0, scale: 2, rotate: -6 }}
+                        animate={{ opacity: 1, scale: 1, rotate: -6 }}
+                        transition={{ delay: 0.9, type: 'spring', stiffness: 320, damping: 16 }}
+                    >
+                        {project.stamp}
+                    </motion.span>
+                )}
             </div>
 
-            <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.5 }}
-                className="project-imgs"
-            >
-                <Swiper
-                    pagination={{
-                        clickable: true,
-                        dynamicBullets: true,
-                        dynamicMainBullets: 2,
-                    }}
-                    modules={[Autoplay, Pagination, Navigation, EffectFade]}
-                    effect={'fade'}
-                    navigation={true}
-                    loop={true}
-                    autoplay={{ delay: 3500, disableOnInteraction: false }}
+            {project.note && (
+                <motion.p
+                    className="project-note"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2, duration: 0.4 }}
                 >
-                    {images[projectName]?.map((image, index) => (
-                        <SwiperSlide key={index} className="project-img">
-                            <img src={image} alt={projectName} />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                    (and yeah — {project.note})
+                </motion.p>
+            )}
+
+            <motion.p
+                className="project-tagline-lead"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+            >
+                {project.tagline}
+            </motion.p>
+
+            <motion.div
+                className="cta-row cta-row--hero"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+            >
+                <CtaButton href={project.viewLink} icon={FaEye} label="Live Demo" variant="primary" />
+                <CtaButton href={project.codeLink} icon={LuGithub} label="Source Code" variant="secondary" />
             </motion.div>
 
-            <div className="project-description">
-                <motion.div
-                    ref={descHeadRef}
-                    {...generateAnimationProps(isDescHeadInView)}
-                    className="project-desc-head"
-                >
-                    <h1>Description</h1>
-                    <p>{project.tagline}</p>
-                </motion.div>
+            {shots.length > 0 && (
+                <div className="project-gallery">
+                    <div className="browser-frame">
+                        <div className="browser-bar">
+                            <div className="browser-dots">
+                                <span />
+                                <span />
+                                <span />
+                            </div>
+                            {hostname && (
+                                <span className="browser-url">
+                                    <FaLock />
+                                    <span className="browser-url-text">{hostname}</span>
+                                </span>
+                            )}
+                        </div>
+                        <div className="shot-wrap">
+                            <AnimatePresence mode="wait">
+                                <motion.img
+                                    key={activeShot}
+                                    src={shots[activeShot]}
+                                    alt={`${projectName} screenshot ${activeShot + 1}`}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.2 }}
+                                />
+                            </AnimatePresence>
+                        </div>
+                    </div>
 
+                    {project.shotCaptions?.length > 0 && (
+                        <p className="gallery-caption">{project.shotCaptions[activeShot] || ''}</p>
+                    )}
+
+                    {shots.length > 1 && (
+                        <div className="thumb-rail">
+                            {shots.map((shot, index) => (
+                                <button
+                                    key={index}
+                                    type="button"
+                                    className={`thumb${index === activeShot ? ' thumb--active' : ''}`}
+                                    onClick={() => setActiveShot(index)}
+                                    aria-label={`Show screenshot ${index + 1}`}
+                                >
+                                    <img src={shot} alt="" />
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            )}
+
+            <div className="project-description">
                 <motion.div
                     ref={overviewRef}
                     {...generateAnimationProps(isOverviewInView)}
@@ -136,51 +261,54 @@ const ProjectDetails = () => {
                     <p>{project.description}</p>
                 </motion.div>
 
+                {project.highlights?.length > 0 && (
+                    <motion.div
+                        ref={highlightsRef}
+                        {...generateAnimationProps(isHighlightsInView)}
+                        className="project-highlights"
+                    >
+                        <h2>Highlights</h2>
+                        <div className="highlight-grid">
+                            {project.highlights.map((item, index) => (
+                                <div className="highlight-card" key={index}>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+
                 <motion.div ref={techRef} {...generateAnimationProps(isTechInView)} className="project-tech">
                     <h2>Technologies</h2>
-                    <ul>
-                        {project.technologies.map((tech, index) => {
-                            const IconComponent = iconMap[tech];
-                            return (
-                                <li key={index}>
-                                    <span>
-                                        <IconComponent />
-                                        {tech}
-                                    </span>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    <div className="tech-groups">
+                        {techByCategory.map(({ category, items }) => (
+                            <div className="tech-group" key={category}>
+                                <span className="tech-label">{category}</span>
+                                <div className="chip-row">
+                                    {items.map((tech) => {
+                                        const IconComponent = TECH_META[tech]?.icon;
+                                        return (
+                                            <span className="tech-chip" key={tech}>
+                                                {IconComponent && <IconComponent />}
+                                                {tech}
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </motion.div>
 
-                <div className="project-details-link">
-                    <div className="project-links">
-                        {project.viewLink ? (
-                            <a href={project.viewLink} target="_blank">
-                                <FaEye />
-                                <span>Live Demo</span>
-                            </a>
-                        ) : (
-                            <div className="disabled-link">
-                                <FaEye />
-                                <span>Live Demo</span>
-                            </div>
-                        )}
-                        {project.codeLink ? (
-                            <a href={project.codeLink} target="_blank">
-                                <FaExternalLinkAlt />
-                                <span>Source Code</span>
-                            </a>
-                        ) : (
-                            <div className="disabled-link">
-                                <FaExternalLinkAlt />
-                                <span>Source Code</span>
-                            </div>
-                        )}
+                <div className="cta-row cta-row--footer">
+                    <div className="cta-group">
+                        <CtaButton href={project.viewLink} icon={FaEye} label="Live Demo" variant="primary" />
+                        <CtaButton href={project.codeLink} icon={LuGithub} label="Source Code" variant="secondary" />
                     </div>
-                    <Link to={`/work/${nextProject.title}`}>
-                        <FaArrowRight />
+                    <Link to={`/work/${nextProject.title}`} className="btn btn--ghost">
                         <span>Next Project</span>
+                        <FaArrowRight />
                     </Link>
                 </div>
             </div>
