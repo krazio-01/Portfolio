@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useScroll } from 'framer-motion';
 import AnimatedScrollComp from '../../components/animatedScrollComp/AnimatedScrollComp';
-import { projects } from './work-items';
+import { projects } from '../../data/projects';
 import ProgressBar from '../../components/progressBar/ProgressBar';
 import Card from '../../components/card/Card';
 import Scribble from '../../components/Scribble/Scribble';
