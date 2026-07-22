@@ -29,7 +29,7 @@ import {
 import { LuGithub } from 'react-icons/lu';
 import { FiFramer } from 'react-icons/fi';
 import { RiNextjsLine } from 'react-icons/ri';
-import { projects } from '../work-items';
+import { projects } from '../../../data/projects';
 import images from './imgs';
 
 const TECH_META = {

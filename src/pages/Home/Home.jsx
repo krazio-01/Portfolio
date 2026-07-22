@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import Card from '../../components/card/Card';
-import { projects } from './data';
+import { projects } from '../../data/projects';
 import Img from '../../assets/images/me.webp';
 import CircularButton from '../../components/circularButton/CircularButton';
 import AnimatedWrapper from '../../components/animatedWrapper/AnimatedWrapper';
@@ -121,19 +121,21 @@ const Home = () => {
                     <p>My Recent work</p>
                 </div>
                 <div className="home-work" ref={ref}>
-                    {projects.map((project, index) => {
-                        const targetScale = 1 - (projects.length - index) * 0.05;
-                        return (
-                            <Card
-                                key={index}
-                                index={index}
-                                {...project}
-                                progress={scrollYProgress}
-                                range={[index * 0.25, 1]}
-                                targetScale={targetScale}
-                            />
-                        );
-                    })}
+                    {projects
+                        .filter((p) => p.featured)
+                        .map((project, index) => {
+                            const targetScale = 1 - (projects.length - index) * 0.05;
+                            return (
+                                <Card
+                                    key={index}
+                                    index={index}
+                                    {...project}
+                                    progress={scrollYProgress}
+                                    range={[index * 0.25, 1]}
+                                    targetScale={targetScale}
+                                />
+                            );
+                        })}
                 </div>
             </div>
         </>

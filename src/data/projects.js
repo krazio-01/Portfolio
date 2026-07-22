@@ -1,7 +1,7 @@
-import Work1 from '../../assets/images/work1.png';
-import Work2 from '../../assets/images/work2.png';
-import Work3 from '../../assets/images/work3.png';
-import Work4 from '../../assets/images/work4.png';
+import Work1 from '../assets/images/work1.png';
+import Work2 from '../assets/images/work2.png';
+import Work3 from '../assets/images/work3.png';
+import Work4 from '../assets/images/work4.png';
 
 export const projects = [
     {
@@ -52,6 +52,7 @@ export const projects = [
     },
     {
         title: 'AetherBot',
+        featured: true,
         tagline: 'A production ready AI chat workspace with multimodal input, in-chat code execution, and live charts.',
         note: 'yes, it really draws the charts',
         stamp: 'Shipped',
@@ -99,6 +100,7 @@ export const projects = [
     },
     {
         title: 'Envision',
+        featured: true,
         tagline: 'A Netflix-style streaming app — browse, stream, and let Gemini pick your next watch.',
         note: 'an AI actually picked this for you',
         stamp: 'Shipped',
