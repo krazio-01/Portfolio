@@ -39,8 +39,8 @@ const Home = () => {
                                 <FaLocationDot /> Jaipur, India
                             </p>
                             <p>
-                                A year and a half in as a Full-Stack Developer — I build the frontend, wire the backend,
-                                and close the{' '}
+                                Full-Stack Developer, 1.5 years in — I build the frontend, wire the backend, and close
+                                the{' '}
                                 <Scribble variant="circle" wrapClassName="circle-annotate" delay={1.4}>
                                     loop
                                 </Scribble>{' '}
@@ -118,7 +118,7 @@ const Home = () => {
 
             <div className="home-work-container">
                 <div className="work-header">
-                    <p>My Recent work</p>
+                    <p>Couple of recent builds</p>
                 </div>
                 <div className="home-work" ref={ref}>
                     {projects

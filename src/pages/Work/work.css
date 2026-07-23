@@ -85,7 +85,12 @@
 }
 
 .work-content .work-progress-bar h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    font-size: clamp(calc(var(--fz-heading) - 4px), 7vw, var(--fz-heading-lg));
     margin-top: 1rem;
+    text-align: center;
 }
 
 .work-cards {

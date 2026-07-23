@@ -183,8 +183,15 @@
 
 .home-work-container .work-header {
     position: sticky;
-    top: 20px;
-    font-size: var(--fz-heading-lg);
+    top: calc(var(--fz-xxl) + 4px);
+    letter-spacing: -0.01em;
+    font-size: clamp(calc(var(--fz-heading) - 4px), 7vw, var(--fz-heading-lg));
+    line-height: 1.15;
+    text-align: center;
+}
+
+.home-work-container .work-header p {
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 @media screen and (max-width: 600px) {
@@ -217,9 +224,5 @@
 
     .home-basic-info-btn {
         width: 60%;
-    }
-
-    .home-work-container .work-header {
-        font-size: var(--fz-heading);
     }
 }
