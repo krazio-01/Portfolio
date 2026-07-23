@@ -118,7 +118,7 @@ const Home = () => {
 
             <div className="home-work-container">
                 <div className="work-header">
-                    <p>My Recent work</p>
+                    <p>Couple of recent builds</p>
                 </div>
                 <div className="home-work" ref={ref}>
                     {projects

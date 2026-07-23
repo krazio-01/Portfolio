@@ -39,7 +39,7 @@ const Work = () => {
             <div className="work-content">
                 <div className="work-progress-rail">
                     <div className="work-progress-bar">
-                        <h4>My All Work</h4>
+                        <h4>Everything I&apos;ve shipped</h4>
                         <ProgressBar progress={barProgress} />
                     </div>
                 </div>
