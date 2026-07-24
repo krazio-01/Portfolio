@@ -1,5 +1,5 @@
-import { useMemo, memo } from 'react';
-import { motion } from 'framer-motion';
+import { useMemo, useRef, memo } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const defaultAnimationProps = {
     initial: { opacity: 0, y: 50 },
@@ -19,21 +19,35 @@ const getMotionComponent = (as) => {
 };
 
 const AnimatedWrapper = memo((props) => {
-    const { children, as = 'div', className, delay = 0, duration = 0.5, useSpring = false } = props;
+    const {
+        children,
+        as = 'div',
+        className,
+        delay = 0,
+        duration = 0.5,
+        useSpring = false,
+        inView = false,
+        viewMargin = '-50px',
+    } = props;
 
     const MotionComponent = getMotionComponent(as);
 
+    const ref = useRef(null);
+    const isInView = useInView(ref, { margin: viewMargin, once: true });
+    const shouldAnimate = inView ? isInView : true;
+
     const animationProps = useMemo(() => {
         return {
-            ...defaultAnimationProps,
+            initial: defaultAnimationProps.initial,
+            animate: shouldAnimate ? defaultAnimationProps.animate : defaultAnimationProps.initial,
             transition: useSpring
                 ? { ...springTransition, delay, duration }
                 : { ...defaultAnimationProps.transition, delay, duration },
         };
-    }, [useSpring, delay, duration]);
+    }, [useSpring, delay, duration, shouldAnimate]);
 
     return (
-        <MotionComponent className={className} {...animationProps}>
+        <MotionComponent ref={ref} className={className} {...animationProps}>
             {children}
         </MotionComponent>
     );
