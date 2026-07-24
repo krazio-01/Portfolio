@@ -1,7 +1,8 @@
 import './projectDetails.css';
-import { useRef, useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import AnimatedWrapper from '../../../components/animatedWrapper/AnimatedWrapper';
 import {
     FaNodeJs,
     FaReact,
@@ -63,12 +64,6 @@ const CATEGORY_ORDER = [
     'Media & docs',
 ];
 
-const generateAnimationProps = (inView) => ({
-    initial: { y: 50, opacity: 0 },
-    animate: inView ? { y: 0, opacity: 1 } : {},
-    transition: { duration: 0.7 },
-});
-
 const CtaButton = ({ href, icon: Icon, label, variant }) =>
     href ? (
         <a href={href} target="_blank" rel="noreferrer" className={`btn btn--${variant}`}>
@@ -84,7 +79,6 @@ const CtaButton = ({ href, icon: Icon, label, variant }) =>
 
 const ProjectDetails = () => {
     const { projectName } = useParams();
-
     const currentIndex = useMemo(() => projects.findIndex((proj) => proj.title === projectName), [projectName]);
     const project = projects[currentIndex];
 
@@ -99,14 +93,6 @@ const ProjectDetails = () => {
         });
     }, [shots]);
 
-    const overviewRef = useRef();
-    const techRef = useRef();
-    const highlightsRef = useRef();
-
-    const isOverviewInView = useInView(overviewRef, { margin: '-50px', once: true });
-    const isTechInView = useInView(techRef, { margin: '-50px', once: true });
-    const isHighlightsInView = useInView(highlightsRef, { margin: '-50px', once: true });
-
     const techByCategory = useMemo(() => {
         const grouped = {};
         (project?.technologies || []).forEach((tech) => {
@@ -115,7 +101,6 @@ const ProjectDetails = () => {
             if (!grouped[category]) grouped[category] = [];
             grouped[category].push(tech);
         });
-
         return CATEGORY_ORDER.map((category) => ({ category, items: grouped[category] || [] })).filter(
             (group) => group.items.length > 0,
         );
@@ -169,34 +154,19 @@ const ProjectDetails = () => {
             </div>
 
             {project.note && (
-                <motion.p
-                    className="project-note"
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.2, duration: 0.4 }}
-                >
+                <AnimatedWrapper as="p" className="project-note" delay={1.2} duration={0.4}>
                     (and yeah — {project.note})
-                </motion.p>
+                </AnimatedWrapper>
             )}
 
-            <motion.p
-                className="project-tagline-lead"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-            >
+            <AnimatedWrapper as="p" className="project-tagline-lead" delay={0.6} duration={0.6}>
                 {project.tagline}
-            </motion.p>
+            </AnimatedWrapper>
 
-            <motion.div
-                className="cta-row cta-row--hero"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-            >
+            <AnimatedWrapper className="cta-row cta-row--hero" delay={0.7} duration={0.6}>
                 <CtaButton href={project.viewLink} icon={FaEye} label="Live Demo" variant="primary" />
                 <CtaButton href={project.codeLink} icon={LuGithub} label="Source Code" variant="secondary" />
-            </motion.div>
+            </AnimatedWrapper>
 
             {shots.length > 0 && (
                 <div className="project-gallery">
@@ -252,38 +222,48 @@ const ProjectDetails = () => {
             )}
 
             <div className="project-description">
-                <motion.div
-                    ref={overviewRef}
-                    {...generateAnimationProps(isOverviewInView)}
-                    className="project-overview"
-                >
+                <AnimatedWrapper inView useSpring className="project-overview">
                     <h2>Overview</h2>
                     <p>{project.description}</p>
-                </motion.div>
+                </AnimatedWrapper>
 
                 {project.highlights?.length > 0 && (
-                    <motion.div
-                        ref={highlightsRef}
-                        {...generateAnimationProps(isHighlightsInView)}
-                        className="project-highlights"
-                    >
-                        <h2>Highlights</h2>
+                    <div className="project-highlights">
+                        <AnimatedWrapper as="h2" inView>
+                            Highlights
+                        </AnimatedWrapper>
                         <div className="highlight-grid">
                             {project.highlights.map((item, index) => (
-                                <div className="highlight-card" key={index}>
+                                <AnimatedWrapper
+                                    as="div"
+                                    key={index}
+                                    inView
+                                    delay={index * 0.15}
+                                    useSpring
+                                    className="highlight-card"
+                                >
                                     <h3>{item.title}</h3>
                                     <p>{item.description}</p>
-                                </div>
+                                </AnimatedWrapper>
                             ))}
                         </div>
-                    </motion.div>
+                    </div>
                 )}
 
-                <motion.div ref={techRef} {...generateAnimationProps(isTechInView)} className="project-tech">
-                    <h2>Technologies</h2>
+                <div className="project-tech">
+                    <AnimatedWrapper as="h2" inView>
+                        Technologies
+                    </AnimatedWrapper>
                     <div className="tech-groups">
-                        {techByCategory.map(({ category, items }) => (
-                            <div className="tech-group" key={category}>
+                        {techByCategory.map(({ category, items }, index) => (
+                            <AnimatedWrapper
+                                as="div"
+                                key={category}
+                                inView
+                                delay={index * 0.15}
+                                useSpring
+                                className="tech-group"
+                            >
                                 <span className="tech-label">{category}</span>
                                 <div className="chip-row">
                                     {items.map((tech) => {
@@ -296,10 +276,10 @@ const ProjectDetails = () => {
                                         );
                                     })}
                                 </div>
-                            </div>
+                            </AnimatedWrapper>
                         ))}
                     </div>
-                </motion.div>
+                </div>
 
                 <div className="cta-row cta-row--footer">
                     <div className="cta-group">
