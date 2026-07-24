@@ -349,9 +349,8 @@
 
 .experiance-impact-item p {
     color: #d1d1d1;
-    font-size: var(--fz-sm);
+    font-size: clamp(var(--fz-sm), 2vw, var(--fz-md));
     line-height: 1.6;
-    margin: 0;
 }
 
 .experiance-tech-row {

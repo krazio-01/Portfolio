@@ -291,12 +291,11 @@
     padding: clamp(0.9rem, 3vw, 1.4rem);
     border: 1px solid hsl(from var(--primary-color1) h s l / 0.12);
     border-radius: var(--border-radius);
-    transition: var(--transition);
+    transition: border-color 300ms ease;
 }
 
 .highlight-card:hover {
     border-color: var(--red);
-    transform: translateY(-3px);
 }
 
 .highlight-card h3 {
@@ -360,7 +359,7 @@
     border: 1px solid hsl(from var(--primary-color1) h s l / 0.12);
     border-radius: 999px;
     font-size: clamp(var(--fz-sm), 2vw, var(--fz-md));
-    transition: var(--transition);
+    transition: border-color 300ms ease;
 }
 
 .tech-chip:hover {

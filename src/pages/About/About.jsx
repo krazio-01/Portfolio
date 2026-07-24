@@ -106,7 +106,7 @@ const About = () => {
             <div className="bio">
                 <div className="bio-left">
                     <AnimatedWrapper as="h2" delay={0.5} duration={0.7}>
-                        THE REST OF IT
+                        A bit more about me
                     </AnimatedWrapper>
                     <AnimatedWrapper as="p" delay={0.7}>
                         Hello! My name is <span>Amman</span> and I enjoy creating things that live on the internet. My
@@ -127,7 +127,7 @@ const About = () => {
                         This portfolio, in particular, is where that habit gets to run wild — new animation ideas, and a
                         slightly excessive amount of attention to{' '}
                         <Scribble variant="highlight" delay={2.2}>
-                            hover states
+                            details
                         </Scribble>
                         .
                     </AnimatedWrapper>
@@ -143,7 +143,7 @@ const About = () => {
 
             <div className="skills">
                 <div className="skills-header">
-                    <h2>SKILLS</h2>
+                    <h2>Skills</h2>
                     <div className="skills-category-dock">
                         {categories.map((cat) => (
                             <button
@@ -191,7 +191,7 @@ const About = () => {
 
             <div className="experiance">
                 <div className="experiance-header">
-                    <h2>EXPERIENCE</h2>
+                    <h2>Experience</h2>
                 </div>
 
                 <div className="experiance-timeline-wrapper" ref={experienceRef}>

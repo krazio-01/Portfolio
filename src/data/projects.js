@@ -6,7 +6,8 @@ import Work4 from '../assets/images/work4.png';
 export const projects = [
     {
         title: 'Whisperwave',
-        tagline: 'Real-time chat with per-chat encryption, WebRTC calls, and Redis-backed history.',
+        tagline:
+            'Real-time chat with per-chat AES encryption, peer-to-peer WebRTC calls, and a Redis cache that keeps history instant.',
         note: 'the encryption is actually real',
         stamp: 'Shipped',
         description:
