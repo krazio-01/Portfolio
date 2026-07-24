@@ -144,9 +144,9 @@ const ProjectDetails = () => {
                 {project.stamp && (
                     <motion.span
                         className="project-stamp"
-                        initial={{ opacity: 0, scale: 2, rotate: -6 }}
+                        initial={{ opacity: 0, scale: 1.5, rotate: -6 }}
                         animate={{ opacity: 1, scale: 1, rotate: -6 }}
-                        transition={{ delay: 0.9, type: 'spring', stiffness: 320, damping: 16 }}
+                        transition={{ delay: 0.9, type: 'spring', stiffness: 300, damping: 16 }}
                     >
                         {project.stamp}
                     </motion.span>
